@@ -1,0 +1,232 @@
+---
+// This component creates a lightbox gallery that can be opened by clicking on images
+// It provides navigation controls to move between images
+interface Props {
+  id: string; // Unique ID for this lightbox instance
+}
+
+const { id } = Astro.props;
+---
+
+<div id={id} class="lightbox-overlay fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
+  <button class="lightbox-close absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors z-60">
+    ✕
+    <span class="sr-only">Close</span>
+  </button>
+  
+  <button class="lightbox-prev absolute left-4 text-white text-5xl hover:text-gray-300 transition-colors z-60">
+    ‹
+    <span class="sr-only">Previous</span>
+  </button>
+  
+  <div class="lightbox-content max-w-5xl max-h-[90vh] mx-auto text-center">
+    <img src="" alt="" class="lightbox-image max-h-[90vh] max-w-full object-contain">
+    <div class="lightbox-caption text-white text-center mt-4 px-4 text-lg"></div>
+    <div class="lightbox-counter text-white text-center mt-2 text-sm opacity-75"></div>
+  </div>
+  
+  <button class="lightbox-next absolute right-4 text-white text-5xl hover:text-gray-300 transition-colors z-60">
+    ›
+    <span class="sr-only">Next</span>
+  </button>
+</div>
+
+<script define:vars={{ id }}>
+// Initialize the lightbox
+document.addEventListener('DOMContentLoaded', function() {
+  const lightboxId = id; // Now this will work properly
+  console.log('Initializing lightbox:', lightboxId);
+  
+  const lightbox = document.getElementById(lightboxId);
+  
+  if (!lightbox) {
+    console.error('Lightbox not found:', lightboxId);
+    return;
+  }
+  
+  const lightboxImage = lightbox.querySelector('.lightbox-image');
+  const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+  const lightboxCounter = lightbox.querySelector('.lightbox-counter');
+  const prevButton = lightbox.querySelector('.lightbox-prev');
+  const nextButton = lightbox.querySelector('.lightbox-next');
+  const closeButton = lightbox.querySelector('.lightbox-close');
+  
+  // Store all gallery images that should open this lightbox
+  let galleryImages = [];
+  let currentIndex = 0;
+  
+  // Function to find and setup all gallery images
+  function setupGalleryImages() {
+    // Find all images with the data-lightbox attribute matching this lightbox's ID
+    const images = document.querySelectorAll(`[data-lightbox="${lightboxId}"]`);
+    console.log(`Found ${images.length} images for lightbox ${lightboxId}`);
+    
+    // Remove existing event listeners to prevent duplicates
+    galleryImages.forEach(img => {
+      img.removeEventListener('click', handleImageClick);
+    });
+    
+    // Reset the gallery images array
+    galleryImages = Array.from(images);
+    
+    // Add click event listener to each image
+    galleryImages.forEach((img, index) => {
+      img.style.cursor = 'pointer';
+      img.dataset.index = index.toString();
+      img.addEventListener('click', handleImageClick);
+      console.log(`Added click listener to image ${index}:`, img.src);
+    });
+  }
+  
+  // Handle image click event
+  function handleImageClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log('Image clicked:', this.src);
+    
+    // Get the index of the clicked image
+    const index = parseInt(this.dataset.index || "0");
+    currentIndex = index;
+    
+    // Show the image in the lightbox
+    showImage(currentIndex);
+    
+    // Open the lightbox
+    openLightbox();
+  }
+  
+  // Function to show an image in the lightbox
+  function showImage(index) {
+    if (galleryImages.length === 0) {
+      console.error('No gallery images found');
+      return;
+    }
+    
+    // Ensure index is within bounds
+    if (index < 0) index = galleryImages.length - 1;
+    if (index >= galleryImages.length) index = 0;
+    
+    currentIndex = index;
+    const img = galleryImages[index];
+    
+    // Get image attributes
+    const imgSrc = img.getAttribute('data-full-image') || img.getAttribute('src');
+    const imgAlt = img.getAttribute('alt') || '';
+    const imgCaption = img.getAttribute('data-caption') || imgAlt;
+    
+    console.log('Showing image:', {
+      index: index + 1,
+      total: galleryImages.length,
+      src: imgSrc,
+      alt: imgAlt,
+      caption: imgCaption
+    });
+    
+    // Set lightbox content
+    lightboxImage.src = imgSrc;
+    lightboxImage.alt = imgAlt;
+    if (lightboxCaption) lightboxCaption.textContent = imgCaption;
+    
+    // Update counter
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+    }
+  }
+  
+  // Open lightbox
+  function openLightbox() {
+    console.log('Opening lightbox:', lightboxId);
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.classList.add('overflow-hidden');
+  }
+  
+  // Close lightbox
+  function closeLightbox() {
+    console.log('Closing lightbox');
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.classList.remove('overflow-hidden');
+  }
+  
+  // Event listeners for navigation
+  if (prevButton) {
+    prevButton.addEventListener('click', () => {
+      showImage(currentIndex - 1);
+    });
+  }
+  
+  if (nextButton) {
+    nextButton.addEventListener('click', () => {
+      showImage(currentIndex + 1);
+    });
+  }
+  
+  if (closeButton) {
+    closeButton.addEventListener('click', closeLightbox);
+  }
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      showImage(currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      showImage(currentIndex + 1);
+    }
+  });
+  
+  // Close lightbox when clicking outside the image
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+  
+  // Initialize gallery images
+  setupGalleryImages();
+  
+  // Refresh images periodically to catch any that might be added dynamically
+  setTimeout(setupGalleryImages, 500);
+  setTimeout(setupGalleryImages, 1000);
+  
+  // Create a MutationObserver to detect when new images are added to the DOM
+  const observer = new MutationObserver((mutations) => {
+    let shouldRefresh = false;
+    
+    mutations.forEach(mutation => {
+      if (mutation.type === 'childList') {
+        shouldRefresh = true;
+      }
+    });
+    
+    if (shouldRefresh) {
+      setTimeout(setupGalleryImages, 100);
+    }
+  });
+  
+  // Start observing the document
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+  // If there are filter buttons (in gallery page), make sure to refresh images after filtering
+  document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      setTimeout(setupGalleryImages, 300);
+    });
+  });
+  
+  // Export functions for external use
+  window[`lightbox_${lightboxId}`] = {
+    open: openLightbox,
+    close: closeLightbox,
+    show: showImage,
+    refresh: setupGalleryImages
+  };
+});
+</script>

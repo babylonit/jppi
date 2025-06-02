@@ -1,0 +1,99 @@
+---
+import LightboxGallery from './LightboxGallery.astro';
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+  category: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  category: string | string[];
+  images: GalleryImage[];
+  columns?: number;
+}
+
+const { 
+  title = "Product Gallery", 
+  subtitle = "Browse our selection of high-quality products", 
+  category,
+  images,
+  columns = 3
+} = Astro.props;
+
+// Filter images based on category
+const filteredImages = images.filter(image => {
+  if (Array.isArray(category)) {
+    return category.includes(image.category);
+  }
+  return image.category === category;
+});
+
+// Column class based on the number of columns
+const columnClass = {
+  1: 'md:grid-cols-1',
+  2: 'md:grid-cols-2',
+  3: 'md:grid-cols-3', 
+  4: 'md:grid-cols-4'
+}[columns] || 'md:grid-cols-3';
+
+// Generate a unique ID for this gallery's lightbox
+const lightboxId = `lightbox-${typeof category === 'string' ? category : category.join('-')}`.toLowerCase().replace(/\s+/g, '-');
+---
+
+{filteredImages.length > 0 && (
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">{title}</h2>
+      <p class="section-subtitle">{subtitle}</p>
+      
+      <div class={`mt-12 grid grid-cols-1 ${columnClass} gap-6`}>
+        {filteredImages.map((image, index) => (
+          <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+            <div class="relative aspect-w-16 aspect-h-12 overflow-hidden h-64 cursor-pointer gallery-item">
+              <img 
+                src={image.src} 
+                alt={image.alt} 
+                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+                data-lightbox={lightboxId}
+                data-caption={`${image.alt} - ${image.category}`}
+                data-index={index}
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div class="p-4 text-white">
+                  <p class="font-medium">{image.alt}</p>
+                  <p class="text-sm opacity-80">{image.category}</p>
+                  <p class="text-sm mt-2">
+                    <i class="fas fa-search-plus mr-1"></i> Click to view
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Lightbox Gallery Component -->
+      <LightboxGallery id={lightboxId} />
+    </div>
+  </section>
+)}
+
+<script>
+  // Add a click handler to each gallery-item to ensure clicks anywhere in the container open the lightbox
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        // Find the image inside this item
+        const img = this.querySelector('img');
+        if (img) {
+          // Trigger a click on the image to open the lightbox
+          img.click();
+        }
+      });
+    });
+  });
+</script>

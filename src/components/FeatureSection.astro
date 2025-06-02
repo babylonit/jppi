@@ -1,0 +1,37 @@
+---
+import FeatureCard from './FeatureCard.astro';
+
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  features: Feature[];
+}
+
+const { title, subtitle, features } = Astro.props;
+---
+
+<section class="section bg-gray-50">
+  <div class="container">
+    <h2 class="section-title">{title}</h2>
+    
+    {subtitle && (
+      <p class="section-subtitle">{subtitle}</p>
+    )}
+    
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {features.map(feature => (
+        <FeatureCard 
+          title={feature.title} 
+          description={feature.description} 
+          icon={feature.icon} 
+        />
+      ))}
+    </div>
+  </div>
+</section>

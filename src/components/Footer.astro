@@ -1,0 +1,133 @@
+---
+import SocialIcon from './SocialIcon.astro';
+
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    title: 'Products',
+    links: [
+      { name: 'Paper Cups', href: '/paper-product' },
+      { name: 'Paper Plates', href: '/paper-product/paper-plates' },
+      { name: 'Packaging Boxes', href: '/paper-packaging' },
+      { name: 'Lunch Boxes', href: '/paper-product/lunch-boxes' },
+      { name: 'Pizza Boxes', href: '/paper-product/pizza-boxes' },
+    ]
+  },
+  {
+    title: 'Services',
+    links: [
+      { name: 'Offset Printing', href: '/offset-printing' },
+      { name: 'Paper Packaging', href: '/paper-packaging' },
+      { name: 'Custom Designs', href: '/custom-designs' },
+      { name: 'Bulk Orders', href: '/bulk-orders' },
+    ]
+  },
+  {
+    title: 'Company',
+    links: [
+      { name: 'About Us', href: '/about' },
+      { name: 'Gallery', href: '/gallery' },
+      { name: 'Contact', href: '/contact' },
+      { name: 'Distributor', href: '/distributor' },
+      { name: 'FAQ', href: '/faq' },
+    ]
+  }
+];
+
+const socialLinks = [
+  { platform: 'facebook', url: 'https://facebook.com/joanapaper' },
+  { platform: 'twitter', url: 'https://twitter.com/joanapaper' },
+  { platform: 'instagram', url: 'https://instagram.com/joanapaper' },
+  { platform: 'linkedin', url: 'https://linkedin.com/company/joanapaper' }
+];
+---
+
+<footer class="bg-gray-50 border-t border-gray-200">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Main footer content -->
+    <div class="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <!-- Company info -->
+      <div class="lg:col-span-2">
+        <a href="/" class="inline-block">
+          <img class="h-12 w-auto" src="/images/joana-logo.png" alt="Joana Paper Product Industry Logo">
+        </a>
+        <p class="mt-4 text-gray-600 max-w-md">
+          Leading biodegradable paper cup manufacturer in Bangladesh. QC-100 certified, 
+          Nestlé-approved supplier of sustainable, food-safe packaging solutions.
+        </p>
+        <div class="mt-6 flex space-x-4">
+          {socialLinks.map(social => (
+            <SocialIcon platform={social.platform} url={social.url} />
+          ))}
+        </div>
+      </div>
+      
+      <!-- Footer links -->
+      {footerLinks.map(section => (
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">
+            {section.title}
+          </h3>
+          <ul class="space-y-3">
+            {section.links.map(link => (
+              <li>
+                <a href={link.href} class="text-gray-600 hover:text-primary-600 transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Contact info -->
+    <div class="py-6 border-t border-gray-200">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex items-start">
+          <div class="flex-shrink-0">
+            <i class="fas fa-map-marker-alt h-6 w-6 text-primary-500" aria-hidden="true"></i>
+          </div>
+          <div class="ml-3 text-gray-700">
+            <p class="font-medium">Address</p>
+            <p>123 Industrial Area, Gazipur</p>
+            <p>Dhaka, Bangladesh</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="flex-shrink-0">
+            <i class="fas fa-phone-alt h-6 w-6 text-primary-500" aria-hidden="true"></i>
+          </div>
+          <div class="ml-3 text-gray-700">
+            <p class="font-medium">Phone</p>
+            <p>+880 01976724401</p>
+            <p>+880 01976724402</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="flex-shrink-0">
+            <i class="fas fa-envelope h-6 w-6 text-primary-500" aria-hidden="true"></i>
+          </div>
+          <div class="ml-3 text-gray-700">
+            <p class="font-medium">Email</p>
+            <a href="mailto:info@joanapaper.com" class="hover:text-primary-600">info@joanapaper.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="py-4 border-t border-gray-200 text-center md:flex md:justify-between md:text-left">
+      <p class="text-gray-600 text-sm">
+        &copy; {currentYear} Joana Paper Product Industry. All rights reserved.
+      </p>
+      <div class="mt-2 md:mt-0">
+        <a href="/privacy-policy" class="text-sm text-gray-600 hover:text-primary-600 mr-4">Privacy Policy</a>
+        <a href="/terms-of-service" class="text-sm text-gray-600 hover:text-primary-600">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

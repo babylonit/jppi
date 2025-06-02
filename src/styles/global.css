@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 126, 179, 103; /* #7EB367 */
+    --color-text: 0, 0, 0;
+    --color-background: 255, 255, 255;
+  }
+  
+  body {
+    @apply font-sans text-base text-gray-800 bg-white;
+    font-feature-settings: "kern";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  a {
+    @apply text-primary-600 transition-colors hover:text-primary-800;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 hover:text-primary-100 focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-700 border border-primary-500 hover:bg-primary-50 focus:ring-primary-500;
+  }
+
+  .section {
+    @apply py-12 md:py-20;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-xl md:text-2xl font-medium mb-6 text-center max-w-3xl mx-auto text-gray-600;
+  }
+  
+  /* Add aspect ratio utilities if not provided by Tailwind */
+  .aspect-w-16 {
+    position: relative;
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+    --tw-aspect-w: 16;
+  }
+
+  .aspect-h-9 {
+    --tw-aspect-h: 9;
+  }
+  
+  .aspect-h-12 {
+    --tw-aspect-h: 12;
+  }
+  
+  .aspect-w-16 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* Lightbox styles */
+  .lightbox-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+  }
+  
+  .lightbox-overlay:not(.hidden) {
+    opacity: 1;
+    display: flex;
+  }
+  
+  .lightbox-image {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+  
+  .lightbox-overlay:not(.hidden) .lightbox-image {
+    transform: scale(1);
+  }
+}

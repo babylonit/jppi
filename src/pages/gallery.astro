@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CallToAction from '../components/CallToAction.astro';
+import LightboxGallery from '../components/LightboxGallery.astro';
+import { galleryImages } from '../data/galleryImages';
+
+// Project images
+const projectImages = [
+  {
+    src: 'https://images.pexels.com/photos/3754309/pexels-photo-3754309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Cafe branding project',
+    title: 'Coffee Chain Branding',
+    description: 'Complete packaging solution for a local coffee chain, including cups, napkins, and takeaway bags.'
+  },
+  {
+    src: 'https://images.pexels.com/photos/5085329/pexels-photo-5085329.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Food delivery packaging',
+    title: 'Food Delivery Packaging',
+    description: 'Eco-friendly packaging solution for a food delivery service, featuring custom printed lunch boxes and paper bags.'
+  },
+  {
+    src: 'https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Pharmaceutical packaging',
+    title: 'Pharmaceutical Packaging',
+    description: 'Tamper-proof medicine packaging for a leading pharmaceutical company in Bangladesh.'
+  },
+  {
+    src: 'https://images.pexels.com/photos/7319176/pexels-photo-7319176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Retail brand packaging',
+    title: 'Retail Brand Identity',
+    description: 'Complete brand identity package including bags, boxes, and tags for a fashion retailer.'
+  }
+];
+
+// SEO Metadata
+const title = "Product Gallery";
+const description = "Browse our gallery of paper cups, packaging solutions, and printing services. See examples of our work for various industries.";
+
+// Generate unique IDs for each lightbox
+const mainGalleryLightboxId = "lightbox-main-gallery";
+const projectsLightboxId = "lightbox-projects";
+const processLightboxId = "lightbox-process";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Our Gallery"
+    subtitle="Explore our products and completed projects."
+    backgroundImage="https://images.pexels.com/photos/5945741/pexels-photo-5945741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Gallery Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Product Gallery</h2>
+      <p class="section-subtitle">Browse our range of high-quality paper products and packaging solutions.</p>
+      
+      <!-- Gallery Filter -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <button class="filter-btn active" data-filter="all">
+          All Products
+        </button>
+        <button class="filter-btn" data-filter="Paper Cups">
+          Paper Cups
+        </button>
+        <button class="filter-btn" data-filter="Packaging">
+          Packaging
+        </button>
+        <button class="filter-btn" data-filter="Printing">
+          Printing
+        </button>
+      </div>
+      
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
+        {galleryImages.map((image, index) => (
+          <div class="gallery-item" data-category={image.category}>
+            <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <div class="relative aspect-w-16 aspect-h-12 overflow-hidden h-64 cursor-pointer">
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                  data-lightbox={mainGalleryLightboxId}
+                  data-caption={`${image.alt} - ${image.category}`}
+                  data-index={index}
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-4 text-white">
+                    <p class="font-medium">{image.alt}</p>
+                    <p class="text-sm opacity-80">{image.category}</p>
+                    <p class="text-sm mt-2">
+                      <i class="fas fa-search-plus mr-1"></i> Click to view
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Main Gallery Lightbox -->
+      <LightboxGallery id={mainGalleryLightboxId} />
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Discover how we've helped businesses with their packaging needs.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        {projectImages.map((project, index) => (
+          <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+            <div class="aspect-w-16 aspect-h-9 overflow-hidden h-64 cursor-pointer">
+              <img 
+                src={project.src} 
+                alt={project.alt} 
+                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+                data-lightbox={projectsLightboxId}
+                data-caption={project.title}
+                data-index={index}
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div class="p-4 text-white">
+                  <p class="text-sm mt-2">
+                    <i class="fas fa-search-plus mr-1"></i> Click to view
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-900">{project.title}</h3>
+              <p class="text-gray-600">{project.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Projects Lightbox -->
+      <LightboxGallery id={projectsLightboxId} />
+    </div>
+  </section>
+  
+  <!-- Manufacturing Process Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Manufacturing Process</h2>
+      <p class="section-subtitle">Take a peek inside our production facility.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <div class="aspect-w-16 aspect-h-9 overflow-hidden h-64 cursor-pointer">
+            <img 
+              src="https://images.pexels.com/photos/5417641/pexels-photo-5417641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+              alt="Paper cup manufacturing process" 
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox={processLightboxId}
+              data-caption="Cup Production - Our state-of-the-art machinery produces high-quality paper cups with precise measurements and excellent finish."
+              data-index="0"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm mt-2">
+                  <i class="fas fa-search-plus mr-1"></i> Click to view
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900">Cup Production</h3>
+            <p class="text-gray-600">Our state-of-the-art machinery produces high-quality paper cups with precise measurements and excellent finish.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <div class="aspect-w-16 aspect-h-9 overflow-hidden h-64 cursor-pointer">
+            <img 
+              src="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+              alt="Offset printing process" 
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox={processLightboxId}
+              data-caption="Printing Process - Our modern offset printing technology ensures vibrant colors and sharp details on all printed materials."
+              data-index="1"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm mt-2">
+                  <i class="fas fa-search-plus mr-1"></i> Click to view
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900">Printing Process</h3>
+            <p class="text-gray-600">Our modern offset printing technology ensures vibrant colors and sharp details on all printed materials.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <div class="aspect-w-16 aspect-h-9 overflow-hidden h-64 cursor-pointer">
+            <img 
+              src="https://images.pexels.com/photos/4502439/pexels-photo-4502439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+              alt="Quality control process" 
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox={processLightboxId}
+              data-caption="Quality Control - Every product undergoes thorough quality checks to ensure it meets our strict standards before shipping."
+              data-index="2"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <div class="p-4 text-white">
+                <p class="text-sm mt-2">
+                  <i class="fas fa-search-plus mr-1"></i> Click to view
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-900">Quality Control</h3>
+            <p class="text-gray-600">Every product undergoes thorough quality checks to ensure it meets our strict standards before shipping.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Process Lightbox -->
+      <LightboxGallery id={processLightboxId} />
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Create Your Own Custom Products?"
+    description="Contact us today to discuss your project requirements and get a free quote."
+    buttonText="Contact Us"
+    buttonLink="/contact"
+    secondaryButtonText="View Products"
+    secondaryButtonLink="/paper-product"
+  />
+</Layout>
+
+<style>
+  .filter-btn {
+    @apply px-4 py-2 bg-white text-gray-700 rounded-md border border-gray-300 transition-colors hover:bg-primary-50 hover:border-primary-200;
+  }
+  
+  .filter-btn.active {
+    @apply bg-primary-500 text-white border-primary-500 hover:bg-primary-600;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    // Initialize Filtering
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter gallery items
+        const filter = button.getAttribute('data-filter');
+        
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // After filtering, make sure lightbox refreshes its image list
+        setTimeout(() => {
+          // Try to call the refresh function from the lightbox
+          if (window['lightbox_lightbox-main-gallery'] && window['lightbox_lightbox-main-gallery'].refresh) {
+            window['lightbox_lightbox-main-gallery'].refresh();
+          }
+        }, 300);
+      });
+    });
+    
+    // Add a click handler for the gallery items to make sure clicks work
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        // Find the image inside this gallery item
+        const img = this.querySelector('img[data-lightbox]');
+        if (img) {
+          // Trigger a click on the image
+          e.preventDefault();
+          img.click();
+        }
+      });
+    });
+  });
+</script>

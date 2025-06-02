@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+import PageGallery from '../components/PageGallery.astro';
+import { galleryImages } from '../data/galleryImages';
+
+// Features
+const features = [
+  {
+    title: 'High-Resolution Printing',
+    description: 'CMYK printing at 300+ DPI for crisp, vibrant colors and sharp details.',
+    icon: 'fas fa-image'
+  },
+  {
+    title: 'Premium Finishes',
+    description: 'Choose from matte, glossy, or UV coating for a professional look.',
+    icon: 'fas fa-paint-brush'
+  },
+  {
+    title: 'Paper GSM Options',
+    description: 'Multiple paper thickness options from 150 GSM to 400 GSM.',
+    icon: 'fas fa-layer-group'
+  },
+  {
+    title: 'Nationwide Delivery',
+    description: 'Fast and reliable delivery to businesses across Bangladesh.',
+    icon: 'fas fa-truck'
+  }
+];
+
+// Printing services
+const printingServices = [
+  {
+    title: 'Food Packaging & Labels',
+    description: 'FDA-compliant food packaging with custom designs and vibrant colors.',
+    image: 'https://images.pexels.com/photos/5945694/pexels-photo-5945694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    title: 'Posters & Flyers',
+    description: 'High-resolution promotional materials printed on premium paper.',
+    image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    title: 'Boxes & Cartons',
+    description: 'Custom printed boxes and cartons for retail and shipping needs.',
+    image: 'https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    title: 'Medicine & Garment Tags',
+    description: 'Precision-printed tags with detailed information and barcodes.',
+    image: 'https://images.pexels.com/photos/5417675/pexels-photo-5417675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    title: 'Restaurant Menus',
+    description: 'Durable and attractive menu cards with customizable designs.',
+    image: 'https://images.pexels.com/photos/2226806/pexels-photo-2226806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    title: 'Business Stationery',
+    description: 'Professional business cards, letterheads, and envelopes.',
+    image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    title: 'Promotional Materials',
+    description: 'Eye-catching brochures, catalogs, and marketing collaterals.',
+    image: 'https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    title: 'Custom Stickers',
+    description: 'Durable and colorful stickers with various adhesive options.',
+    image: 'https://images.pexels.com/photos/7125005/pexels-photo-7125005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  }
+];
+
+// SEO Metadata
+const title = "Offset Printing Solutions";
+const description = "Joana offers premium offset printing services for posters, packaging, boxes & more. High-resolution, full-color CMYK printing. Serving businesses across Bangladesh.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Premium Offset Printing Services"
+    subtitle="High-quality, full-color CMYK printing for diverse commercial and industrial needs."
+    backgroundImage="https://images.pexels.com/photos/5691622/pexels-photo-5691622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Joana's Offset Printing Solution</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          With modern machinery and experienced technicians, we ensure sharp detail, 
+          fast turnaround, and brand consistency in every project. From startups to 
+          established manufacturers, we provide custom offset printing with competitive 
+          pricing and bulk order support.
+        </p>
+        <div class="flex justify-center">
+          <a href="/contact" class="btn btn-primary">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">We Print Everything You Need</h2>
+      <p class="section-subtitle">Explore our comprehensive range of printing services.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {printingServices.map(service => (
+          <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
+            <div class="aspect-w-16 aspect-h-9 overflow-hidden h-64">
+              <img 
+                src={service.image} 
+                alt={service.title} 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
+              <p class="text-gray-600">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Offset Printing Gallery Section -->
+  <PageGallery
+    title="Printing Gallery"
+    subtitle="Examples of our offset printing capabilities"
+    category="Printing"
+    images={galleryImages}
+    columns={3}
+  />
+  
+  <!-- Process Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Printing Process</h2>
+      <p class="section-subtitle">From design to delivery, we ensure quality at every step.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-primary-600 text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Design</h3>
+          <p class="text-gray-600">Submit your design or work with our team to create one.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-primary-600 text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Proof</h3>
+          <p class="text-gray-600">Review and approve digital proofs before printing.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-primary-600 text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Production</h3>
+          <p class="text-gray-600">Your project is printed using our advanced offset press.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-primary-600 text-2xl font-bold">4</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Delivery</h3>
+          <p class="text-gray-600">Quality checked and delivered to your location.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why Choose Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Why Choose Joana Offset?</h2>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+      
+      <!-- Technical Specifications -->
+      <div class="mt-16 bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+          <h3 class="text-xl font-semibold text-primary-800">Technical Specifications</h3>
+        </div>
+        <div class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Printing Technology</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Full-color CMYK offset printing
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Resolution: 300+ DPI
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Pantone color matching available
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Paper Options</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Art Paper: 150-250 GSM
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Card Stock: 250-400 GSM
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Recycled options available
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Finishing Options</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Matte / Glossy coating
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  UV spot coating
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Embossing / Debossing
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Turnaround Time</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Standard: 5-7 business days
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Rush: 3-4 business days
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                  Expedited: 1-2 business days
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Start Your Printing Project?"
+    description="Send your design today or ask our team to assist you in creating eye-catching layouts!"
+    buttonText="Request a Quote"
+    buttonLink="/contact"
+    secondaryButtonText="View Portfolio"
+    secondaryButtonLink="/gallery"
+  />
+</Layout>

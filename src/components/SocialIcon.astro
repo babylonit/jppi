@@ -1,0 +1,38 @@
+---
+interface Props {
+  platform: string;
+  url: string;
+}
+
+const { platform, url } = Astro.props;
+
+// Map of platform names to their respective Font Awesome classes and colors
+const socialIcons = {
+  facebook: {
+    icon: 'fab fa-facebook-f',
+    color: 'text-[#1877F2]'
+  },
+  twitter: {
+    icon: 'fab fa-twitter',
+    color: 'text-[#1DA1F2]'
+  },
+  instagram: {
+    icon: 'fab fa-instagram',
+    color: 'text-[#E4405F]'
+  },
+  linkedin: {
+    icon: 'fab fa-linkedin-in',
+    color: 'text-[#0A66C2]'
+  }
+};
+
+const { icon, color } = socialIcons[platform] || {
+  icon: 'fas fa-globe',
+  color: 'text-gray-600'
+};
+---
+
+<a href={url} class={`inline-block hover:opacity-80 transition-opacity ${color}`} target="_blank" rel="noopener">
+  <span class="sr-only">{platform}</span>
+  <i class={`${icon} h-6 w-6 fa-fw`} aria-hidden="true"></i>
+</a>

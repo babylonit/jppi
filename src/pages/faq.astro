@@ -1,0 +1,705 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// SEO Metadata
+const title = "Frequently Asked Questions";
+const description = "Find answers to common questions about Joana Paper Product Industry's products, services, ordering process, and more. Available in both English and Bengali.";
+
+// FAQ categories
+const categories = [
+  { id: 'company', name: 'Company Info', icon: 'fas fa-building' },
+  { id: 'products', name: 'Product Quality', icon: 'fas fa-coffee' },
+  { id: 'orders', name: 'Orders & Payment', icon: 'fas fa-shopping-cart' },
+  { id: 'customization', name: 'Customization', icon: 'fas fa-palette' },
+  { id: 'delivery', name: 'Delivery', icon: 'fas fa-truck' },
+  { id: 'sustainability', name: 'Sustainability', icon: 'fas fa-leaf' },
+  { id: 'certification', name: 'Certifications', icon: 'fas fa-certificate' },
+  { id: 'clients', name: 'Clients & Support', icon: 'fas fa-users' }
+];
+
+// FAQ data organized by category
+const faqData = {
+  company: [
+    {
+      question: 'What certifications does JPPI hold?',
+      questionBn: 'JPPI-র সার্টিফিকেশন কী?',
+      answer: 'JPPI is QC-100 certified (toxin-free production) and a CQE 2012 Geneva Award winner for innovation.',
+      answerBn: 'JPPI QC-100 সার্টিফাইড (বিষমুক্ত উৎপাদন) এবং CQE ২০১২ জেনেভা পুরস্কারপ্রাপ্ত।'
+    },
+    {
+      question: 'What paper sources does JPPI use?',
+      questionBn: 'কোন উৎসের কাগজ JPPI ব্যবহার করে?',
+      answer: 'China, Bangladesh, India (150–350 GSM).',
+      answerBn: 'চীন, বাংলাদেশ ও ভারত (১৫০–৩৫০ জিএসএম)।'
+    },
+    {
+      question: 'Factory visit allowed?',
+      questionBn: 'ফ্যাক্টরি পরিদর্শন করা যাবে?',
+      answer: 'Yes, with appointment in Gazipur.',
+      answerBn: 'হ্যাঁ, অ্যাপয়েন্টমেন্টে গাজীপুর ইউনিট।'
+    },
+    {
+      question: 'Why choose JPPI?',
+      questionBn: 'কেন JPPI নির্বাচন করবেন?',
+      answer: 'Modern plant, Nestlé-grade QC.',
+      answerBn: 'আধুনিক ফ্যাক্টরি, নেসলে কোয়ালিটি।'
+    },
+    {
+      question: 'Customer support time?',
+      questionBn: 'কাস্টমার সাপোর্ট কখন?',
+      answer: 'Sat–Thu, 9 AM–8 PM.',
+      answerBn: 'শনি–বৃহস্পতি, সকাল ৯টা–রাত ৮টা।'
+    },
+    {
+      question: 'Major clients?',
+      questionBn: 'বড় গ্রাহক কারা?',
+      answer: 'Nestlé, Coats, airlines, embassies, cafes.',
+      answerBn: 'নেসলে, কোটস, এয়ারলাইন্স, দূতাবাস, কফি শপ।'
+    },
+    {
+      question: 'Export experience?',
+      questionBn: 'রপ্তানি অভিজ্ঞতা আছে?',
+      answer: 'Yes, to 6+ countries.',
+      answerBn: 'হ্যাঁ, ৬টির বেশি দেশে।'
+    }
+  ],
+  products: [
+    {
+      question: 'Are Joana Cups leak-proof?',
+      questionBn: 'জোয়ানা কাপ লিক-প্রুফ কি?',
+      answer: 'Yes, QC-100 certified leak-proof tech with PE or biodegradable coatings.',
+      answerBn: 'হ্যাঁ, QC-100 সার্টিফাইড লিক-প্রুফ প্রযুক্তি ব্যবহৃত হয়।'
+    },
+    {
+      question: 'Shelf life of cups?',
+      questionBn: 'কাপের মেয়াদকাল কত?',
+      answer: '2 years.',
+      answerBn: '২ বছর।'
+    },
+    {
+      question: 'Are cups biodegradable?',
+      questionBn: 'কাপ বায়োডিগ্রেডেবল কি?',
+      answer: 'Yes, 100% with eco-coating.',
+      answerBn: 'হ্যাঁ, ১০০% পরিবেশবান্ধব।'
+    },
+    {
+      question: 'Hot beverage safe?',
+      questionBn: 'গরম পানীয় নিরাপদ?',
+      answer: 'Yes, up to 90°C.',
+      answerBn: 'হ্যাঁ, ৯০ ডিগ্রি পর্যন্ত।'
+    },
+    {
+      question: 'Microwave-safe?',
+      questionBn: 'মাইক্রোওয়েভে ব্যবহার করা যাবে?',
+      answer: 'No, avoid microwaving.',
+      answerBn: 'না।'
+    },
+    {
+      question: 'Do cups absorb odors?',
+      questionBn: 'কাপ কি গন্ধ ধরে রাখে?',
+      answer: 'No, odor-resistant coatings used.',
+      answerBn: 'না, গন্ধরোধক প্রলেপ থাকে।'
+    },
+    {
+      question: 'What is the cup weight range?',
+      questionBn: 'কাপের ওজন কত?',
+      answer: '2.5–7 grams.',
+      answerBn: '২.৫–১ গ্রাম।'
+    },
+    {
+      question: 'Ready stock sizes?',
+      questionBn: 'রেডি সাইজ কী কী?',
+      answer: '100 ml, 120 ml, 250 ml.',
+      answerBn: '১০০, ১২০, ২৫০ মিলি।'
+    },
+    {
+      question: 'Special sizes?',
+      questionBn: 'বিশেষ সাইজ কী?',
+      answer: 'Yes, 50–400 ml (bulk only).',
+      answerBn: 'হ্যাঁ, ৫০–৪০০ মিলি (শুধু বাল্কে)।'
+    },
+    {
+      question: 'Hygiene standards?',
+      questionBn: 'স্বাস্থ্যমান কেমন?',
+      answer: 'QC-100 + FDA coating.',
+      answerBn: 'QC-100 এবং FDA প্রলেপ।'
+    }
+  ],
+  orders: [
+    {
+      question: 'Minimum order quantity (MOQ)?',
+      questionBn: 'সর্বনিম্ন অর্ডার পরিমাণ কত?',
+      answer: '30,000 pcs for custom, 2,000 pcs for ready stock.',
+      answerBn: 'কাস্টম: ৩০,০০০ পিস, রেডি: ২,০০০ পিস।'
+    },
+    {
+      question: 'Cost for custom printing?',
+      questionBn: 'কাস্টম প্রিন্টিং খরচ?',
+      answer: 'BDT 3,000 per color (one-time plate charge).',
+      answerBn: 'প্রতি রঙে ৩,০০০ টাকা প্লেট চার্জ।'
+    },
+    {
+      question: 'Production time for bulk?',
+      questionBn: 'বাল্ক অর্ডারে সময় লাগে কতদিন?',
+      answer: 'Custom: 20+ days; Stock: 2–3 days.',
+      answerBn: 'কাস্টম: ২০+ দিন, স্টক: ২–৩ দিন।'
+    },
+    {
+      question: 'Are samples available?',
+      questionBn: 'নমুনা পাওয়া যায় কি?',
+      answer: 'Yes, pre-production samples are provided.',
+      answerBn: 'হ্যাঁ, উৎপাদনের আগে নমুনা প্রদান করা হয়।'
+    },
+    {
+      question: 'Payment methods?',
+      questionBn: 'পেমেন্ট পদ্ধতি কী কী?',
+      answer: 'Cash, bKash, Nagad, bank, PayPal, check.',
+      answerBn: 'নগদ, বিকাশ, নগদ, ব্যাংক, পেপ্যাল, চেক।'
+    },
+    {
+      question: 'Return policy?',
+      questionBn: 'রিটার্ন নীতি কী?',
+      answer: 'Exchange on >2% leakage, same design.',
+      answerBn: '২% এর বেশি লিকেজ হলে একই ডিজাইন বিনিময়।'
+    },
+    {
+      question: 'Bulk discount?',
+      questionBn: 'বাল্কে ডিসকাউন্ট?',
+      answer: '2% off over 100,000 pcs.',
+      answerBn: '১ লাখের ওপর ২% ছাড়।'
+    },
+    {
+      question: 'Any hidden charges?',
+      questionBn: 'গোপন চার্জ আছে কি?',
+      answer: 'No, all pricing is transparent.',
+      answerBn: 'না, সব মূল্য স্বচ্ছ।'
+    },
+    {
+      question: 'Warranty terms?',
+      questionBn: 'ওয়ারেন্টি কী?',
+      answer: '2-year shelf life guarantee.',
+      answerBn: '২ বছর মেয়াদ গ্যারান্টি।'
+    },
+    {
+      question: 'Urgent order process?',
+      questionBn: 'জরুরি অর্ডার কীভাবে করবেন?',
+      answer: 'WhatsApp +8801976724402.',
+      answerBn: 'WhatsApp: +৮৮০১৯৭৬৭২৪৪০২।'
+    }
+  ],
+  customization: [
+    {
+      question: 'Design guidelines?',
+      questionBn: 'প্রিন্ট গাইডলাইন কী?',
+      answer: 'CMYK; avoid inner-layer prints.',
+      answerBn: 'CMYK প্রিন্ট; ভিতরে প্রিন্ট নয়।'
+    },
+    {
+      question: 'Can I customize the cup\'s shape?',
+      questionBn: 'কাপের আকৃতি পরিবর্তন করা যাবে?',
+      answer: 'Yes, for bulk orders.',
+      answerBn: 'হ্যাঁ, বাল্কে।'
+    },
+    {
+      question: 'What printing techniques are used?',
+      questionBn: 'কোন প্রিন্টিং প্রযুক্তি ব্যবহৃত হয়?',
+      answer: 'Offset & flexo.',
+      answerBn: 'অফসেট ও ফ্লেক্সো।'
+    },
+    {
+      question: 'Do you offer white-labeling?',
+      questionBn: 'হোয়াইট-লেবেলিং কি সম্ভব?',
+      answer: 'Yes, discreet branding options.',
+      answerBn: 'হ্যাঁ, নীরব ব্র্যান্ডিং অপশন।'
+    },
+    {
+      question: 'How do I send my design?',
+      questionBn: 'ডিজাইন পাঠাব কীভাবে?',
+      answer: 'Email or Google Drive.',
+      answerBn: 'ইমেইল বা গুগল ড্রাইভে।'
+    },
+    {
+      question: 'File formats?',
+      questionBn: 'ফাইল ফরম্যাট কী?',
+      answer: '.AI, .PDF, .PSD (300 DPI).',
+      answerBn: '.ai, .pdf, .psd (৩০০ DPI)।'
+    },
+    {
+      question: 'Do you provide artwork help?',
+      questionBn: 'আর্টওয়ার্ক সহায়তা পাব?',
+      answer: 'Yes, with in-house design team.',
+      answerBn: 'হ্যাঁ, ইন-হাউজ ডিজাইনার আছেন।'
+    },
+    {
+      question: 'Corporate gifting?',
+      questionBn: 'কর্পোরেট উপহার কী আছে?',
+      answer: 'Yes, branded cup options.',
+      answerBn: 'হ্যাঁ, ব্র্যান্ডেড কাপ বিকল্প।'
+    }
+  ],
+  delivery: [
+    {
+      question: 'Delivery policy?',
+      questionBn: 'ডেলিভারি নীতি কী?',
+      answer: 'Free for 50,000+ pcs. Courier charge otherwise.',
+      answerBn: '৫০,০০০+ পিসে ফ্রি ডেলিভারি, না হলে কুরিয়ার চার্জ।'
+    },
+    {
+      question: 'Can I order from abroad?',
+      questionBn: 'বিদেশ থেকে অর্ডার দেওয়া যাবে?',
+      answer: 'Yes, shipping available globally.',
+      answerBn: 'হ্যাঁ, বিশ্বব্যাপী শিপিং।'
+    },
+    {
+      question: 'Shipping partners?',
+      questionBn: 'কোন শিপিং কোম্পানি ব্যবহার হয়?',
+      answer: 'DHL, SA Paribahan, Sundarban.',
+      answerBn: 'DHL, SA পরিবহন, সুন্দরবন।'
+    },
+    {
+      question: 'Carton dimensions?',
+      questionBn: 'কার্টন সাইজ কত?',
+      answer: '24×18×26 inches, 2,000–6,000 pcs.',
+      answerBn: '২৪x১৮x২৬ ইঞ্চি, ২,০০০–৬,০০০ কাপ।'
+    },
+    {
+      question: 'Can I track my order?',
+      questionBn: 'অর্ডার ট্র্যাক করতে পারব?',
+      answer: 'Yes, tracking ID shared.',
+      answerBn: 'হ্যাঁ, ট্র্যাকিং আইডি দেওয়া হয়।'
+    },
+    {
+      question: 'How to store the cups?',
+      questionBn: 'কাপ সংরক্ষণের নিয়ম কী?',
+      answer: 'Cool, dry space, away from sunlight.',
+      answerBn: 'শীতল, শুষ্ক স্থানে রোদ থেকে দূরে।'
+    }
+  ],
+  sustainability: [
+    {
+      question: 'Are cups biodegradable?',
+      questionBn: 'কাপ বায়োডিগ্রেডেবল কি?',
+      answer: 'Yes, 100% with eco-coating.',
+      answerBn: 'হ্যাঁ, ১০০% পরিবেশবান্ধব।'
+    },
+    {
+      question: 'Recyclable in BD?',
+      questionBn: 'রিসাইকেল করা যাবে বাংলাদেশে?',
+      answer: 'Yes, local partners.',
+      answerBn: 'হ্যাঁ, স্থানীয় অংশীদারদের মাধ্যমে।'
+    },
+    {
+      question: 'Eco-packaging?',
+      questionBn: 'পরিবেশবান্ধব প্যাকেজিং?',
+      answer: 'Soy-ink, recyclable boxes.',
+      answerBn: 'সয়-ইঙ্ক ও রিসাইকেলযোগ্য বাক্স।'
+    },
+    {
+      question: 'Do you make paper lids?',
+      questionBn: 'পেপার লিড বানান?',
+      answer: 'Coming soon.',
+      answerBn: 'শীঘ্রই আসছে।'
+    }
+  ],
+  certification: [
+    {
+      question: 'What certifications does JPPI hold?',
+      questionBn: 'JPPI-র সার্টিফিকেশন কী?',
+      answer: 'JPPI is QC-100 certified (toxin-free production) and a CQE 2012 Geneva Award winner for innovation.',
+      answerBn: 'JPPI QC-100 সার্টিফাইড (বিষমুক্ত উৎপাদন) এবং CQE ২০১২ জেনেভা পুরস্কারপ্রাপ্ত।'
+    },
+    {
+      question: 'Hygiene standards?',
+      questionBn: 'স্বাস্থ্যমান কেমন?',
+      answer: 'QC-100 + FDA coating.',
+      answerBn: 'QC-100 এবং FDA প্রলেপ।'
+    },
+    {
+      question: 'Any quality control steps?',
+      questionBn: 'কোয়ালিটি কন্ট্রোল কেমন?',
+      answer: '3-stage QC: pre-print, post-print, packing.',
+      answerBn: '৩ ধাপে: প্রি-প্রিন্ট, পোস্ট-প্রিন্ট, প্যাকিং।'
+    }
+  ],
+  clients: [
+    {
+      question: 'Major clients?',
+      questionBn: 'বড় গ্রাহক কারা?',
+      answer: 'Nestlé, Coats, airlines, embassies, cafes.',
+      answerBn: 'নেসলে, কোটস, এয়ারলাইন্স, দূতাবাস, কফি শপ।'
+    },
+    {
+      question: 'Can I become a distributor?',
+      questionBn: 'ডিস্ট্রিবিউটর হওয়া যাবে?',
+      answer: 'Yes, apply via website.',
+      answerBn: 'হ্যাঁ, ওয়েবসাইটে আবেদন করুন।'
+    },
+    {
+      question: 'Is there a loyalty program?',
+      questionBn: 'লয়্যালটি প্রোগ্রাম আছে?',
+      answer: 'For long-term clients only.',
+      answerBn: 'শুধু নিয়মিত ক্লায়েন্টদের জন্য।'
+    },
+    {
+      question: 'Do you offer training for partners?',
+      questionBn: 'পার্টনারদের প্রশিক্ষণ দেন?',
+      answer: 'Yes, via demo sessions.',
+      answerBn: 'হ্যাঁ, ডেমো সেশনের মাধ্যমে।'
+    },
+    {
+      question: 'Do you sell cup-making machines?',
+      questionBn: 'কাপ মেশিন বিক্রি করেন?',
+      answer: 'No, only paper products.',
+      answerBn: 'না, শুধু পেপার পণ্য।'
+    },
+    {
+      question: 'Any seasonal offers?',
+      questionBn: 'ঋতুভিত্তিক অফার আছে?',
+      answer: 'Yes, during Eid & New Year.',
+      answerBn: 'হ্যাঁ, ঈদ ও নিউ ইয়ারে।'
+    },
+    {
+      question: 'Customer support time?',
+      questionBn: 'কাস্টমার সাপোর্ট কখন?',
+      answer: 'Sat–Thu, 9 AM–8 PM.',
+      answerBn: 'শনি–বৃহস্পতি, সকাল ৯টা–রাত ৮টা।'
+    }
+  ]
+};
+
+// Calculate total FAQ count
+const totalFaqCount = Object.values(faqData).reduce((total, faqs) => total + faqs.length, 0);
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Frequently Asked Questions"
+    subtitle="Find answers to common questions about our products and services"
+    backgroundImage="https://images.pexels.com/photos/5691540/pexels-photo-5691540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- FAQ Section with Tabs -->
+  <section class="section">
+    <div class="container">
+      <div class="mb-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">How Can We Help You?</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Browse through these frequently asked questions to find quick answers to common inquiries.
+          Questions and answers are provided in both English and Bengali.
+        </p>
+      </div>
+      
+      <!-- FAQ Section -->
+      <div class="mt-12 max-w-6xl mx-auto">
+        <!-- Category Navigation -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <button 
+            class="category-card cursor-pointer rounded-lg transition-all duration-200 px-4 py-3 text-sm font-medium flex items-center space-x-2 bg-primary-500 text-white shadow-md"
+            data-category="all"
+          >
+            <i class="fas fa-list text-sm"></i>
+            <span>All FAQs</span>
+            <span class="text-xs opacity-75">({totalFaqCount})</span>
+          </button>
+          {categories.map((category, index) => (
+            <button 
+              class="category-card cursor-pointer rounded-lg transition-all duration-200 px-4 py-3 text-sm font-medium flex items-center space-x-2 bg-white text-gray-700 border border-gray-300 hover:border-primary-300 hover:bg-primary-50"
+              data-category={category.id}
+            >
+              <i class={`${category.icon} text-sm`}></i>
+              <span>{category.name}</span>
+              <span class="text-xs opacity-75">({faqData[category.id].length})</span>
+            </button>
+          ))}
+        </div>
+        
+        <!-- FAQ Content with Fixed Height Container -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="min-h-[600px]">
+            <!-- All FAQs Tab (Default) -->
+            <div id="tab-all" class="category-content p-6 block">
+              <div class="flex items-center mb-6 pb-4 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary-500 text-white rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-list text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-800">All Frequently Asked Questions</h3>
+                  <p class="text-gray-600">{totalFaqCount} questions across all categories</p>
+                </div>
+              </div>
+              
+              <div class="space-y-8">
+                {categories.map((category) => {
+                  const categoryFaqs = faqData[category.id];
+                  return (
+                    <div class="space-y-4">
+                      <!-- Category Title Header -->
+                      <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-gray-100">
+                        <div class="w-10 h-10 bg-primary-500 text-white rounded-lg flex items-center justify-center">
+                          <i class={category.icon} class="text-lg"></i>
+                        </div>
+                        <div>
+                          <h4 class="text-xl font-bold text-gray-800">
+                            {category.name}
+                          </h4>
+                          <p class="text-sm text-gray-600">{categoryFaqs.length} questions</p>
+                        </div>
+                      </div>
+                      
+                      <!-- FAQs for this category -->
+                      <div class="space-y-3">
+                        {categoryFaqs.map((faq, faqIndex) => (
+                          <div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:border-primary-200 transition-colors">
+                            <button 
+                              class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-100 transition-colors"
+                              data-index={`all-${category.id}-${faqIndex}`}
+                              data-category="all"
+                            >
+                              <div class="pr-8 flex-1">
+                                <p class="text-lg font-medium text-gray-900 mb-1">{faq.question}</p>
+                                <p class="text-base text-gray-700">{faq.questionBn}</p>
+                              </div>
+                              <span class="faq-icon flex-shrink-0 ml-4 text-primary-500 transition-transform duration-200">
+                                <i class="fas fa-plus text-lg"></i>
+                              </span>
+                            </button>
+                            
+                            <div class="faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                              <div class="py-4 text-gray-600 border-t border-gray-200">
+                                <p class="mb-2 text-gray-800 leading-relaxed">{faq.answer}</p>
+                                <p class="text-gray-700 leading-relaxed">{faq.answerBn}</p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            
+            <!-- Individual Category Tabs -->
+            {categories.map((category, index) => (
+              <div 
+                id={`tab-${category.id}`} 
+                class="category-content p-6 hidden"
+              >
+                <div class="flex items-center mb-6 pb-4 border-b border-gray-200">
+                  <div class="w-12 h-12 bg-primary-500 text-white rounded-lg flex items-center justify-center mr-4">
+                    <i class={`${category.icon} text-lg`}></i>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-gray-800">{category.name}</h3>
+                    <p class="text-gray-600">{faqData[category.id].length} frequently asked questions</p>
+                  </div>
+                </div>
+                
+                <div class="space-y-4">
+                  {faqData[category.id].map((faq, faqIndex) => (
+                    <div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:border-primary-200 transition-colors">
+                      <button 
+                        class="faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-100 transition-colors"
+                        data-index={faqIndex}
+                        data-category={category.id}
+                      >
+                        <div class="pr-8 flex-1">
+                          <p class="text-lg font-medium text-gray-900 mb-1">{faq.question}</p>
+                          <p class="text-base text-gray-700">{faq.questionBn}</p>
+                        </div>
+                        <span class="faq-icon flex-shrink-0 ml-4 text-primary-500 transition-transform duration-200">
+                          <i class="fas fa-plus text-lg"></i>
+                        </span>
+                      </button>
+                      
+                      <div class="faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="py-4 text-gray-600 border-t border-gray-200">
+                          <p class="mb-2 text-gray-800 leading-relaxed">{faq.answer}</p>
+                          <p class="text-gray-700 leading-relaxed">{faq.answerBn}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Search Box (Future Implementation) -->
+      <div class="mt-12 max-w-lg mx-auto hidden">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="faq-search" 
+            placeholder="Search for a question..." 
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 pl-12"
+          />
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <i class="fas fa-search text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Still Have Questions Section -->
+  <section class="section bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Still Have Questions?</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          If you couldn't find the answer to your question, our customer support team is ready to help you.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <a href="/contact" class="btn btn-primary flex items-center justify-center py-4 px-6 rounded-xl hover:scale-105 transition-transform">
+            <i class="fas fa-envelope mr-3 text-lg"></i>
+            <div class="text-left">
+              <div class="font-semibold">Email Us</div>
+              <div class="text-sm opacity-90">Get detailed answers</div>
+            </div>
+          </a>
+          <a href="tel:+8801976724401" class="btn btn-secondary flex items-center justify-center py-4 px-6 rounded-xl hover:scale-105 transition-transform">
+            <i class="fas fa-phone-alt mr-3 text-lg"></i>
+            <div class="text-left">
+              <div class="font-semibold">Call Support</div>
+              <div class="text-sm opacity-90">Immediate assistance</div>
+            </div>
+          </a>
+          <a href="https://wa.me/8801976724402" target="_blank" rel="noopener" class="btn bg-green-500 hover:bg-green-600 text-white flex items-center justify-center py-4 px-6 rounded-xl hover:scale-105 transition-transform">
+            <i class="fab fa-whatsapp mr-3 text-lg"></i>
+            <div class="text-left">
+              <div class="font-semibold">WhatsApp</div>
+              <div class="text-sm opacity-90">Quick chat support</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Need Custom Paper Products?"
+    description="Contact our team to discuss your requirements and get a personalized quote for your business needs."
+    buttonText="Request a Quote"
+    buttonLink="/contact"
+    secondaryButtonText="Become a Distributor"
+    secondaryButtonLink="/distributor"
+  />
+</Layout>
+
+<style>
+  /* Category cards styling */
+  .category-card {
+    transition: all 0.2s ease;
+    min-width: fit-content;
+    white-space: nowrap;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-card.active {
+    @apply bg-primary-500 text-white shadow-md;
+  }
+  
+  /* FAQ styling */
+  .faq-question:hover {
+    @apply bg-gray-100;
+  }
+  
+  .faq-question.active .faq-icon i {
+    @apply transform rotate-45 text-primary-600;
+  }
+  
+  .faq-answer {
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .faq-question.active + .faq-answer {
+    @apply py-4;
+    max-height: 200px;
+  }
+  
+  /* View toggle */
+  .active-view {
+    @apply shadow-lg;
+  }
+  
+  /* Enhanced mobile responsiveness */
+  @media (max-width: 768px) {
+    .faq-question {
+      @apply px-4 py-3;
+    }
+    
+    .faq-answer {
+      @apply px-4;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Category card switching
+    const categoryCards = document.querySelectorAll('.category-card');
+    const categoryContents = document.querySelectorAll('.category-content');
+    
+    categoryCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const category = card.getAttribute('data-category');
+        
+        // Update active card
+        categoryCards.forEach(c => {
+          c.classList.remove('active', 'bg-primary-500', 'text-white', 'shadow-md');
+          c.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+        });
+        
+        // Activate clicked card
+        card.classList.add('active', 'bg-primary-500', 'text-white', 'shadow-md');
+        card.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+        
+        // Show selected content with fade effect
+        categoryContents.forEach(content => {
+          content.classList.add('hidden');
+          content.classList.remove('block');
+        });
+        
+        const targetContent = document.getElementById(`tab-${category}`);
+        if (targetContent) {
+          setTimeout(() => {
+            targetContent.classList.remove('hidden');
+            targetContent.classList.add('block');
+          }, 150);
+        }
+      });
+    });
+    
+    // FAQ accordion with improved animation
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const isActive = question.classList.contains('active');
+        
+        // Close all other FAQs in the same category (optional)
+        const category = question.getAttribute('data-category');
+        const categoryQuestions = document.querySelectorAll(`.faq-question[data-category="${category}"]`);
+        categoryQuestions.forEach(q => {
+          q.classList.remove('active');
+        });
+        
+        // Toggle current question
+        if (!isActive) {
+          question.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

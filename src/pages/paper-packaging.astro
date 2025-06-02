@@ -1,0 +1,319 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+import PageGallery from '../components/PageGallery.astro';
+import { galleryImages } from '../data/galleryImages';
+
+// Features
+const features = [
+  {
+    title: 'Design Support',
+    description: 'Our in-house design team can help create packaging that reflects your brand identity.',
+    icon: 'fas fa-drafting-compass'
+  },
+  {
+    title: 'MOQ Flexibility',
+    description: 'Minimum order quantities starting from just 2,000 pieces to suit businesses of all sizes.',
+    icon: 'fas fa-sliders-h'
+  },
+  {
+    title: 'Eco-Friendly Materials',
+    description: 'Recyclable board options and eco-inks for environmentally conscious businesses.',
+    icon: 'fas fa-recycle'
+  },
+  {
+    title: 'Customizable Features',
+    description: 'Various sizes, shapes, and functional features to meet your specific needs.',
+    icon: 'fas fa-leaf'
+  }
+];
+
+// Packaging products
+const packagingProducts = [
+  {
+    title: 'Lunch Boxes',
+    description: 'Grease-resistant lunch boxes ideal for restaurants and food delivery services.',
+    image: 'https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/lunch-boxes'
+  },
+  {
+    title: 'Pizza Boxes',
+    description: 'Custom sized and printed pizza boxes that maintain food temperature.',
+    image: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/pizza-boxes'
+  },
+  {
+    title: 'Medicine Packaging',
+    description: 'Tamper-proof packaging solutions for pharmaceutical products.',
+    image: 'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/medicine-packaging'
+  },
+  {
+    title: 'Garment & Retail Packaging',
+    description: 'Die-cut and printed packaging for clothing and retail products.',
+    image: 'https://images.pexels.com/photos/5872298/pexels-photo-5872298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/garment-retail-packaging'
+  }
+];
+
+// SEO Metadata
+const title = "Paper Packaging Solutions";
+const description = "Eco-friendly paper packaging solutions including lunch boxes, pizza boxes, medicine packs, and custom packaging. In-house setup with fast delivery.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Eco-Friendly Paper Packaging Solutions"
+    subtitle="Made in Bangladesh with quality and sustainability in mind."
+    backgroundImage="https://images.pexels.com/photos/5946133/pexels-photo-5946133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Beyond Cups - Complete Packaging Solutions</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            At Joana Paper Product Industry, we go beyond cups. Our fully equipped in-house paper 
+            packaging unit produces durable, food-safe, and eco-conscious boxes for a wide range of industries.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            From restaurants to retail, we manufacture packaging that protects your product and promotes your brand 
+            with customizable printing, box sizing, and sturdy GSM options.
+          </p>
+          <a href="/contact" class="btn btn-primary mt-4">Discuss Your Project</a>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-xl">
+          <img 
+            src="https://images.pexels.com/photos/4254077/pexels-photo-4254077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Paper packaging production" 
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">We Manufacture</h2>
+      <p class="section-subtitle">Explore our range of paper packaging products.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {packagingProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Paper Packaging Gallery Section -->
+  <PageGallery
+    title="Packaging Gallery"
+    subtitle="Browse our collection of paper packaging solutions"
+    category="Packaging"
+    images={galleryImages}
+    columns={3}
+  />
+  
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Your Brand, Our Box</h2>
+      <p class="section-subtitle">Customizable solutions for every packaging need.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Industries Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Industries We Serve</h2>
+      <p class="section-subtitle">Tailored packaging solutions for various sectors.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-utensils h-8 w-8 text-primary-600" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Food & Beverage</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Restaurants & cafes
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Food delivery services
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Bakeries & confectioneries
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Packaged food manufacturers
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-pills h-8 w-8 text-primary-600" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Pharmaceutical</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Medicine manufacturers
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Herbal product companies
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Medical supply distributors
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Healthcare products
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-tshirt h-8 w-8 text-primary-600" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Retail & Garment</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Fashion retailers
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Garment manufacturers
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              Gift shops & boutiques
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+              E-commerce businesses
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Materials Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+              <h3 class="text-xl font-semibold text-primary-800">Available Materials</h3>
+            </div>
+            <div class="p-6">
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Paper Board Types</h4>
+                  <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      Solid Bleached Sulfate (SBS): 250-400 GSM
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      Folding Box Board (FBB): 230-350 GSM
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      Kraft Paper: 120-350 GSM
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      Recycled Board: 250-400 GSM
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Coatings & Finishes</h4>
+                  <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      PE coating for food-grade packaging
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      Grease-resistant treatments
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      Matte / Glossy finish options
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5" aria-hidden="true"></i>
+                      Water-based varnish
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 lg:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Quality Materials for Every Need</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            We use only the highest quality paper board materials to ensure your packaging 
+            is durable, protective, and visually appealing. Our materials are sourced responsibly 
+            and many options are recyclable or biodegradable.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            For food packaging, we use FDA-approved materials with appropriate coatings to 
+            ensure food safety while maintaining eco-friendly credentials. Special treatments 
+            like grease-resistance for food containers and moisture barriers for sensitive 
+            products are available.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Order Custom Packaging?"
+    description="Contact our customer service to place your packaging order. We deliver nationwide with MOQ flexibility starting from 2,000 pieces."
+    buttonText="Contact Our Team"
+    buttonLink="/contact"
+    secondaryButtonText="Request Samples"
+    secondaryButtonLink="/contact?request=samples"
+  />
+</Layout>

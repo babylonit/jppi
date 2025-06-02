@@ -1,0 +1,35 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  company: string;
+  image?: string;
+}
+
+const { quote, author, company, image } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+  <div class="flex justify-center mb-6">
+    <i class="fas fa-quote-right text-primary-500 h-8 w-8" aria-hidden="true"></i>
+  </div>
+  
+  <blockquote>
+    <p class="text-gray-700 text-lg leading-relaxed mb-6">{quote}</p>
+  </blockquote>
+  
+  <div class="flex items-center">
+    {image && (
+      <img 
+        src={image} 
+        alt={author} 
+        class="h-12 w-12 rounded-full object-cover mr-4"
+      />
+    )}
+    
+    <div>
+      <p class="font-semibold text-gray-900">{author}</p>
+      <p class="text-gray-600 text-sm">{company}</p>
+    </div>
+  </div>
+</div>

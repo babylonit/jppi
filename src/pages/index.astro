@@ -1,0 +1,581 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureSection from '../components/FeatureSection.astro';
+import ProductsSection from '../components/ProductsSection.astro';
+import CallToAction from '../components/CallToAction.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import LightboxGallery from '../components/LightboxGallery.astro';
+import { galleryImages } from '../data/galleryImages';
+
+// Features data
+const features = [
+  {
+    title: 'QC-100 Certified',
+    description: 'Our products meet the highest quality standards with QC-100 certification for toxin-free production.',
+    icon: 'fas fa-shield-alt'
+  },
+  {
+    title: 'FDA-Approved Materials',
+    description: 'We use only FDA-approved materials to ensure food safety and compliance with international standards.',
+    icon: 'fas fa-check'
+  },
+  {
+    title: 'Eco-Friendly Packaging',
+    description: 'Our commitment to sustainability includes using soy-based inks and biodegradable materials.',
+    icon: 'fas fa-leaf'
+  },
+  {
+    title: 'Fast Lead Time',
+    description: '2-3 days for stock items and 20+ days for custom orders, ensuring timely delivery.',
+    icon: 'fas fa-clock'
+  },
+  {
+    title: 'Bulk Order Support',
+    description: 'Whether you need 2,000 or 200,000 pieces, we can handle orders of any size with consistent quality.',
+    icon: 'fas fa-box'
+  },
+  {
+    title: 'Custom Printing',
+    description: 'High-quality custom printing services to enhance your brand identity on all packaging products.',
+    icon: 'fas fa-print'
+  }
+];
+
+// Products data
+const featuredProducts = [
+  {
+    title: 'Disposable Paper Cups',
+    description: 'Available in sizes from 50ml to 400ml with customizable printing options.',
+    image: 'https://images.pexels.com/photos/3846999/pexels-photo-3846999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/disposable-paper-cups'
+  },
+  {
+    title: 'Food Packaging Boxes',
+    description: 'Eco-friendly food packaging solutions with grease-resistant coating.',
+    image: 'https://images.pexels.com/photos/5922443/pexels-photo-5922443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-packaging'
+  },
+  {
+    title: 'Offset Printing Services',
+    description: 'High-resolution CMYK printing for labels, posters, menus, and more.',
+    image: 'https://images.pexels.com/photos/5686102/pexels-photo-5686102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/offset-printing'
+  }
+];
+
+// Featured Paper Cups
+const featuredPaperCups = [
+  {
+    title: '100 ml Disposable Paper Cup',
+    description: 'Perfect for espresso, small hot beverages, and sample servings.',
+    image: 'https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/disposable-paper-cups'
+  },
+  {
+    title: '120 ml Disposable Paper Cup',
+    description: 'Ideal for tea, coffee, and other hot beverages.',
+    image: 'https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/disposable-paper-cups'
+  },
+  {
+    title: '150 ml Disposable Paper Cup',
+    description: 'Multi-purpose cup for hot and cold beverages.',
+    image: 'https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/disposable-paper-cups'
+  },
+  {
+    title: '250 ml Disposable Paper Cup',
+    description: 'Large size cup perfect for premium coffee drinks and cold beverages.',
+    image: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/disposable-paper-cups'
+  }
+];
+
+// Featured Paper Packaging
+const featuredPaperPackaging = [
+  {
+    title: 'Lunch Boxes',
+    description: 'Eco-friendly lunch boxes for restaurants and food delivery.',
+    image: 'https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-packaging'
+  },
+  {
+    title: 'Pizza Boxes',
+    description: 'Custom printed pizza boxes in various sizes.',
+    image: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-packaging'
+  },
+  {
+    title: 'Food Containers',
+    description: 'Eco-friendly containers for takeaway and delivery foods.',
+    image: 'https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-packaging'
+  },
+  {
+    title: 'Custom Packaging',
+    description: 'Bespoke packaging solutions designed for your specific needs.',
+    image: 'https://images.pexels.com/photos/7319199/pexels-photo-7319199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-packaging'
+  }
+];
+
+// Featured Printing Services
+const featuredPrintingServices = [
+  {
+    title: 'Food Packaging & Labels',
+    description: 'FDA-compliant food packaging with custom designs.',
+    image: 'https://images.pexels.com/photos/5945694/pexels-photo-5945694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/offset-printing'
+  },
+  {
+    title: 'Posters & Flyers',
+    description: 'High-resolution promotional materials printed on premium paper.',
+    image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/offset-printing'
+  },
+  {
+    title: 'Business Stationery',
+    description: 'Professional business cards, letterheads, and envelopes.',
+    image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/offset-printing'
+  },
+  {
+    title: 'Custom Stickers',
+    description: 'Durable and colorful stickers with various adhesive options.',
+    image: 'https://images.pexels.com/photos/7125005/pexels-photo-7125005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/offset-printing'
+  }
+];
+
+// Filter gallery images by category to ensure balanced representation
+const paperCupImages = galleryImages.filter(img => img.category === 'Paper Cups').slice(0, 3);
+const packagingImages = galleryImages.filter(img => img.category === 'Packaging').slice(0, 3);
+const printingImages = galleryImages.filter(img => img.category === 'Printing').slice(0, 3);
+
+// Combine the filtered images for the homepage gallery
+const homeGalleryImages = [...paperCupImages, ...packagingImages, ...printingImages];
+
+// Create a unique ID for the homepage gallery's lightbox
+const homeGalleryLightboxId = "lightbox-home-gallery";
+
+// Popular FAQs for homepage
+const popularFaqs = [
+  {
+    question: 'Are Joana Cups leak-proof?',
+    questionBn: 'জোয়ানা কাপ লিক-প্রুফ কি?',
+    answer: 'Yes, QC-100 certified leak-proof tech with PE or biodegradable coatings.',
+    answerBn: 'হ্যাঁ, QC-100 সার্টিফাইড লিক-প্রুফ প্রযুক্তি ব্যবহৃত হয়।'
+  },
+  {
+    question: 'Minimum order quantity (MOQ)?',
+    questionBn: 'সর্বনিম্ন অর্ডার পরিমাণ কত?',
+    answer: '30,000 pcs for custom, 2,000 pcs for ready stock.',
+    answerBn: 'কাস্টম: ৩০,০০০ পিস, রেডি: ২,০০০ পিস।'
+  },
+  {
+    question: 'Production time for bulk?',
+    questionBn: 'বাল্ক অর্ডারে সময় লাগে কতদিন?',
+    answer: 'Custom: 20+ days; Stock: 2–3 days.',
+    answerBn: 'কাস্টম: ২০+ দিন, স্টক: ২–৩ দিন।'
+  },
+  {
+    question: 'Are cups biodegradable?',
+    questionBn: 'কাপ বায়োডিগ্রেডেবল কি?',
+    answer: 'Yes, 100% with eco-coating.',
+    answerBn: 'হ্যাঁ, ১০০% পরিবেশবান্ধব।'
+  }
+];
+
+// SEO Metadata
+const title = "Paper Cup Manufacturer in Bangladesh";
+const description = "Leading biodegradable paper cup manufacturer in Bangladesh. QC-100 certified, Nestlé-approved supplier. Custom printing available. Bulk orders welcome.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Bangladesh's Trusted Paper Cup Manufacturer"
+    subtitle="Leading manufacturer of sustainable, food-safe packaging solutions. QC-100 certified, FDA-approved, and trusted by top brands like Nestlé."
+    ctaText="Get a Quote"
+    ctaLink="/contact"
+    secondaryCtaText="Explore Products"
+    secondaryCtaLink="/paper-product"
+    backgroundImage="https://lh3.googleusercontent.com/gps-cs-s/AC9h4np_PI2HpONROtcXQgCKLZUUsw6EsD5EYDhRpfjkXF4iBd6RtPfFTjIATFf5_x4HmQN7dK7ff9yAcjRLg2lOpliFvMAAg2QQXZL-MVFjE6Jd0t0aCcK8VZwEPiMG8XM3DerpN4Ca=s1360-w1360-h1020-rw"
+    stats={[
+      {
+        icon: "fas fa-certificate",
+        value: "QC-100",
+        label: "Certified Quality"
+      },
+      {
+        icon: "fas fa-globe",
+        value: "6+",
+        label: "Export Countries"
+      },
+      {
+        icon: "fas fa-users",
+        value: "500+",
+        label: "Happy Clients"
+      }
+    ]}
+  />
+  
+  <!-- About Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Welcome to Joana Paper Product Industry</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Joana Paper Product Industry (JPPI) is a leading biodegradable paper cup manufacturer in Bangladesh, 
+            dedicated to sustainable, food-safe packaging solutions.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            With international quality recognition (CQE Geneva Award), we proudly serve top-tier brands 
+            like Nestlé, Coats, and leading coffee chains throughout Bangladesh.
+          </p>
+          <a href="/about" class="btn btn-primary mt-4">Learn More About Us</a>
+        </div>
+        <div class="relative">
+          <img 
+            src="https://images.pexels.com/photos/6615076/pexels-photo-6615076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Paper cup manufacturing process" 
+            class="rounded-lg shadow-xl w-full"
+          />
+          <div class="absolute -bottom-6 -left-6 bg-primary-850 text-white p-4 rounded-lg shadow-lg hidden md:block">
+            <p class="font-semibold">2+ Years</p>
+            <p class="text-sm">Shelf Life Guarantee</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Paper Cups Section -->
+  <ProductsSection
+    title="Disposable Paper Cups"
+    subtitle="Available in various sizes with customizable printing options for your brand."
+    products={featuredPaperCups}
+    viewAllLink="/disposable-paper-cups"
+  />
+  
+  <!-- Paper Packaging Section -->
+  <ProductsSection
+    title="Paper Packaging Solutions"
+    subtitle="Eco-friendly packaging options for food, retail, and other industries."
+    products={featuredPaperPackaging}
+    viewAllLink="/paper-packaging"
+  />
+  
+  <!-- Printing Services Section -->
+  <ProductsSection
+    title="Offset Printing Services"
+    subtitle="High-resolution printing for all your marketing and packaging needs."
+    products={featuredPrintingServices}
+    viewAllLink="/offset-printing"
+  />
+  
+  <!-- Why Choose Us Section -->
+  <FeatureSection
+    title="Why Choose Joana?"
+    subtitle="We combine quality, sustainability, and service to deliver the best paper products in Bangladesh."
+    features={features}
+  />
+  
+  <!-- Gallery Section with Filters -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Product Gallery</h2>
+      <p class="section-subtitle">Browse our range of high-quality paper products and packaging solutions.</p>
+      
+      <!-- Gallery Filter -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <button class="filter-btn active" data-filter="all">
+          All Products
+        </button>
+        <button class="filter-btn" data-filter="Paper Cups">
+          Paper Cups
+        </button>
+        <button class="filter-btn" data-filter="Packaging">
+          Packaging
+        </button>
+        <button class="filter-btn" data-filter="Printing">
+          Printing
+        </button>
+      </div>
+      
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 gallery-grid">
+        {homeGalleryImages.map((image, index) => (
+          <div class="gallery-item" data-category={image.category}>
+            <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <div class="relative aspect-w-16 aspect-h-12 overflow-hidden h-64 cursor-pointer">
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                  data-lightbox={homeGalleryLightboxId}
+                  data-caption={`${image.alt} - ${image.category}`}
+                  data-index={index}
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-4 text-white">
+                    <p class="font-medium">{image.alt}</p>
+                    <p class="text-sm opacity-80">{image.category}</p>
+                    <p class="text-sm mt-2">
+                      <i class="fas fa-search-plus mr-1"></i> Click to view
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-8 text-center">
+        <a href="/gallery" class="btn btn-primary">
+          View Full Gallery
+        </a>
+      </div>
+      
+      <!-- Home Gallery Lightbox -->
+      <LightboxGallery id={homeGalleryLightboxId} />
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Trusted by businesses across Bangladesh for quality and reliability.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <TestimonialCard
+          quote="Joana's paper cups have been essential for our coffee shop chain. The quality is consistent, and they've always delivered on time."
+          author="Mohammed Rahman"
+          company="Dhaka Coffee Co."
+        />
+        <TestimonialCard
+          quote="The custom printing quality is excellent. Our brand looks great on their packaging, and our customers love the eco-friendly approach."
+          author="Anika Chowdhury"
+          company="Green Eats Restaurant"
+        />
+        <TestimonialCard
+          quote="We've been working with Joana for our pharmaceutical packaging needs. Their attention to detail and quality control is impressive."
+          author="Dr. Kamal Hossain"
+          company="Bangladesh Pharma Ltd."
+        />
+      </div>
+    </div>
+  </section>
+  
+  <!-- Our Clients Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Trusted by Leading Brands</h2>
+      <p class="section-subtitle">We proudly serve some of the most respected companies in Bangladesh</p>
+      
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <!-- Nestle -->
+        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Nestl%C3%A9.svg/1200px-Nestl%C3%A9.svg.png"
+            alt="Nestlé"
+            class="h-12 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+        </div>
+        
+        <!-- Apex -->
+        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <img 
+            src="https://www.apex-foundation.org/wp-content/uploads/2020/07/apex-logo.png"
+            alt="Apex"
+            class="h-12 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+        </div>
+        
+        <!-- Bata -->
+        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Bata_logo.svg/2560px-Bata_logo.svg.png"
+            alt="Bata"
+            class="h-12 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+        </div>
+        
+        <!-- Cadet College Club -->
+        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <img 
+            src="https://cadetcollegeclub.org/wp-content/uploads/2020/07/ccc-logo.png"
+            alt="Cadet College Club"
+            class="h-12 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+        </div>
+        
+        <!-- US Bangla Airlines -->
+        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/US-Bangla_Airlines_Logo.svg/2560px-US-Bangla_Airlines_Logo.svg.png"
+            alt="US Bangla Airlines"
+            class="h-12 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+        </div>
+        
+        <!-- Starbucks -->
+        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
+            alt="Starbucks"
+            class="h-12 object-contain grayscale hover:grayscale-0 transition-all"
+          />
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <p class="text-lg text-gray-600">Join the growing list of satisfied customers who trust our quality and service</p>
+        <a href="/contact" class="btn btn-primary mt-6">Become Our Client</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Quick answers to common questions about our products and services</p>
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="space-y-4">
+          {popularFaqs.map((faq, index) => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <button 
+                class="home-faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                data-index={index}
+              >
+                <div class="pr-8">
+                  <p class="text-lg font-medium text-gray-900">{faq.question}</p>
+                  <p class="text-base font-medium text-gray-700 mt-1">{faq.questionBn}</p>
+                </div>
+                <span class="faq-icon flex-shrink-0 ml-2 text-gray-500 transition-transform duration-200">
+                  <i class="fas fa-plus"></i>
+                </span>
+              </button>
+              
+              <div class="home-faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                <div class="py-4 text-gray-600 border-t">
+                  <p class="mb-2">{faq.answer}</p>
+                  <p class="text-gray-700">{faq.answerBn}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="mt-8 text-center">
+          <a href="/faq" class="btn btn-primary">
+            View All FAQs
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Order Your Custom Paper Products?"
+    description="Whether you need standard cups or fully customized packaging solutions, we're here to help. Get in touch today for a quote."
+    buttonText="Contact Us"
+    buttonLink="/contact"
+    secondaryButtonText="View Products"
+    secondaryButtonLink="/paper-product"
+  />
+</Layout>
+
+<style>
+  /* Filter button styles */
+  .filter-btn {
+    @apply px-4 py-2 bg-white text-gray-700 rounded-md border border-gray-300 transition-colors hover:bg-primary-50 hover:border-primary-200;
+  }
+  
+  .filter-btn.active {
+    @apply bg-primary-500 text-white border-primary-500 hover:bg-primary-600;
+  }
+  
+  /* Home FAQ styling */
+  .home-faq-question:hover {
+    @apply bg-gray-50;
+  }
+  
+  .home-faq-question.active .faq-icon i {
+    @apply transform rotate-45;
+  }
+  
+  .home-faq-answer {
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .home-faq-question.active + .home-faq-answer {
+    @apply max-h-96 py-2;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Gallery filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    // Initialize Filtering
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter gallery items
+        const filter = button.getAttribute('data-filter');
+        
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // After filtering, make sure lightbox refreshes its image list
+        setTimeout(() => {
+          // Try to call the refresh function from the lightbox
+          if (window['lightbox_lightbox-home-gallery'] && window['lightbox_lightbox-home-gallery'].refresh) {
+            window['lightbox_lightbox-home-gallery'].refresh();
+          }
+        }, 300);
+      });
+    });
+    
+    // Add a click handler for the gallery items to make sure clicks work
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        // Find the image inside this gallery item
+        const img = this.querySelector('img[data-lightbox]');
+        if (img) {
+          // Trigger a click on the image
+          img.click();
+        }
+      });
+    });
+    
+    // Home FAQ accordion
+    const homeFaqQuestions = document.querySelectorAll('.home-faq-question');
+    
+    homeFaqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        // Toggle current question
+        question.classList.toggle('active');
+      });
+    });
+  });
+</script>

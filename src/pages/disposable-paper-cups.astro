@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+import PageGallery from '../components/PageGallery.astro';
+import { galleryImages } from '../data/galleryImages';
+
+// Service features
+const serviceFeatures = [
+  {
+    title: 'Custom Design',
+    description: 'Work with our design team to create unique packaging that reflects your brand identity.',
+    icon: 'fas fa-pencil-ruler'
+  },
+  {
+    title: 'Bulk Orders',
+    description: 'Competitive pricing for bulk orders with flexible minimum order quantities starting from 2,000 pieces.',
+    icon: 'fas fa-boxes'
+  },
+  {
+    title: 'Fast Delivery',
+    description: 'Quick turnaround times with delivery across Bangladesh.',
+    icon: 'fas fa-truck'
+  },
+  {
+    title: 'Sample Kits',
+    description: 'Request a sample kit to experience our product quality before placing large orders.',
+    icon: 'fas fa-box-open'
+  }
+];
+
+// Paper Cup sizes
+const paperCupProducts = [
+  {
+    title: '100 ml Disposable Paper Cup',
+    description: 'Perfect for espresso, small hot beverages, and sample servings. Bottom size: 40mm.',
+    image: 'https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/paper-cups/100ml'
+  },
+  {
+    title: '120 ml Disposable Paper Cup',
+    description: 'Ideal for tea, coffee, and other hot beverages. Bottom size: 46mm.',
+    image: 'https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/paper-cups/120ml'
+  },
+  {
+    title: '150 ml Disposable Paper Cup',
+    description: 'Multi-purpose cup for hot and cold beverages. Bottom size: 46mm and 52mm options available.',
+    image: 'https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/paper-cups/150ml'
+  },
+  {
+    title: '250 ml Disposable Paper Cup',
+    description: 'Large size cup perfect for premium coffee drinks and cold beverages. Bottom size: 52mm.',
+    image: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/paper-cups/250ml'
+  }
+];
+
+// Other product data
+const otherProducts = [
+  {
+    title: 'Paper Plates',
+    description: 'Biodegradable paper plates in various sizes for food service.',
+    image: 'https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/paper-plates'
+  },
+  {
+    title: 'Lunch Boxes',
+    description: 'Eco-friendly lunch boxes for restaurants and food delivery.',
+    image: 'https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/lunch-boxes'
+  },
+  {
+    title: 'Pizza Boxes',
+    description: 'Custom printed pizza boxes in various sizes.',
+    image: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/pizza-boxes'
+  },
+  {
+    title: 'Tissue Papers',
+    description: 'High-quality tissue papers for restaurants and cafes.',
+    image: 'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/tissue-papers'
+  },
+  {
+    title: 'Medicine Packaging',
+    description: 'Tamper-proof packaging solutions for pharmaceutical products.',
+    image: 'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/medicine-packaging'
+  },
+  {
+    title: 'Garment Tags',
+    description: 'Custom printed tags for garment and retail industries.',
+    image: 'https://images.pexels.com/photos/5872298/pexels-photo-5872298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/garment-tags'
+  },
+  {
+    title: 'Food Containers',
+    description: 'Eco-friendly containers for takeaway and delivery foods.',
+    image: 'https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/food-containers'
+  },
+  {
+    title: 'Custom Packaging',
+    description: 'Bespoke packaging solutions designed for your specific needs.',
+    image: 'https://images.pexels.com/photos/7319199/pexels-photo-7319199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/paper-product/custom-packaging'
+  }
+];
+
+// SEO Metadata
+const title = "Products | Paper Cups & Packaging Solutions";
+const description = "Explore our range of biodegradable paper cups, plates, lunch boxes, and eco-friendly packaging solutions. Custom printing available.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Our Products"
+    subtitle="Explore our range of eco-friendly paper products and packaging solutions."
+    backgroundImage="https://images.pexels.com/photos/5677789/pexels-photo-5677789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Paper Cups Section -->
+  <section class="section">
+    <div class="container">
+      <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Biodegradable Paper Cups</h2>
+        <p class="text-lg text-gray-600 max-w-3xl">
+          Our biodegradable paper cups are made with FDA-approved materials and feature leak-proof technology with PE/PLA coatings.
+          Available in various sizes with custom printing options.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {paperCupProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+      
+      <!-- Cup Sizes Table -->
+      <div class="mt-16 bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+          <h3 class="text-xl font-semibold text-primary-800">Available Cup Sizes</h3>
+        </div>
+        <div class="p-6 overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Size</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Volume</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bottom Size</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Suitable For</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Min. Order</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Extra Small</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">100ml</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">40mm</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Espresso, Tea Samples</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">5,000 pcs</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Small</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">120ml</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">46mm</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Coffee, Tea</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">3,000 pcs</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Medium</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">150ml</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">46mm or 52mm</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Regular Coffee, Soft Drinks</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2,500 pcs</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Large</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">250ml</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">52mm</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Large Coffee, Cold Drinks</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2,000 pcs</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-center mt-4 text-sm text-gray-600 italic">
+            Need custom sizes? <a href="/contact" class="text-primary-600 hover:text-primary-700 font-medium">Contact us</a> to discuss your specific requirements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Paper Cup Gallery Section -->
+  <PageGallery
+    title="Paper Cup Gallery"
+    subtitle="View our collection of high-quality paper cups for various uses"
+    category="Paper Cups"
+    images={galleryImages}
+    columns={3}
+  />
+  
+  <!-- Other Products Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Other Paper Products</h2>
+        <p class="text-lg text-gray-600 max-w-3xl">
+          Beyond paper cups, we offer a wide range of eco-friendly paper products for various industries.
+          All our products are made with sustainable materials and can be customized with your branding.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {otherProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section class="section">
+    <div class="container">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          We offer comprehensive services to meet all your paper product needs, from design to delivery.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {serviceFeatures.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Need Custom Products?"
+    description="Contact us today to discuss your requirements. We offer free consultations and sample kits to help you find the perfect solution."
+    buttonText="Request a Quote"
+    buttonLink="/contact"
+    backgroundImage="https://images.pexels.com/photos/6615161/pexels-photo-6615161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+</Layout>
