@@ -3,6 +3,8 @@ class JoanaChatBot {
   constructor() {
     this.responses = this.initializeResponses();
     this.context = '';
+    this.notificationShown = false;
+    this.notificationDismissed = false;
     this.init();
   }
 
@@ -74,7 +76,7 @@ class JoanaChatBot {
       location: {
         patterns: ['location', 'address', 'where are you', 'where located', 'find you'],
         responses: [
-          "Our manufacturing facility is located at 123 Industrial Area, Gazipur, Dhaka, Bangladesh. However, our corporate office is in 319, Eastern Road (Lane # 4), Baridhara DOHS, Dhaka – 1206."
+          "Our manufacturing facility is located at 123 Industrial Area, Gazipur, Dhaka, Bangladesh. Additionally, our corporate office can be found at 319, Eastern Road (Lane # 4), Baridhara DOHS, Dhaka – 1206."
         ]
       },
 
@@ -154,7 +156,55 @@ class JoanaChatBot {
   init() {
     document.addEventListener('DOMContentLoaded', () => {
       this.initializeUI();
+      this.initializeScrollNotification();
     });
+  }
+
+  initializeScrollNotification() {
+    let scrollTimer = null;
+    
+    window.addEventListener('scroll', () => {
+      // Clear existing timer
+      if (scrollTimer) {
+        clearTimeout(scrollTimer);
+      }
+      
+      // Check if user has scrolled down at least 500px and notification hasn't been shown/dismissed
+      if (window.scrollY > 500 && !this.notificationShown && !this.notificationDismissed) {
+        // Show notification after a short delay to avoid showing on quick scrolls
+        scrollTimer = setTimeout(() => {
+          this.showScrollNotification();
+        }, 1500);
+      }
+    });
+  }
+
+  showScrollNotification() {
+    const notification = document.getElementById('chat-notification');
+    const notificationDot = document.getElementById('notification-dot');
+    
+    if (notification && !this.notificationShown) {
+      notification.classList.remove('hidden');
+      notificationDot.classList.remove('hidden');
+      this.notificationShown = true;
+      
+      // Auto-hide after 8 seconds if not interacted with
+      setTimeout(() => {
+        if (!this.notificationDismissed) {
+          this.hideScrollNotification();
+        }
+      }, 8000);
+    }
+  }
+
+  hideScrollNotification() {
+    const notification = document.getElementById('chat-notification');
+    const notificationDot = document.getElementById('notification-dot');
+    
+    if (notification) {
+      notification.classList.add('hidden');
+      notificationDot.classList.add('hidden');
+    }
   }
 
   initializeUI() {
@@ -165,6 +215,28 @@ class JoanaChatBot {
     const quickActions = document.querySelectorAll('.quick-action');
     const chatIcon = document.getElementById('chat-icon');
     const closeIcon = document.getElementById('close-icon');
+    const notificationClose = document.getElementById('notification-close');
+    const notificationChatBtn = document.getElementById('notification-chat-btn');
+
+    // Notification close button
+    if (notificationClose) {
+      notificationClose.addEventListener('click', () => {
+        this.notificationDismissed = true;
+        this.hideScrollNotification();
+      });
+    }
+
+    // Notification chat button
+    if (notificationChatBtn) {
+      notificationChatBtn.addEventListener('click', () => {
+        this.notificationDismissed = true;
+        this.hideScrollNotification();
+        // Open chat window
+        chatWindow.classList.remove('hidden');
+        chatIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      });
+    }
 
     // Toggle chat window
     chatToggle.addEventListener('click', () => {
@@ -174,6 +246,11 @@ class JoanaChatBot {
         chatWindow.classList.remove('hidden');
         chatIcon.classList.add('hidden');
         closeIcon.classList.remove('hidden');
+        // Hide notification when chat is opened
+        if (this.notificationShown) {
+          this.notificationDismissed = true;
+          this.hideScrollNotification();
+        }
       } else {
         chatWindow.classList.add('hidden');
         chatIcon.classList.remove('hidden');
