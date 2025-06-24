@@ -1,0 +1,123 @@
+---
+// This component creates a floating chatbot interface
+---
+
+<div id="chatbot-container" class="fixed bottom-4 right-4 z-50">
+  <!-- Chat Button -->
+  <button id="chat-toggle" class="bg-primary-500 hover:bg-primary-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105">
+    <svg id="chat-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-4.126-.976L3 20l1.114-5.874A8.955 8.955 0 013 12c0-4.418 3.582-8 8-8s8 3.582 8 8z"></path>
+    </svg>
+    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <!-- Chat Window -->
+  <div id="chat-window" class="hidden absolute bottom-16 right-0 w-80 h-96 bg-white rounded-lg shadow-xl border border-gray-200 flex flex-col">
+    <!-- Header -->
+    <div class="bg-primary-500 text-white p-4 rounded-t-lg">
+      <div class="flex items-center">
+        <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-3">
+          <span class="text-primary-500 font-bold text-sm">J</span>
+        </div>
+        <div>
+          <h3 class="font-semibold">Joana Assistant</h3>
+          <p class="text-sm opacity-90">Ask me anything about our products!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3">
+      <div class="flex items-start">
+        <div class="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+          <span class="text-white text-xs font-bold">J</span>
+        </div>
+        <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+          <p class="text-sm">Hello! I'm Joana Assistant. I can help you with information about our paper products, pricing, location, and more. How can I assist you today?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-4 border-t border-gray-200">
+      <div class="flex">
+        <input 
+          type="text" 
+          id="chat-input" 
+          placeholder="Type your message..." 
+          class="flex-1 border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+        />
+        <button 
+          id="send-button" 
+          class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-r-lg transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Quick Actions -->
+      <div class="mt-2 flex flex-wrap gap-1">
+        <button class="quick-action bg-gray-100 hover:bg-gray-200 text-xs px-2 py-1 rounded-full transition-colors" data-message="What are your product prices?">
+          Pricing
+        </button>
+        <button class="quick-action bg-gray-100 hover:bg-gray-200 text-xs px-2 py-1 rounded-full transition-colors" data-message="Where are you located?">
+          Location
+        </button>
+        <button class="quick-action bg-gray-100 hover:bg-gray-200 text-xs px-2 py-1 rounded-full transition-colors" data-message="What are your business hours?">
+          Hours
+        </button>
+        <button class="quick-action bg-gray-100 hover:bg-gray-200 text-xs px-2 py-1 rounded-full transition-colors" data-message="What products do you make?">
+          Products
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Import the chatbot logic
+  import '/src/scripts/chatbot-logic.js';
+</script>
+
+<style>
+  #chat-window {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #chat-messages {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f7fafc;
+  }
+  
+  #chat-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  #chat-messages::-webkit-scrollbar-track {
+    background: #f7fafc;
+  }
+  
+  #chat-messages::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 4px;
+  }
+  
+  #chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }
+</style>
