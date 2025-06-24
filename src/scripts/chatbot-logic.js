@@ -74,7 +74,7 @@ class JoanaChatBot {
       location: {
         patterns: ['location', 'address', 'where are you', 'where located', 'find you'],
         responses: [
-          "We're located at 123 Industrial Area, Gazipur, Dhaka, Bangladesh. You can find us on Google Maps. We're easily accessible from Dhaka city center."
+          "Our company is located at 123 Industrial Area, Gazipur, Dhaka, Bangladesh. However, offer corporate office located in 319, Eastern Road (Lane # 4), Baridhara DOHS, Dhaka – 1206."
         ]
       },
 
