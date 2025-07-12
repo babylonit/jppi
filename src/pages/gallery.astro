@@ -35,42 +35,69 @@ const projectImages = [
 
 // SEO Metadata
 const title = "Product Gallery";
-const description = "Browse our gallery of paper cups, packaging solutions, and printing services. See examples of our work for various industries.";
+const description = "Browse our gallery of paper cups, packaging solutions, and printing services. See examples of our work for various industries including local product images.";
 
 // Generate unique IDs for each lightbox
 const mainGalleryLightboxId = "lightbox-main-gallery";
 const projectsLightboxId = "lightbox-projects";
 const processLightboxId = "lightbox-process";
+
+// Count images by category
+const imageCounts = galleryImages.reduce((counts, image) => {
+  counts[image.category] = (counts[image.category] || 0) + 1;
+  return counts;
+}, {});
+
+// Get unique categories
+const categories = [...new Set(galleryImages.map(image => image.category))].sort();
 ---
 
 <Layout title={title} description={description}>
   <!-- Hero Section -->
   <Hero
-    title="Our Gallery"
-    subtitle="Explore our products and completed projects."
+    title="Our Product Gallery"
+    subtitle="Explore our comprehensive collection of products including real images from our manufacturing facility."
     backgroundImage="https://images.pexels.com/photos/5945741/pexels-photo-5945741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   />
   
-  <!-- Gallery Section -->
+  <!-- Gallery Statistics Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Gallery Overview</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Our gallery showcases {galleryImages.length} high-quality images across {categories.length} product categories, 
+          including authentic photos from our manufacturing facility and professional product shots.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        {categories.map(category => (
+          <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+            <div class="text-2xl font-bold text-primary-600 mb-2">{imageCounts[category]}</div>
+            <div class="text-sm text-gray-600">{category}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Main Gallery Section -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Product Gallery</h2>
-      <p class="section-subtitle">Browse our range of high-quality paper products and packaging solutions.</p>
+      <p class="section-subtitle">Browse our range of high-quality products and packaging solutions with authentic manufacturing images.</p>
       
-      <!-- Gallery Filter -->
+      <!-- Updated Gallery Filter -->
       <div class="flex flex-wrap justify-center gap-2 mb-8">
         <button class="filter-btn active" data-filter="all">
-          All Products
+          All Products ({galleryImages.length})
         </button>
-        <button class="filter-btn" data-filter="Paper Cups">
-          Paper Cups
-        </button>
-        <button class="filter-btn" data-filter="Packaging">
-          Packaging
-        </button>
-        <button class="filter-btn" data-filter="Printing">
-          Printing
-        </button>
+        {categories.map(category => (
+          <button class="filter-btn" data-filter={category}>
+            {category} ({imageCounts[category]})
+          </button>
+        ))}
       </div>
       
       <!-- Gallery Grid -->
@@ -92,6 +119,11 @@ const processLightboxId = "lightbox-process";
                   <div class="p-4 text-white">
                     <p class="font-medium">{image.alt}</p>
                     <p class="text-sm opacity-80">{image.category}</p>
+                    {image.src.startsWith('/images/') && (
+                      <p class="text-xs opacity-70 mt-1">
+                        <i class="fas fa-camera mr-1"></i> Our Product
+                      </p>
+                    )}
                     <p class="text-sm mt-2">
                       <i class="fas fa-search-plus mr-1"></i> Click to view
                     </p>
@@ -236,6 +268,78 @@ const processLightboxId = "lightbox-process";
     </div>
   </section>
   
+  <!-- Local vs Professional Images Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Image Sources</h2>
+      <p class="section-subtitle">Our gallery combines authentic product photos with professional stock imagery.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-green-500">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-camera text-green-600 text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900">Our Product Images</h3>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Authentic photographs taken at our manufacturing facility showcasing real products we manufacture.
+            These images give you an accurate representation of our quality and craftsmanship.
+          </p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-green-500 mr-2 mt-0.5"></i>
+              Paper cups in various sizes and colors
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-green-500 mr-2 mt-0.5"></i>
+              Packaging products from our production line
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-green-500 mr-2 mt-0.5"></i>
+              Printing and stationery samples
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-green-500 mr-2 mt-0.5"></i>
+              Custom packaging solutions we've created
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-blue-500">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-images text-blue-600 text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900">Professional Stock Images</h3>
+          </div>
+          <p class="text-gray-600 mb-4">
+            High-quality professional photographs that showcase similar products and applications,
+            helping you visualize how our products can be used in various settings.
+          </p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-blue-500 mr-2 mt-0.5"></i>
+              Coffee shop and restaurant applications
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-blue-500 mr-2 mt-0.5"></i>
+              Food service industry examples
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-blue-500 mr-2 mt-0.5"></i>
+              Office and business environment usage
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-blue-500 mr-2 mt-0.5"></i>
+              Eco-friendly product alternatives
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
   <!-- Call to Action -->
   <CallToAction
     title="Ready to Create Your Own Custom Products?"
@@ -243,7 +347,7 @@ const processLightboxId = "lightbox-process";
     buttonText="Contact Us"
     buttonLink="/contact"
     secondaryButtonText="View Products"
-    secondaryButtonLink="/paper-product"
+    secondaryButtonLink="/disposable-paper-cups"
   />
 </Layout>
 
