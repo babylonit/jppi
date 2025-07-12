@@ -271,99 +271,201 @@ const isActive = (path: string) => {
     </div>
   </div>
   
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg">
-    <div class="pt-2 pb-4 px-5 space-y-1">
+  <!-- Enhanced Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg max-h-screen overflow-y-auto">
+    <div class="pt-2 pb-4 px-4 space-y-2">
       <!-- Mobile Paper Items Accordion -->
-      <div class="mobile-accordion">
-        <button class="mobile-accordion-trigger w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex justify-between items-center">
-          Paper Items
-          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon"></i>
+      <div class="mobile-accordion border border-gray-200 rounded-lg mb-2">
+        <button class="mobile-accordion-trigger w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:bg-gray-50 flex justify-between items-center bg-gray-50">
+          <div class="flex items-center">
+            <i class="fas fa-copy text-primary-600 mr-3 text-lg"></i>
+            <span>Paper Items</span>
+          </div>
+          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon text-primary-600"></i>
         </button>
-        <div class="mobile-accordion-content hidden pl-4 pt-2 space-y-3">
-          <div>
-            <a href="/disposable-paper-cups" class="block font-medium text-sm text-gray-900 mb-1">Disposable Paper Cups</a>
-            <div class="text-xs text-gray-600 space-y-1 pl-2">
-              <div>50ml-400ml Paper Cups</div>
-              <div>Custom-Size Paper Cups</div>
+        <div class="mobile-accordion-content hidden px-4 pb-4 space-y-4">
+          <!-- Paper Cups Section -->
+          <div class="border-l-2 border-primary-200 pl-4">
+            <a href="/disposable-paper-cups" class="block font-semibold text-primary-700 mb-2 text-sm hover:text-primary-800">
+              📱 Disposable Paper Cups
+            </a>
+            <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+              <div class="space-y-1">
+                <div>• 50ml-100ml Cups</div>
+                <div>• 120ml-150ml Cups</div>
+                <div>• 200ml-250ml Cups</div>
+              </div>
+              <div class="space-y-1">
+                <div>• 350ml-400ml Cups</div>
+                <div>• Double Wall Cups</div>
+                <div>• Custom Sizes</div>
+              </div>
             </div>
           </div>
-          <div>
-            <a href="/food-packaging" class="block font-medium text-sm text-gray-900 mb-1">Food Packaging</a>
-            <div class="text-xs text-gray-600 space-y-1 pl-2">
-              <div>Pizza Box, Burger Boxes</div>
-              <div>Food Containers, Lunch Boxes</div>
+          
+          <!-- Food Packaging Section -->
+          <div class="border-l-2 border-green-200 pl-4">
+            <a href="/food-packaging" class="block font-semibold text-green-700 mb-2 text-sm hover:text-green-800">
+              🍕 Food Packaging
+            </a>
+            <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+              <div class="space-y-1">
+                <div>• Pizza Boxes</div>
+                <div>• Burger Boxes</div>
+                <div>• Lunch Boxes</div>
+              </div>
+              <div class="space-y-1">
+                <div>• Food Containers</div>
+                <div>• Sandwich Boxes</div>
+                <div>• Cake Boxes</div>
+              </div>
             </div>
           </div>
-          <div>
-            <a href="/office-stationery" class="block font-medium text-sm text-gray-900 mb-1">Office Stationery</a>
-            <div class="text-xs text-gray-600 space-y-1 pl-2">
-              <div>Business Cards, Letterheads</div>
-              <div>Marketing Materials</div>
+          
+          <!-- Other Paper Categories -->
+          <div class="grid grid-cols-2 gap-3">
+            <a href="/retail-packaging" class="p-2 bg-blue-50 rounded-md border border-blue-200">
+              <div class="font-medium text-blue-700 text-sm">🛍️ Retail Packaging</div>
+              <div class="text-xs text-blue-600">Bags, Labels, Custom</div>
+            </a>
+            <a href="/medical-packaging" class="p-2 bg-red-50 rounded-md border border-red-200">
+              <div class="font-medium text-red-700 text-sm">🏥 Medical Packaging</div>
+              <div class="text-xs text-red-600">Medicine, Files, X-Ray</div>
+            </a>
+          </div>
+          
+          <!-- Printing Services -->
+          <div class="border-l-2 border-purple-200 pl-4">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="/office-stationery" class="p-2 bg-purple-50 rounded-md border border-purple-200">
+                <div class="font-medium text-purple-700 text-sm">📋 Office Stationery</div>
+                <div class="text-xs text-purple-600">Cards, Letters, Invoices</div>
+              </a>
+              <a href="/marketing-materials" class="p-2 bg-indigo-50 rounded-md border border-indigo-200">
+                <div class="font-medium text-indigo-700 text-sm">📢 Marketing Materials</div>
+                <div class="text-xs text-indigo-600">Brochures, Flyers, Banners</div>
+              </a>
             </div>
           </div>
         </div>
       </div>
       
       <!-- Mobile Eco Items Accordion -->
-      <div class="mobile-accordion">
-        <button class="mobile-accordion-trigger w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex justify-between items-center">
-          Eco Items
-          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon"></i>
-        </button>
-        <div class="mobile-accordion-content hidden pl-4 pt-2 space-y-3">
-          <div>
-            <a href="/areca-palm-products" class="block font-medium text-sm text-gray-900 mb-1">Areca Palm Products</a>
-            <div class="text-xs text-gray-600 space-y-1 pl-2">
-              <div>Plates, Trays, Bowls</div>
-            </div>
+      <div class="mobile-accordion border border-gray-200 rounded-lg mb-2">
+        <button class="mobile-accordion-trigger w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:bg-gray-50 flex justify-between items-center bg-green-50">
+          <div class="flex items-center">
+            <i class="fas fa-leaf text-green-600 mr-3 text-lg"></i>
+            <span>Eco Items</span>
           </div>
-          <div>
-            <a href="/wooden-items" class="block font-medium text-sm text-gray-900 mb-1">Wooden Products</a>
-            <div class="text-xs text-gray-600 space-y-1 pl-2">
-              <div>Cutlery, Plates, Brushes</div>
-            </div>
+          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon text-green-600"></i>
+        </button>
+        <div class="mobile-accordion-content hidden px-4 pb-4 space-y-4">
+          <div class="grid grid-cols-1 gap-3">
+            <a href="/areca-palm-products" class="p-3 bg-green-50 rounded-md border border-green-200">
+              <div class="flex items-center mb-2">
+                <span class="text-lg mr-2">🌿</span>
+                <div class="font-semibold text-green-700">Areca Palm Products</div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-xs text-green-600">
+                <div>• Palm Leaf Plates</div>
+                <div>• Areca Trays</div>
+                <div>• Leaf Bowls</div>
+                <div>• Square Plates</div>
+              </div>
+            </a>
+            
+            <a href="/wooden-items" class="p-3 bg-amber-50 rounded-md border border-amber-200">
+              <div class="flex items-center mb-2">
+                <span class="text-lg mr-2">🌳</span>
+                <div class="font-semibold text-amber-700">Wooden Products</div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-xs text-amber-600">
+                <div>• Wooden Plates</div>
+                <div>• Wooden Trays</div>
+                <div>• Cutlery Sets</div>
+                <div>• Bamboo Brushes</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
       
       <!-- Mobile Plastic Items Accordion -->
-      <div class="mobile-accordion">
-        <button class="mobile-accordion-trigger w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex justify-between items-center">
-          Plastic Items
-          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon"></i>
-        </button>
-        <div class="mobile-accordion-content hidden pl-4 pt-2 space-y-3">
-          <div>
-            <a href="/plastic-food-packaging" class="block font-medium text-sm text-gray-900 mb-1">Plastic Food Packaging</a>
-            <div class="text-xs text-gray-600 space-y-1 pl-2">
-              <div>Containers, Cups, Straws</div>
-              <div>Food Trays, Bottles</div>
-            </div>
+      <div class="mobile-accordion border border-gray-200 rounded-lg mb-2">
+        <button class="mobile-accordion-trigger w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-800 hover:bg-gray-50 flex justify-between items-center bg-blue-50">
+          <div class="flex items-center">
+            <i class="fas fa-box text-blue-600 mr-3 text-lg"></i>
+            <span>Plastic Items</span>
           </div>
+          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon text-blue-600"></i>
+        </button>
+        <div class="mobile-accordion-content hidden px-4 pb-4 space-y-4">
+          <a href="/plastic-food-packaging" class="block p-3 bg-blue-50 rounded-md border border-blue-200">
+            <div class="flex items-center mb-2">
+              <span class="text-lg mr-2">🥤</span>
+              <div class="font-semibold text-blue-700">Plastic Food Packaging</div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs text-blue-600">
+              <div class="space-y-1">
+                <div>• Containers & Boxes</div>
+                <div>• Plastic Cups</div>
+                <div>• Takeaway Spoons</div>
+                <div>• Straws & Accessories</div>
+                <div>• Ice Cream Boxes</div>
+                <div>• Water Bottles</div>
+                <div>• Food Trays</div>
+              </div>
+              <div class="space-y-1">
+                <div>• Thai Burger Boxes</div>
+                <div>• Sandwich Boxes</div>
+                <div>• Egg Trays</div>
+                <div>• Pizza Lid Supports</div>
+                <div>• Cake Biscuit Trays</div>
+                <div>• Strailers</div>
+                <div class="font-medium text-blue-700">13 Products Total</div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
       
       <!-- Regular Mobile Menu Items -->
-      <a href="/distributor" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600 mobile-distributor-highlight">
-        Distributor
-        <span class="absolute top-2 right-3 flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-        </span>
-      </a>
-      <a href="/faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">FAQs</a>
-      <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">About Us</a>
-      <a href="/contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">Contact</a>
-      <a href="/contact" class="block w-full mt-4 btn btn-primary text-center">
-        Get a Quote
-      </a>
+      <div class="space-y-1 mt-4 pt-4 border-t border-gray-200">
+        <a href="/distributor" class="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600 mobile-distributor-highlight relative">
+          <i class="fas fa-handshake text-primary-600 mr-3"></i>
+          Distributor
+          <span class="absolute top-2 right-3 flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+          </span>
+        </a>
+        <a href="/faq" class="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">
+          <i class="fas fa-question-circle text-gray-500 mr-3"></i>
+          FAQs
+        </a>
+        <a href="/about" class="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">
+          <i class="fas fa-info-circle text-gray-500 mr-3"></i>
+          About Us
+        </a>
+        <a href="/contact" class="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">
+          <i class="fas fa-envelope text-gray-500 mr-3"></i>
+          Contact
+        </a>
+      </div>
+      
+      <!-- Mobile CTA -->
+      <div class="mt-4 pt-4 border-t border-gray-200">
+        <a href="/contact" class="block w-full btn btn-primary text-center py-3 rounded-lg">
+          <i class="fas fa-phone mr-2"></i>
+          Get a Quote
+        </a>
+      </div>
     </div>
   </div>
 </header>
 
 <style>
-  /* Mega Menu Styles */
+  /* Mega Menu Styles - FIXED POSITIONING */
   .mega-menu-container:hover .mega-menu {
     @apply opacity-100 visible translate-y-0;
   }
@@ -372,13 +474,14 @@ const isActive = (path: string) => {
     @apply transform rotate-180;
   }
   
+  /* FIXED: Better positioning for mega menus */
   .mega-menu {
-    left: 50%;
-    transform: translateX(-50%) translateY(1rem);
+    left: -100px; /* Move slightly to the right */
+    transform: translateY(1rem);
   }
   
   .mega-menu-container:hover .mega-menu {
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
   
   /* Distributor highlight */
@@ -413,9 +516,67 @@ const isActive = (path: string) => {
     100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
   }
   
-  /* Mobile accordion styles */
+  /* ENHANCED Mobile accordion styles */
+  .mobile-accordion {
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-accordion-trigger {
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-accordion-trigger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-accordion-trigger.active {
+    background-color: #f3f4f6;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
   .mobile-accordion-trigger.active .mobile-accordion-icon {
-    @apply transform rotate-180;
+    @apply transform rotate-180 text-primary-700;
+  }
+  
+  .mobile-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+  
+  .mobile-accordion-trigger.active + .mobile-accordion-content {
+    max-height: 600px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Mobile menu container */
+  #mobile-menu {
+    border-top: 1px solid #e5e7eb;
+    background: linear-gradient(to bottom, #ffffff, #f9fafb);
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  .mobile-accordion a,
+  .mobile-accordion button {
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-accordion a:hover {
+    transform: translateX(2px);
+  }
+  
+  /* Enhanced visual feedback */
+  .mobile-accordion-content > div {
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-accordion-content > div:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 </style>
 
@@ -432,7 +593,7 @@ const isActive = (path: string) => {
     });
   }
   
-  // Mobile accordion functionality
+  // Enhanced mobile accordion functionality
   const accordionTriggers = document.querySelectorAll('.mobile-accordion-trigger');
   
   accordionTriggers.forEach(trigger => {
@@ -440,18 +601,42 @@ const isActive = (path: string) => {
       const content = trigger.nextElementSibling;
       const isActive = trigger.classList.contains('active');
       
-      // Close all other accordions
+      // Close all other accordions with smooth animation
       accordionTriggers.forEach(otherTrigger => {
-        otherTrigger.classList.remove('active');
-        otherTrigger.nextElementSibling.classList.add('hidden');
+        if (otherTrigger !== trigger) {
+          otherTrigger.classList.remove('active');
+          const otherContent = otherTrigger.nextElementSibling;
+          otherContent.classList.add('hidden');
+          setTimeout(() => {
+            otherContent.style.maxHeight = '0';
+          }, 10);
+        }
       });
       
       // Toggle current accordion
       if (!isActive) {
         trigger.classList.add('active');
         content.classList.remove('hidden');
+        // Small delay to ensure smooth animation
+        setTimeout(() => {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }, 10);
+      } else {
+        trigger.classList.remove('active');
+        content.style.maxHeight = '0';
+        setTimeout(() => {
+          content.classList.add('hidden');
+        }, 400);
       }
     });
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('header') && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+    }
   });
   
   // Close mega menu when clicking outside
