@@ -21,7 +21,7 @@ const features = [
     icon: 'fas fa-check'
   },
   {
-    title: 'Eco-Friendly Packaging',
+    title: 'Eco-Friendly Manufacturing',
     description: 'Our commitment to sustainability includes using soy-based inks and biodegradable materials.',
     icon: 'fas fa-leaf'
   },
@@ -36,115 +36,105 @@ const features = [
     icon: 'fas fa-box'
   },
   {
-    title: 'Custom Printing',
-    description: 'High-quality custom printing services to enhance your brand identity on all packaging products.',
+    title: 'Custom Design Solutions',
+    description: 'High-quality custom printing and design services to enhance your brand identity.',
     icon: 'fas fa-print'
   }
 ];
 
-// Products data
-const featuredProducts = [
+// Paper Products Featured Items
+const featuredPaperProducts = [
   {
     title: 'Disposable Paper Cups',
-    description: 'Available in sizes from 50ml to 400ml with customizable printing options.',
+    description: 'Complete range from 50ml to 400ml with custom printing options for all beverage service needs.',
     image: 'https://images.pexels.com/photos/3846999/pexels-photo-3846999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     link: '/disposable-paper-cups'
   },
   {
-    title: 'Food Packaging Boxes',
-    description: 'Eco-friendly food packaging solutions with grease-resistant coating.',
+    title: 'Food Packaging Solutions',
+    description: 'Eco-friendly food packaging including pizza boxes, lunch containers, and takeaway solutions.',
     image: 'https://images.pexels.com/photos/5922443/pexels-photo-5922443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/paper-packaging'
+    link: '/food-packaging'
   },
   {
-    title: 'Offset Printing Services',
-    description: 'High-resolution CMYK printing for labels, posters, menus, and more.',
-    image: 'https://images.pexels.com/photos/5686102/pexels-photo-5686102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/offset-printing'
+    title: 'Medical & Pharmaceutical Packaging',
+    description: 'Tamper-proof packaging solutions for healthcare and pharmaceutical industries.',
+    image: 'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/medical-packaging'
+  },
+  {
+    title: 'Office Stationery & Business Cards',
+    description: 'Professional printing services for business cards, letterheads, and corporate materials.',
+    image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/office-stationery'
+  },
+  {
+    title: 'Retail Packaging Solutions',
+    description: 'Custom packaging for retail businesses including shopping bags, labels, and brand packaging.',
+    image: 'https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/retail-packaging'
+  },
+  {
+    title: 'Marketing Materials & Printing',
+    description: 'High-quality printing for brochures, flyers, banners, and promotional materials.',
+    image: 'https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/marketing-materials'
   }
 ];
 
-// Featured Paper Cups
-const featuredPaperCups = [
+// Eco-Friendly Products Featured Items
+const featuredEcoProducts = [
   {
-    title: '100 ml Disposable Paper Cup',
-    description: 'Perfect for espresso, small hot beverages, and sample servings.',
-    image: 'images/paper-cup/100ml.jpeg',
-    link: '/disposable-paper-cups'
+    title: 'Areca Palm Leaf Products',
+    description: '100% natural, biodegradable plates, bowls, and trays made from fallen areca palm leaves.',
+    image: 'https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/areca-palm-products'
   },
   {
-    title: '120 ml Disposable Paper Cup',
-    description: 'Ideal for tea, coffee, and other hot beverages.',
-    image: '/images/paper-cup/120ml-Color.jpeg',
-    link: '/disposable-paper-cups'
+    title: 'Wooden & Bamboo Items',
+    description: 'Handcrafted wooden plates, trays, cutlery sets, and bamboo brushes for sustainable dining.',
+    image: 'https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/wooden-items'
   },
   {
-    title: '150 ml Disposable Paper Cup',
-    description: 'Multi-purpose cup for hot and cold beverages.',
-    image: '/images/paper-cup/150ml-Color.png',
-    link: '/disposable-paper-cups'
+    title: 'Areca Leaf Plates & Bowls',
+    description: 'Natural serving plates and bowls with unique patterns, perfect for eco-conscious dining.',
+    image: 'https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/areca-palm-products'
   },
   {
-    title: '250 ml Disposable Paper Cup',
-    description: 'Large size cup perfect for premium coffee drinks and cold beverages.',
-    image: '/images/paper-cup/250ml-Color.jpeg',
-    link: '/disposable-paper-cups'
+    title: 'Wooden Cutlery & Utensils',
+    description: 'Sustainable wooden spoons, forks, and complete cutlery sets for eco-friendly service.',
+    image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/wooden-items'
   }
 ];
 
-// Featured Paper Packaging
-const featuredPaperPackaging = [
+// Plastic Food Packaging Featured Items  
+const featuredPlasticProducts = [
   {
-    title: 'Lunch Boxes',
-    description: 'Eco-friendly lunch boxes for restaurants and food delivery.',
-    image: '/images/packaging/lunch-box.png',
-    link: '/paper-packaging'
+    title: 'Food Containers & Boxes',
+    description: 'Versatile plastic containers and takeaway boxes for various food storage and delivery needs.',
+    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/plastic-food-packaging'
   },
   {
-    title: 'Pizza Boxes',
-    description: 'Custom printed pizza boxes in various sizes.',
-    image: '/images/packaging/Pizza_Box.png',
-    link: '/paper-packaging'
+    title: 'Plastic Cups & Bottles',
+    description: 'Clear plastic cups for beverages and desserts, plus water bottles for events and catering.',
+    image: 'https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/plastic-food-packaging'
   },
   {
-    title: 'Food Containers',
-    description: 'Eco-friendly containers for takeaway and delivery foods.',
-    image: '/images/packaging/food_container.png',
-    link: '/paper-packaging'
+    title: 'Takeaway Accessories',
+    description: 'Complete range including spoons, straws, pizza lid supports, and specialized containers.',
+    image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/plastic-food-packaging'
   },
   {
-    title: 'Custom Packaging',
-    description: 'Bespoke packaging solutions designed for your specific needs.',
-    image: '/images/packaging/Custom-Packaging.webp',
-    link: '/paper-packaging'
-  }
-];
-
-// Featured Printing Services
-const featuredPrintingServices = [
-  {
-    title: 'Food Packaging & Labels',
-    description: 'FDA-compliant food packaging with custom designs.',
-    image: '/images/offset-printing/lebel_printing.png',
-    link: '/offset-printing'
-  },
-  {
-    title: 'Posters & Flyers',
-    description: 'High-resolution promotional materials printed on premium paper.',
-    image: '/images/offset-printing/poster_flyers.png',
-    link: '/offset-printing'
-  },
-  {
-    title: 'Business Stationery',
-    description: 'Professional business cards, letterheads, and envelopes.',
-    image: '/images/offset-printing/business_stationary.jpg',
-    link: '/offset-printing'
-  },
-  {
-    title: 'Custom Stickers',
-    description: 'Durable and colorful stickers with various adhesive options.',
-    image: '/images/offset-printing/custom_stickers.png',
-    link: '/offset-printing'
+    title: 'Specialized Food Trays',
+    description: 'Multi-compartment trays, ice cream boxes, egg trays, and sandwich containers.',
+    image: 'https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/plastic-food-packaging'
   }
 ];
 
@@ -200,7 +190,7 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
     ctaText="Get a Quote"
     ctaLink="/contact"
     secondaryCtaText="Explore Products"
-    secondaryCtaLink="/paper-product"
+    secondaryCtaLink="#featured-products"
     backgroundImage="https://lh3.googleusercontent.com/gps-cs-s/AC9h4np_PI2HpONROtcXQgCKLZUUsw6EsD5EYDhRpfjkXF4iBd6RtPfFTjIATFf5_x4HmQN7dK7ff9yAcjRLg2lOpliFvMAAg2QQXZL-MVFjE6Jd0t0aCcK8VZwEPiMG8XM3DerpN4Ca=s1360-w1360-h1020-rw"
     stats={[
       {
@@ -252,29 +242,131 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
     </div>
   </section>
   
-  <!-- Paper Cups Section -->
-  <ProductsSection
-    title="Disposable Paper Cups"
-    subtitle="Available in various sizes with customizable printing options for your brand."
-    products={featuredPaperCups}
-    viewAllLink="/disposable-paper-cups"
-  />
-  
-  <!-- Paper Packaging Section -->
-  <ProductsSection
-    title="Paper Packaging Solutions"
-    subtitle="Eco-friendly packaging options for food, retail, and other industries."
-    products={featuredPaperPackaging}
-    viewAllLink="/paper-packaging"
-  />
-  
-  <!-- Printing Services Section -->
-  <ProductsSection
-    title="Offset Printing Services"
-    subtitle="High-resolution printing for all your marketing and packaging needs."
-    products={featuredPrintingServices}
-    viewAllLink="/offset-printing"
-  />
+  <!-- Featured Products Section -->
+  <section id="featured-products" class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Product Categories</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Discover our comprehensive range of sustainable packaging solutions designed for modern businesses.
+        </p>
+      </div>
+
+      <!-- Paper Products Section -->
+      <div class="mb-20">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+            <i class="fas fa-file-alt text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Paper Products</h3>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            High-quality paper solutions for food service, office use, medical packaging, and marketing materials.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredPaperProducts.map((product, index) => (
+            <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div class="aspect-w-16 aspect-h-9 overflow-hidden h-48">
+                <img 
+                  src={product.image} 
+                  alt={product.title} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-gray-900">{product.title}</h4>
+                <p class="text-gray-600 mb-4">{product.description}</p>
+                <a 
+                  href={product.link} 
+                  class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors"
+                >
+                  Explore Category
+                  <i class="fas fa-arrow-right ml-1 h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Eco-Friendly Products Section -->
+      <div class="mb-20">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+            <i class="fas fa-leaf text-green-600 text-2xl"></i>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Eco-Friendly Products</h3>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            100% natural and biodegradable tableware made from sustainable materials like areca palm leaves and wood.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {featuredEcoProducts.map((product, index) => (
+            <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div class="aspect-w-16 aspect-h-9 overflow-hidden h-48">
+                <img 
+                  src={product.image} 
+                  alt={product.title} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-gray-900">{product.title}</h4>
+                <p class="text-gray-600 mb-4">{product.description}</p>
+                <a 
+                  href={product.link} 
+                  class="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors"
+                >
+                  View Products
+                  <i class="fas fa-arrow-right ml-1 h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Plastic Food Packaging Section -->
+      <div class="mb-12">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+            <i class="fas fa-box text-purple-600 text-2xl"></i>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Plastic Food Packaging</h3>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Durable, food-safe plastic packaging solutions for modern food service operations and takeaway businesses.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {featuredPlasticProducts.map((product, index) => (
+            <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div class="aspect-w-16 aspect-h-9 overflow-hidden h-48">
+                <img 
+                  src={product.image} 
+                  alt={product.title} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2 text-gray-900">{product.title}</h4>
+                <p class="text-gray-600 mb-4">{product.description}</p>
+                <a 
+                  href={product.link} 
+                  class="inline-flex items-center text-purple-600 font-medium hover:text-purple-700 transition-colors"
+                >
+                  See All Products
+                  <i class="fas fa-arrow-right ml-1 h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
   
   <!-- Why Choose Us Section -->
   <FeatureSection
@@ -490,7 +582,7 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
     buttonText="Contact Us"
     buttonLink="/contact"
     secondaryButtonText="View Products"
-    secondaryButtonLink="/paper-product"
+    secondaryButtonLink="#featured-products"
   />
 </Layout>
 
@@ -575,6 +667,20 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
       question.addEventListener('click', () => {
         // Toggle current question
         question.classList.toggle('active');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
   });
