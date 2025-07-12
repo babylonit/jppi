@@ -53,29 +53,81 @@ const categoryName = categoryNames[product.category] || product.category;
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Product Introduction Section -->
+  <section class="bg-white py-8">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">{product.name}</h1>
+        <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          Discover our premium {product.name.toLowerCase()} designed for professional use. 
+          Made with high-quality materials and backed by our commitment to excellence and sustainability.
+        </p>
+        
+        <!-- Category Badge -->
+        <div class="mt-6">
+          <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-100 text-primary-800">
+            <i class="fas fa-tag mr-2 text-xs"></i>
+            {categoryName}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Product Section -->
   <section class="section bg-white">
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <!-- Product Image Gallery -->
+        <!-- Enhanced Product Image Gallery -->
         <div class="space-y-4">
-          <!-- Main Image -->
-          <div class="aspect-w-16 aspect-h-12 bg-gray-100 rounded-lg overflow-hidden">
-            <img 
-              id="main-product-image"
-              src={product.images[0]} 
-              alt={product.name}
-              class="w-full h-full object-cover"
-            />
+          <!-- Main Image with Navigation -->
+          <div class="relative bg-gray-100 rounded-lg overflow-hidden">
+            <div class="aspect-w-1 aspect-h-1 h-96 md:h-[500px]">
+              <img 
+                id="main-product-image"
+                src={product.images[0]} 
+                alt={product.name}
+                class="w-full h-full object-cover transition-opacity duration-300"
+              />
+            </div>
+            
+            <!-- Navigation Arrows -->
+            {product.images.length > 1 && (
+              <>
+                <button 
+                  id="prev-image-btn"
+                  class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110"
+                  aria-label="Previous image"
+                >
+                  <i class="fas fa-chevron-left text-gray-700 text-xl"></i>
+                </button>
+                
+                <button 
+                  id="next-image-btn"
+                  class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-200 hover:scale-110"
+                  aria-label="Next image"
+                >
+                  <i class="fas fa-chevron-right text-gray-700 text-xl"></i>
+                </button>
+              </>
+            )}
+            
+            <!-- Image Counter -->
+            {product.images.length > 1 && (
+              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                <span id="image-counter">1 / {product.images.length}</span>
+              </div>
+            )}
           </div>
           
           <!-- Thumbnail Gallery -->
           {product.images.length > 1 && (
-            <div class="grid grid-cols-4 gap-2">
+            <div class="grid grid-cols-4 gap-3">
               {product.images.map((image, index) => (
                 <button 
-                  class="aspect-w-1 aspect-h-1 bg-gray-100 rounded-md overflow-hidden border-2 border-transparent hover:border-primary-500 transition-colors thumbnail-btn"
+                  class="thumbnail-btn aspect-w-1 aspect-h-1 bg-gray-100 rounded-md overflow-hidden border-2 border-transparent hover:border-primary-500 transition-all duration-200 h-20"
                   data-image={image}
+                  data-index={index}
                 >
                   <img 
                     src={image} 
@@ -90,119 +142,118 @@ const categoryName = categoryNames[product.category] || product.category;
 
         <!-- Product Information -->
         <div class="space-y-6">
-          <!-- Product Name & Short Description -->
-          <div>
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
-            <p class="text-lg text-gray-600 leading-relaxed">{product.shortDescription}</p>
-            
-            <!-- Category Badge -->
-            <div class="mt-4">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-800">
-                <i class="fas fa-tag mr-1 text-xs"></i>
-                {categoryName}
-              </span>
-            </div>
+          <!-- Product Summary -->
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">Product Overview</h2>
+            <p class="text-gray-700 leading-relaxed">{product.shortDescription}</p>
           </div>
 
           <!-- Pricing (if available) -->
           {product.price && (
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-600">Price Range:</span>
-                <span class="text-lg font-semibold text-primary-600">{product.price.currency} {product.price.range}</span>
+            <div class="bg-primary-50 p-6 rounded-lg border border-primary-200">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-lg font-semibold text-gray-900">Price Range:</span>
+                <span class="text-2xl font-bold text-primary-600">{product.price.currency} {product.price.range}</span>
               </div>
               {product.price.note && (
-                <p class="text-xs text-gray-500 mt-1">{product.price.note}</p>
+                <p class="text-sm text-gray-600">{product.price.note}</p>
               )}
             </div>
           )}
 
+          <!-- Key Features -->
+          <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <i class="fas fa-star text-green-600 mr-2"></i>
+              Key Features
+            </h3>
+            <ul class="grid grid-cols-1 gap-3">
+              {product.features.map(feature => (
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
+                  <span class="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <!-- Specifications Table -->
           <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
-              <h3 class="text-lg font-semibold text-gray-900">Specifications</h3>
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                <i class="fas fa-clipboard-list text-primary-600 mr-2"></i>
+                Specifications
+              </h3>
             </div>
-            <div class="p-4">
-              <dl class="space-y-3">
+            <div class="p-6">
+              <dl class="grid grid-cols-1 gap-4">
                 {product.specifications.capacity && (
-                  <div class="flex justify-between py-2 border-b border-gray-100">
-                    <dt class="text-sm font-medium text-gray-600">Capacity:</dt>
-                    <dd class="text-sm text-gray-900">{product.specifications.capacity}</dd>
+                  <div class="flex justify-between py-3 border-b border-gray-100">
+                    <dt class="font-medium text-gray-600">Capacity:</dt>
+                    <dd class="text-gray-900 font-semibold">{product.specifications.capacity}</dd>
                   </div>
                 )}
                 {product.specifications.size && (
-                  <div class="flex justify-between py-2 border-b border-gray-100">
-                    <dt class="text-sm font-medium text-gray-600">Size:</dt>
-                    <dd class="text-sm text-gray-900">{product.specifications.size}</dd>
+                  <div class="flex justify-between py-3 border-b border-gray-100">
+                    <dt class="font-medium text-gray-600">Size:</dt>
+                    <dd class="text-gray-900 font-semibold">{product.specifications.size}</dd>
                   </div>
                 )}
                 {product.specifications.material && (
-                  <div class="flex justify-between py-2 border-b border-gray-100">
-                    <dt class="text-sm font-medium text-gray-600">Material:</dt>
-                    <dd class="text-sm text-gray-900">{product.specifications.material}</dd>
+                  <div class="flex justify-between py-3 border-b border-gray-100">
+                    <dt class="font-medium text-gray-600">Material:</dt>
+                    <dd class="text-gray-900 font-semibold">{product.specifications.material}</dd>
                   </div>
                 )}
                 {product.specifications.moq && (
-                  <div class="flex justify-between py-2 border-b border-gray-100">
-                    <dt class="text-sm font-medium text-gray-600">Min. Order:</dt>
-                    <dd class="text-sm text-gray-900">{product.specifications.moq}</dd>
+                  <div class="flex justify-between py-3 border-b border-gray-100">
+                    <dt class="font-medium text-gray-600">Min. Order:</dt>
+                    <dd class="text-gray-900 font-semibold">{product.specifications.moq}</dd>
                   </div>
                 )}
                 {product.specifications.leadTime && (
-                  <div class="flex justify-between py-2 border-b border-gray-100">
-                    <dt class="text-sm font-medium text-gray-600">Lead Time:</dt>
-                    <dd class="text-sm text-gray-900">{product.specifications.leadTime}</dd>
+                  <div class="flex justify-between py-3 border-b border-gray-100">
+                    <dt class="font-medium text-gray-600">Lead Time:</dt>
+                    <dd class="text-gray-900 font-semibold">{product.specifications.leadTime}</dd>
                   </div>
                 )}
                 {product.specifications.weight && (
-                  <div class="flex justify-between py-2 border-b border-gray-100">
-                    <dt class="text-sm font-medium text-gray-600">Weight:</dt>
-                    <dd class="text-sm text-gray-900">{product.specifications.weight}</dd>
+                  <div class="flex justify-between py-3 border-b border-gray-100">
+                    <dt class="font-medium text-gray-600">Weight:</dt>
+                    <dd class="text-gray-900 font-semibold">{product.specifications.weight}</dd>
                   </div>
                 )}
                 {product.specifications.temperature && (
-                  <div class="flex justify-between py-2">
-                    <dt class="text-sm font-medium text-gray-600">Temperature Range:</dt>
-                    <dd class="text-sm text-gray-900">{product.specifications.temperature}</dd>
+                  <div class="flex justify-between py-3">
+                    <dt class="font-medium text-gray-600">Temperature Range:</dt>
+                    <dd class="text-gray-900 font-semibold">{product.specifications.temperature}</dd>
                   </div>
                 )}
               </dl>
             </div>
           </div>
 
-          <!-- Features List -->
-          <div class="bg-green-50 p-6 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Features</h3>
-            <ul class="grid grid-cols-1 gap-3">
-              {product.features.map(feature => (
-                <li class="flex items-start">
-                  <i class="fas fa-check-circle text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                  <span class="text-sm text-gray-700">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/contact" class="btn btn-primary flex-1 text-center">
+            <a href="/contact" class="btn btn-primary flex-1 text-center py-4 text-lg">
               <i class="fas fa-quote-left mr-2"></i>
               Get Quote
             </a>
-            <a href="https://wa.me/8801976724402" target="_blank" rel="noopener" class="btn btn-secondary flex-1 text-center">
+            <a href="https://wa.me/8801976724402" target="_blank" rel="noopener" class="btn btn-secondary flex-1 text-center py-4 text-lg">
               <i class="fab fa-whatsapp mr-2"></i>
               WhatsApp
             </a>
           </div>
 
           <!-- Additional Info -->
-          <div class="bg-blue-50 p-4 rounded-lg">
-            <div class="flex items-center text-blue-800">
+          <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <div class="flex items-center text-blue-800 mb-2">
               <i class="fas fa-info-circle mr-2"></i>
               <span class="font-medium">Need customization?</span>
             </div>
-            <p class="text-blue-700 text-sm mt-1">
-              Contact our design team for custom printing, sizes, or special requirements.
+            <p class="text-blue-700 text-sm">
+              Contact our design team for custom printing, sizes, or special requirements. 
+              We offer personalized solutions to meet your specific business needs.
             </p>
           </div>
         </div>
@@ -213,37 +264,49 @@ const categoryName = categoryNames[product.category] || product.category;
   <!-- Detailed Description Section -->
   <section class="section bg-gray-50">
     <div class="container">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Product Description</h2>
-        <div class="prose prose-lg max-w-none">
-          <p class="text-gray-700 leading-relaxed">{product.description}</p>
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md p-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+            <i class="fas fa-file-alt text-primary-600 mr-3"></i>
+            Detailed Product Description
+          </h2>
           
-          <!-- Printing Options (if available) -->
-          {product.specifications.printingOptions && product.specifications.printingOptions.length > 0 && (
-            <div class="mt-6 p-6 bg-white rounded-lg border border-gray-200">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Custom Printing Options</h3>
-              <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {product.specifications.printingOptions.map(option => (
-                  <li class="flex items-center text-gray-700">
-                    <i class="fas fa-print text-primary-500 mr-2 text-sm"></i>
-                    {option}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <!-- Colors (if available) -->
-          {product.specifications.colors && product.specifications.colors.length > 0 && (
-            <div class="mt-6 p-6 bg-white rounded-lg border border-gray-200">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Available Colors</h3>
-              <div class="flex flex-wrap gap-2">
-                {product.specifications.colors.map(color => (
-                  <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">{color}</span>
-                ))}
+          <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed text-lg mb-6">{product.description}</p>
+            
+            <!-- Printing Options (if available) -->
+            {product.specifications.printingOptions && product.specifications.printingOptions.length > 0 && (
+              <div class="mt-8 p-6 bg-primary-50 rounded-lg border border-primary-200">
+                <h3 class="text-xl font-semibold text-primary-800 mb-4 flex items-center">
+                  <i class="fas fa-print text-primary-600 mr-2"></i>
+                  Custom Printing Options
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {product.specifications.printingOptions.map(option => (
+                    <div class="flex items-center text-primary-700">
+                      <i class="fas fa-check text-primary-600 mr-2 text-sm"></i>
+                      <span>{option}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+
+            <!-- Colors (if available) -->
+            {product.specifications.colors && product.specifications.colors.length > 0 && (
+              <div class="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                  <i class="fas fa-palette text-gray-600 mr-2"></i>
+                  Available Colors
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                  {product.specifications.colors.map(color => (
+                    <span class="px-4 py-2 bg-white text-gray-700 rounded-full text-sm border border-gray-300 font-medium">{color}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -253,7 +316,7 @@ const categoryName = categoryNames[product.category] || product.category;
   {relatedProducts.length > 0 && (
     <section class="section">
       <div class="container">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Related Products</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">You Might Also Like</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {relatedProducts.map(relatedProduct => (
             <ProductCard
@@ -315,28 +378,15 @@ const categoryName = categoryNames[product.category] || product.category;
   }
   
   .thumbnail-btn.active {
-    @apply border-primary-500;
-  }
-  
-  .aspect-w-16 {
-    position: relative;
-    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
-    --tw-aspect-w: 16;
-  }
-
-  .aspect-h-12 {
-    --tw-aspect-h: 12;
+    @apply border-primary-500 ring-2 ring-primary-200;
   }
   
   .aspect-w-1 {
-    --tw-aspect-w: 1;
+    position: relative;
+    padding-bottom: 100%; /* 1:1 aspect ratio */
   }
   
-  .aspect-h-1 {
-    --tw-aspect-h: 1;
-  }
-  
-  .aspect-w-16 > *, .aspect-w-1 > * {
+  .aspect-w-1 > * {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -345,33 +395,130 @@ const categoryName = categoryNames[product.category] || product.category;
     bottom: 0;
     left: 0;
   }
+
+  /* Smooth image transitions */
+  #main-product-image {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* Navigation arrow hover effects */
+  #prev-image-btn:hover,
+  #next-image-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  /* Custom scrollbar for mobile */
+  @media (max-width: 768px) {
+    .thumbnail-grid {
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e0 #f7fafc;
+    }
+  }
 </style>
 
 <script>
-  // Image gallery functionality
+  // Enhanced image gallery functionality
   document.addEventListener('DOMContentLoaded', () => {
     const mainImage = document.getElementById('main-product-image');
     const thumbnails = document.querySelectorAll('.thumbnail-btn');
+    const prevBtn = document.getElementById('prev-image-btn');
+    const nextBtn = document.getElementById('next-image-btn');
+    const imageCounter = document.getElementById('image-counter');
     
+    let currentImageIndex = 0;
+    const totalImages = thumbnails.length;
+    
+    // Function to update the main image and UI
+    function updateImage(index) {
+      if (index < 0) index = totalImages - 1;
+      if (index >= totalImages) index = 0;
+      
+      currentImageIndex = index;
+      
+      // Update main image with fade effect
+      if (mainImage) {
+        mainImage.style.opacity = '0.7';
+        
+        setTimeout(() => {
+          mainImage.src = thumbnails[index].getAttribute('data-image');
+          mainImage.style.opacity = '1';
+        }, 150);
+      }
+      
+      // Update thumbnails active state
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+      
+      // Update counter
+      if (imageCounter) {
+        imageCounter.textContent = `${index + 1} / ${totalImages}`;
+      }
+    }
+    
+    // Thumbnail click handlers
     thumbnails.forEach((thumb, index) => {
       thumb.addEventListener('click', () => {
-        // Remove active class from all thumbnails
-        thumbnails.forEach(t => t.classList.remove('active'));
-        
-        // Add active class to clicked thumbnail
-        thumb.classList.add('active');
-        
-        // Update main image
-        const newImageSrc = thumb.getAttribute('data-image');
-        if (mainImage && newImageSrc) {
-          mainImage.src = newImageSrc;
-        }
+        updateImage(index);
       });
     });
     
-    // Set first thumbnail as active by default
+    // Navigation button handlers
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        updateImage(currentImageIndex - 1);
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        updateImage(currentImageIndex + 1);
+      });
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        updateImage(currentImageIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        updateImage(currentImageIndex + 1);
+      }
+    });
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+    
+    if (mainImage) {
+      mainImage.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+      
+      mainImage.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+      });
+    }
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = startX - endX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next image
+          updateImage(currentImageIndex + 1);
+        } else {
+          // Swipe right - previous image
+          updateImage(currentImageIndex - 1);
+        }
+      }
+    }
+    
+    // Initialize first thumbnail as active
     if (thumbnails.length > 0) {
-      thumbnails[0].classList.add('active');
+      updateImage(0);
     }
   });
 </script>
