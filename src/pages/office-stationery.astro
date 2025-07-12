@@ -1,0 +1,360 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// Office stationery products
+const officeStationeryProducts = [
+  {
+    title: 'Business Cards',
+    description: 'Professional business cards with premium finishes and custom designs.',
+    image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/business-cards'
+  },
+  {
+    title: 'Letterheads',
+    description: 'Corporate letterheads that enhance your business communication.',
+    image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/letterheads'
+  },
+  {
+    title: 'Invoices',
+    description: 'Custom invoice books and forms for your business transactions.',
+    image: 'https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/invoices'
+  },
+  {
+    title: 'Envelopes',
+    description: 'Professional envelopes in various sizes with custom branding options.',
+    image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/envelopes'
+  }
+];
+
+// Features
+const features = [
+  {
+    title: 'Professional Quality',
+    description: 'High-resolution printing with crisp text and vibrant colors for a professional appearance.',
+    icon: 'fas fa-star'
+  },
+  {
+    title: 'Custom Branding',
+    description: 'Incorporate your logo, colors, and brand elements across all stationery items.',
+    icon: 'fas fa-palette'
+  },
+  {
+    title: 'Premium Paper',
+    description: 'Quality paper stocks ranging from 80 GSM to 300 GSM for different applications.',
+    icon: 'fas fa-certificate'
+  },
+  {
+    title: 'Fast Turnaround',
+    description: 'Quick production times to meet your business deadlines and requirements.',
+    icon: 'fas fa-clock'
+  },
+  {
+    title: 'Bulk Pricing',
+    description: 'Competitive pricing for large orders with attractive volume discounts.',
+    icon: 'fas fa-calculator'
+  },
+  {
+    title: 'Design Support',
+    description: 'Professional design assistance to create effective business stationery.',
+    icon: 'fas fa-pencil-ruler'
+  }
+];
+
+// SEO Metadata
+const title = "Office Stationery Printing";
+const description = "Professional office stationery printing including business cards, letterheads, invoices, and envelopes. High-quality printing with custom branding options for businesses.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Professional Office Stationery"
+    subtitle="Create a lasting impression with high-quality business stationery that reflects your professional image."
+    backgroundImage="https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Elevate Your Business Image</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Your business stationery is often the first tangible representation of your company that 
+          clients and partners encounter. Quality stationery communicates professionalism, attention 
+          to detail, and brand consistency across all your business communications.
+        </p>
+        <p class="text-lg text-gray-600 mb-6">
+          From business cards that make memorable first impressions to letterheads that add authority 
+          to your correspondence, our office stationery solutions help establish and maintain your 
+          professional brand identity.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Office Stationery Products</h2>
+      <p class="section-subtitle">Complete stationery solutions for professional business communication.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {officeStationeryProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Our Office Stationery?</h2>
+      <p class="section-subtitle">Quality printing and design services that enhance your professional image.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Product Specifications Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Product Specifications</h2>
+      <p class="section-subtitle">Detailed specifications for our office stationery products.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+            <h3 class="text-xl font-semibold text-primary-800">Business Cards</h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex justify-between">
+                <span class="font-medium">Standard Size:</span>
+                <span>89mm x 54mm</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Paper Options:</span>
+                <span>250-350 GSM</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Printing:</span>
+                <span>Single/Double sided</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Finishing:</span>
+                <span>Matte/Gloss/UV</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Minimum Order:</span>
+                <span>500 pieces</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Turnaround:</span>
+                <span>3-5 business days</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+            <h3 class="text-xl font-semibold text-primary-800">Letterheads</h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex justify-between">
+                <span class="font-medium">Standard Size:</span>
+                <span>A4 (210mm x 297mm)</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Paper Options:</span>
+                <span>80-120 GSM</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Printing:</span>
+                <span>Single/Double sided</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Colors:</span>
+                <span>Full CMYK color</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Minimum Order:</span>
+                <span>1,000 pieces</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Turnaround:</span>
+                <span>5-7 business days</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+            <h3 class="text-xl font-semibold text-primary-800">Invoices</h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex justify-between">
+                <span class="font-medium">Standard Size:</span>
+                <span>A4/A5 options</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Paper Options:</span>
+                <span>80-100 GSM</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Format:</span>
+                <span>Book/Pad binding</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Copies:</span>
+                <span>2-3 copy options</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Minimum Order:</span>
+                <span>500 pieces</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Turnaround:</span>
+                <span>7-10 business days</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+            <h3 class="text-xl font-semibold text-primary-800">Envelopes</h3>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex justify-between">
+                <span class="font-medium">Common Sizes:</span>
+                <span>DL, C4, C5</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Paper Options:</span>
+                <span>80-120 GSM</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Window:</span>
+                <span>With/Without window</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Closure:</span>
+                <span>Self-seal/Gummed</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Minimum Order:</span>
+                <span>1,000 pieces</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium">Turnaround:</span>
+                <span>5-7 business days</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Design Guidelines Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Design Guidelines & Requirements</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            To ensure the best possible printing results, please follow our design guidelines 
+            when preparing your artwork. Our design team is also available to assist with 
+            creating professional layouts that meet all technical requirements.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-file-image text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">File Formats</h3>
+                <p class="text-gray-600">PDF, AI, PSD, or high-resolution JPEG (300 DPI minimum).</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-palette text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Color Mode</h3>
+                <p class="text-gray-600">CMYK color mode for accurate printing reproduction.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-expand-arrows-alt text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Bleed Area</h3>
+                <p class="text-gray-600">3mm bleed on all sides for full-color background designs.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-font text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Text & Fonts</h3>
+                <p class="text-gray-600">Minimum 8pt font size, embed or outline all fonts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <img 
+            src="https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Professional stationery design process" 
+            class="rounded-lg shadow-xl w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Enhance Your Professional Image?"
+    description="Create impressive business stationery that reflects the quality and professionalism of your organization."
+    buttonText="Get Stationery Quote"
+    buttonLink="/contact"
+    secondaryButtonText="Design Consultation"
+    secondaryButtonLink="/contact?type=design"
+  />
+</Layout>

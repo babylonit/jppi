@@ -1,0 +1,276 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// Retail packaging products
+const retailPackagingProducts = [
+  {
+    title: 'Shopping Bags',
+    description: 'Eco-friendly paper shopping bags with sturdy handles for retail stores.',
+    image: 'https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/shopping-bags'
+  },
+  {
+    title: 'Courier Bags',
+    description: 'Secure and durable bags for e-commerce and shipping applications.',
+    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/courier-bags'
+  },
+  {
+    title: 'Product Labels',
+    description: 'High-quality adhesive labels for product identification and branding.',
+    image: 'https://images.pexels.com/photos/5945694/pexels-photo-5945694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/product-labels'
+  },
+  {
+    title: 'Custom Packaging',
+    description: 'Bespoke packaging solutions tailored to your specific product needs.',
+    image: 'https://images.pexels.com/photos/7319199/pexels-photo-7319199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/custom-packaging'
+  }
+];
+
+// Features
+const features = [
+  {
+    title: 'Brand Enhancement',
+    description: 'Custom printing options to showcase your brand identity effectively.',
+    icon: 'fas fa-palette'
+  },
+  {
+    title: 'Durable Construction',
+    description: 'Strong materials that protect products during handling and transport.',
+    icon: 'fas fa-shield-alt'
+  },
+  {
+    title: 'Cost-Effective',
+    description: 'Competitive pricing for bulk orders without compromising on quality.',
+    icon: 'fas fa-dollar-sign'
+  },
+  {
+    title: 'Versatile Sizes',
+    description: 'Available in multiple sizes to accommodate various retail products.',
+    icon: 'fas fa-expand-arrows-alt'
+  },
+  {
+    title: 'Eco-Friendly',
+    description: 'Made from recyclable and biodegradable materials.',
+    icon: 'fas fa-leaf'
+  },
+  {
+    title: 'Quick Turnaround',
+    description: 'Fast production and delivery to meet your business timelines.',
+    icon: 'fas fa-clock'
+  }
+];
+
+// SEO Metadata
+const title = "Retail Packaging Solutions";
+const description = "Professional retail packaging including shopping bags, courier bags, product labels, and custom packaging solutions. Enhance your brand with quality packaging.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Retail Packaging Solutions"
+    subtitle="Enhance your brand presence with professional retail packaging that makes a lasting impression."
+    backgroundImage="https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Professional Retail Packaging</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Your packaging is often the first physical touchpoint between your brand and customers. 
+          Our retail packaging solutions are designed to create positive first impressions while 
+          providing practical functionality for your business needs.
+        </p>
+        <p class="text-lg text-gray-600 mb-6">
+          From shopping bags that customers proudly carry to secure courier packaging for e-commerce 
+          shipments, we provide comprehensive retail packaging solutions that enhance your brand image 
+          and protect your products.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Retail Packaging Products</h2>
+      <p class="section-subtitle">Complete packaging solutions for retail businesses of all sizes.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {retailPackagingProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Our Retail Packaging?</h2>
+      <p class="section-subtitle">Quality packaging solutions that combine functionality with brand appeal.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Business Types Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Perfect for Various Retail Businesses</h2>
+      <p class="section-subtitle">Our packaging solutions serve diverse retail sectors.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-store text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Fashion & Apparel</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Branded shopping bags
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Garment labels and tags
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Gift packaging solutions
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-laptop text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">E-commerce</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Secure courier bags
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Shipping labels
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Product protection packaging
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-gift text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Specialty Retail</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Custom gift boxes
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Product presentation packaging
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Branded shopping experiences
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Customization Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Customization Options</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Make your packaging uniquely yours with our comprehensive customization options. 
+            From simple logo placement to full-color designs, we help bring your brand vision to life.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-paint-brush text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Custom Colors & Designs</h3>
+                <p class="text-gray-600">Match your brand colors perfectly with our printing capabilities.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-expand-arrows-alt text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Various Sizes</h3>
+                <p class="text-gray-600">From small product labels to large shopping bags, we cover all size requirements.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-certificate text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Premium Finishes</h3>
+                <p class="text-gray-600">Add lamination, UV coating, or embossing for a premium look and feel.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <img 
+            src="https://images.pexels.com/photos/5872298/pexels-photo-5872298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Custom retail packaging examples" 
+            class="rounded-lg shadow-xl w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Enhance Your Brand with Custom Retail Packaging"
+    description="Stand out from the competition with professionally designed retail packaging that reflects your brand values."
+    buttonText="Get Custom Quote"
+    buttonLink="/contact"
+    secondaryButtonText="View Portfolio"
+    secondaryButtonLink="/gallery"
+  />
+</Layout>

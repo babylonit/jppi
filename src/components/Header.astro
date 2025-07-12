@@ -2,14 +2,13 @@
 const pathname = Astro.url.pathname;
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Disposable Paper Cups', href: '/disposable-paper-cups' },
-  { name: 'Offset Printing', href: '/offset-printing' },
-  { name: 'Paper Packaging', href: '/paper-packaging' },
+  { name: 'Paper Items', href: '#', megaMenu: true, megaMenuId: 'paper-items' },
+  { name: 'Eco Items', href: '#', megaMenu: true, megaMenuId: 'eco-items' },
+  { name: 'Plastic Items', href: '#', megaMenu: true, megaMenuId: 'plastic-items' },
   { name: 'Distributor', href: '/distributor', highlight: true },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'FAQ', href: '/faq' },
+  { name: 'FAQs', href: '/faq' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Contact', href: '/contact' }
 ];
 
 const isActive = (path: string) => {
@@ -35,30 +34,231 @@ const isActive = (path: string) => {
       <div class="-mr-2 -my-2 md:hidden">
         <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
           <span class="sr-only">Open menu</span>
-          <!-- Menu icon -->
           <i class="fas fa-bars h-6 w-6" aria-hidden="true"></i>
         </button>
       </div>
       
       <!-- Desktop navigation -->
-      <nav class="hidden md:flex space-x-8">
+      <nav class="hidden md:flex space-x-8 relative">
         {navItems.map(item => (
-          <a 
-            href={item.href}
-            class:list={[
-              'text-base font-medium transition-colors hover:text-primary-600 relative',
-              isActive(item.href) ? 'text-primary-600 font-semibold' : 'text-gray-700',
-              item.highlight && !isActive(item.href) ? 'distributor-highlight' : ''
-            ]}
-          >
-            {item.name}
-            {item.highlight && !isActive(item.href) && (
-              <span class="absolute -top-1 -right-2 flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
-              </span>
+          <div class="relative mega-menu-container">
+            {item.megaMenu ? (
+              <button 
+                class:list={[
+                  'mega-menu-trigger text-base font-medium transition-colors hover:text-primary-600 relative flex items-center',
+                  'text-gray-700'
+                ]}
+                data-mega-menu={item.megaMenuId}
+              >
+                {item.name}
+                <i class="fas fa-chevron-down ml-1 text-xs transition-transform mega-menu-icon"></i>
+              </button>
+            ) : (
+              <a 
+                href={item.href}
+                class:list={[
+                  'text-base font-medium transition-colors hover:text-primary-600 relative',
+                  isActive(item.href) ? 'text-primary-600 font-semibold' : 'text-gray-700',
+                  item.highlight && !isActive(item.href) ? 'distributor-highlight' : ''
+                ]}
+              >
+                {item.name}
+                {item.highlight && !isActive(item.href) && (
+                  <span class="absolute -top-1 -right-2 flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+                  </span>
+                )}
+              </a>
             )}
-          </a>
+            
+            <!-- Mega Menu Dropdowns -->
+            {item.megaMenuId === 'paper-items' && (
+              <div class="mega-menu absolute left-0 top-full mt-2 w-screen max-w-5xl bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible transform translate-y-4 transition-all duration-300 ease-out z-50">
+                <div class="p-6">
+                  <div class="grid grid-cols-3 gap-8">
+                    <!-- Column 1: Paper Cups -->
+                    <div>
+                      <div class="bg-primary-500 text-white px-3 py-2 rounded-md mb-4">
+                        <h3 class="font-semibold text-sm">Paper Cups</h3>
+                      </div>
+                      <div class="space-y-4">
+                        <div>
+                          <a href="/disposable-paper-cups" class="block font-semibold text-gray-900 hover:text-primary-600 mb-2 transition-colors">
+                            Disposable Paper Cups
+                          </a>
+                          <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                            <li>50ml Paper Cup</li>
+                            <li>60ml Paper Cup</li>
+                            <li>80ml Paper Cup</li>
+                            <li>100ml Paper Cup</li>
+                            <li>120ml Paper Cup</li>
+                            <li>150ml Paper Cup</li>
+                            <li>200ml Paper Cup</li>
+                            <li>250ml Paper Cup</li>
+                            <li>350ml Paper Cup</li>
+                            <li>400ml Paper Cup</li>
+                            <li>Custom-Size Paper Cups</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <a href="/disposable-paper-cups" class="block font-semibold text-gray-900 hover:text-primary-600 mb-2 transition-colors">
+                            Other Cups
+                          </a>
+                          <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                            <li>Double Wall Cups</li>
+                            <li>Ripple Wall Cups</li>
+                            <li>Coffee Sleeves</li>
+                            <li>Ice-cream Cup</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Column 2: Paper Packaging -->
+                    <div>
+                      <div class="bg-primary-500 text-white px-3 py-2 rounded-md mb-4">
+                        <h3 class="font-semibold text-sm">Paper Packaging</h3>
+                      </div>
+                      <div class="space-y-4">
+                        <div>
+                          <a href="/food-packaging" class="block font-semibold text-gray-900 hover:text-primary-600 mb-2 transition-colors">
+                            Food Packaging
+                          </a>
+                          <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                            <li>Pizza Box</li>
+                            <li>Burger Boxes</li>
+                            <li>Food Containers</li>
+                            <li>Lunch Boxes</li>
+                            <li>Sandwich Boxes</li>
+                            <li>Cake Boxes</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <a href="/retail-packaging" class="block font-semibold text-gray-900 hover:text-primary-600 mb-2 transition-colors">
+                            Retail Packaging
+                          </a>
+                          <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                            <li>Shopping Bags</li>
+                            <li>Courier Bags</li>
+                            <li>Product Labels</li>
+                            <li>Custom Packaging</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <a href="/medical-packaging" class="block font-semibold text-gray-900 hover:text-primary-600 mb-2 transition-colors">
+                            Medical Packaging
+                          </a>
+                          <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                            <li>Medicine Packaging</li>
+                            <li>Patient Files</li>
+                            <li>X-Ray Envelopes</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Column 3: Offset Printing -->
+                    <div>
+                      <div class="bg-primary-500 text-white px-3 py-2 rounded-md mb-4">
+                        <h3 class="font-semibold text-sm">Offset Printing</h3>
+                      </div>
+                      <div class="space-y-4">
+                        <div>
+                          <a href="/office-stationery" class="block font-semibold text-gray-900 hover:text-primary-600 mb-2 transition-colors">
+                            Office Stationery
+                          </a>
+                          <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                            <li>Business Cards</li>
+                            <li>Letterheads</li>
+                            <li>Invoices</li>
+                            <li>Envelopes</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <a href="/marketing-materials" class="block font-semibold text-gray-900 hover:text-primary-600 mb-2 transition-colors">
+                            Marketing Materials
+                          </a>
+                          <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                            <li>Brochures</li>
+                            <li>Flyers</li>
+                            <li>Catalogs</li>
+                            <li>Banners</li>
+                            <li>Stickers</li>
+                            <li>Hang tags</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {item.megaMenuId === 'eco-items' && (
+              <div class="mega-menu absolute left-0 top-full mt-2 w-screen max-w-3xl bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible transform translate-y-4 transition-all duration-300 ease-out z-50">
+                <div class="p-6">
+                  <div class="grid grid-cols-2 gap-8">
+                    <!-- Column 1: Areca Palm Products -->
+                    <div>
+                      <a href="/areca-palm-products" class="block font-semibold text-gray-900 hover:text-primary-600 mb-3 transition-colors">
+                        Areca Palm leaf Products
+                      </a>
+                      <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                        <li>Areca palm leaf plates</li>
+                        <li>Areca palm leaf Tray</li>
+                        <li>Areca Leaf Bowl</li>
+                        <li>Partitioned Plate</li>
+                        <li>Square Plate</li>
+                      </ul>
+                    </div>
+                    
+                    <!-- Column 2: Wooden Products -->
+                    <div>
+                      <a href="/wooden-items" class="block font-semibold text-gray-900 hover:text-primary-600 mb-3 transition-colors">
+                        Wooden Product
+                      </a>
+                      <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                        <li>Wooden Plates</li>
+                        <li>Wooden Tray</li>
+                        <li>Cutlery Set</li>
+                        <li>Wooden Spoon</li>
+                        <li>Wooden Fork</li>
+                        <li>Bamboo Brush</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {item.megaMenuId === 'plastic-items' && (
+              <div class="mega-menu absolute left-0 top-full mt-2 w-screen max-w-md bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible transform translate-y-4 transition-all duration-300 ease-out z-50">
+                <div class="p-6">
+                  <div>
+                    <a href="/plastic-food-packaging" class="block font-semibold text-gray-900 hover:text-primary-600 mb-3 transition-colors">
+                      Plastic Food Packaging
+                    </a>
+                    <ul class="space-y-1 text-sm text-gray-600 ml-2">
+                      <li>Container/box</li>
+                      <li>Cup</li>
+                      <li>Takeaway Container Spoon</li>
+                      <li>Straw</li>
+                      <li>Strailer</li>
+                      <li>Ice Cream Box</li>
+                      <li>Pizza Lid Support</li>
+                      <li>Water Bottle</li>
+                      <li>Food Tray 4 Unit With Lid</li>
+                      <li>Dry Cake Biscuit Tray</li>
+                      <li>Thai Burger Box</li>
+                      <li>Egg Tray</li>
+                      <li>Sandwich Box</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         ))}
       </nav>
       
@@ -71,27 +271,90 @@ const isActive = (path: string) => {
     </div>
   </div>
   
-  <!-- Mobile menu, show/hide based on mobile menu state -->
+  <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg">
     <div class="pt-2 pb-4 px-5 space-y-1">
-      {navItems.map(item => (
-        <a 
-          href={item.href}
-          class:list={[
-            'block px-3 py-2 rounded-md text-base font-medium relative',
-            isActive(item.href) ? 'text-primary-700 bg-primary-50' : 'text-gray-700 hover:bg-gray-50 hover:text-primary-600',
-            item.highlight && !isActive(item.href) ? 'mobile-distributor-highlight' : ''
-          ]}
-        >
-          {item.name}
-          {item.highlight && !isActive(item.href) && (
-            <span class="absolute top-2 right-3 flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-            </span>
-          )}
-        </a>
-      ))}
+      <!-- Mobile Paper Items Accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex justify-between items-center">
+          Paper Items
+          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon"></i>
+        </button>
+        <div class="mobile-accordion-content hidden pl-4 pt-2 space-y-3">
+          <div>
+            <a href="/disposable-paper-cups" class="block font-medium text-sm text-gray-900 mb-1">Disposable Paper Cups</a>
+            <div class="text-xs text-gray-600 space-y-1 pl-2">
+              <div>50ml-400ml Paper Cups</div>
+              <div>Custom-Size Paper Cups</div>
+            </div>
+          </div>
+          <div>
+            <a href="/food-packaging" class="block font-medium text-sm text-gray-900 mb-1">Food Packaging</a>
+            <div class="text-xs text-gray-600 space-y-1 pl-2">
+              <div>Pizza Box, Burger Boxes</div>
+              <div>Food Containers, Lunch Boxes</div>
+            </div>
+          </div>
+          <div>
+            <a href="/office-stationery" class="block font-medium text-sm text-gray-900 mb-1">Office Stationery</a>
+            <div class="text-xs text-gray-600 space-y-1 pl-2">
+              <div>Business Cards, Letterheads</div>
+              <div>Marketing Materials</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Eco Items Accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex justify-between items-center">
+          Eco Items
+          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon"></i>
+        </button>
+        <div class="mobile-accordion-content hidden pl-4 pt-2 space-y-3">
+          <div>
+            <a href="/areca-palm-products" class="block font-medium text-sm text-gray-900 mb-1">Areca Palm Products</a>
+            <div class="text-xs text-gray-600 space-y-1 pl-2">
+              <div>Plates, Trays, Bowls</div>
+            </div>
+          </div>
+          <div>
+            <a href="/wooden-items" class="block font-medium text-sm text-gray-900 mb-1">Wooden Products</a>
+            <div class="text-xs text-gray-600 space-y-1 pl-2">
+              <div>Cutlery, Plates, Brushes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Plastic Items Accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 flex justify-between items-center">
+          Plastic Items
+          <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon"></i>
+        </button>
+        <div class="mobile-accordion-content hidden pl-4 pt-2 space-y-3">
+          <div>
+            <a href="/plastic-food-packaging" class="block font-medium text-sm text-gray-900 mb-1">Plastic Food Packaging</a>
+            <div class="text-xs text-gray-600 space-y-1 pl-2">
+              <div>Containers, Cups, Straws</div>
+              <div>Food Trays, Bottles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Regular Mobile Menu Items -->
+      <a href="/distributor" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600 mobile-distributor-highlight">
+        Distributor
+        <span class="absolute top-2 right-3 flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+        </span>
+      </a>
+      <a href="/faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">FAQs</a>
+      <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">About Us</a>
+      <a href="/contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-600">Contact</a>
       <a href="/contact" class="block w-full mt-4 btn btn-primary text-center">
         Get a Quote
       </a>
@@ -100,11 +363,28 @@ const isActive = (path: string) => {
 </header>
 
 <style>
+  /* Mega Menu Styles */
+  .mega-menu-container:hover .mega-menu {
+    @apply opacity-100 visible translate-y-0;
+  }
+  
+  .mega-menu-container:hover .mega-menu-icon {
+    @apply transform rotate-180;
+  }
+  
+  .mega-menu {
+    left: 50%;
+    transform: translateX(-50%) translateY(1rem);
+  }
+  
+  .mega-menu-container:hover .mega-menu {
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  /* Distributor highlight */
   .distributor-highlight {
-    /* Subtle glow effect */
     text-shadow: 0 0 5px rgba(0, 128, 1, 0.3);
     font-weight: 600;
-    /* Subtle scale effect on hover */
     transition: transform 0.3s ease, text-shadow 0.3s ease;
   }
   
@@ -117,7 +397,6 @@ const isActive = (path: string) => {
     font-weight: 600;
   }
   
-  /* Sparkle animation using pseudo-element */
   .distributor-highlight::after {
     content: '✨';
     position: absolute;
@@ -133,6 +412,11 @@ const isActive = (path: string) => {
     50% { opacity: 1; transform: scale(1.1) rotate(10deg); }
     100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
   }
+  
+  /* Mobile accordion styles */
+  .mobile-accordion-trigger.active .mobile-accordion-icon {
+    @apply transform rotate-180;
+  }
 </style>
 
 <script>
@@ -147,4 +431,33 @@ const isActive = (path: string) => {
       mobileMenu.classList.toggle('hidden');
     });
   }
+  
+  // Mobile accordion functionality
+  const accordionTriggers = document.querySelectorAll('.mobile-accordion-trigger');
+  
+  accordionTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const content = trigger.nextElementSibling;
+      const isActive = trigger.classList.contains('active');
+      
+      // Close all other accordions
+      accordionTriggers.forEach(otherTrigger => {
+        otherTrigger.classList.remove('active');
+        otherTrigger.nextElementSibling.classList.add('hidden');
+      });
+      
+      // Toggle current accordion
+      if (!isActive) {
+        trigger.classList.add('active');
+        content.classList.remove('hidden');
+      }
+    });
+  });
+  
+  // Close mega menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.mega-menu-container')) {
+      // Optional: Add logic to hide mega menus if needed
+    }
+  });
 </script>

@@ -1,0 +1,390 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// Plastic food packaging products
+const plasticPackagingProducts = [
+  {
+    title: 'Food Containers & Boxes',
+    description: 'Durable plastic containers for takeaway, meal prep, and food storage.',
+    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/plastic-containers'
+  },
+  {
+    title: 'Plastic Cups',
+    description: 'Clear and colored plastic cups for beverages, desserts, and cold drinks.',
+    image: 'https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/plastic-cups'
+  },
+  {
+    title: 'Takeaway Spoons',
+    description: 'Disposable plastic spoons perfect for takeaway meals and events.',
+    image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/plastic-spoons'
+  },
+  {
+    title: 'Straws & Strainers',
+    description: 'Various plastic straws and strainer accessories for beverage service.',
+    image: 'https://images.pexels.com/photos/6039371/pexels-photo-6039371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/straws-strainers'
+  },
+  {
+    title: 'Ice Cream Boxes',
+    description: 'Specialized containers designed for ice cream and frozen dessert packaging.',
+    image: 'https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/ice-cream-boxes'
+  },
+  {
+    title: 'Specialized Items',
+    description: 'Pizza lid supports, water bottles, food trays, and other specialized plastic items.',
+    image: 'https://images.pexels.com/photos/4393464/pexels-photo-4393464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/specialized-plastic'
+  }
+];
+
+// Features
+const features = [
+  {
+    title: 'Food-Grade Safety',
+    description: 'All products are made from FDA-approved, food-safe plastic materials.',
+    icon: 'fas fa-shield-alt'
+  },
+  {
+    title: 'Temperature Resistant',
+    description: 'Suitable for hot and cold foods with excellent temperature resistance.',
+    icon: 'fas fa-thermometer-half'
+  },
+  {
+    title: 'Leak-Proof Design',
+    description: 'Secure sealing mechanisms prevent spills and maintain food freshness.',
+    icon: 'fas fa-lock'
+  },
+  {
+    title: 'Crystal Clear',
+    description: 'Transparent options allow for excellent product visibility and presentation.',
+    icon: 'fas fa-eye'
+  },
+  {
+    title: 'Microwave Safe',
+    description: 'Selected products are microwave-safe for convenient reheating.',
+    icon: 'fas fa-fire'
+  },
+  {
+    title: 'Cost-Effective',
+    description: 'Affordable bulk pricing for restaurants and food service businesses.',
+    icon: 'fas fa-dollar-sign'
+  }
+];
+
+// Product categories
+const productCategories = [
+  {
+    name: 'Containers & Boxes',
+    items: [
+      'Container/box - Various sizes',
+      'Thai Burger Box',
+      'Sandwich Box',
+      'Food Tray 4 Unit With Lid',
+      'Dry Cake Biscuit Tray',
+      'Egg Tray'
+    ]
+  },
+  {
+    name: 'Cups & Bottles',
+    items: [
+      'Plastic Cups - Multiple sizes',
+      'Water Bottle',
+      'Ice Cream Box'
+    ]
+  },
+  {
+    name: 'Cutlery & Accessories',
+    items: [
+      'Takeaway Container Spoon',
+      'Straw',
+      'Strailer',
+      'Pizza Lid Support'
+    ]
+  }
+];
+
+// SEO Metadata
+const title = "Plastic Food Packaging Solutions";
+const description = "High-quality plastic food packaging including containers, cups, spoons, straws, and specialized items. Food-safe, durable, and cost-effective solutions for food service.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Plastic Food Packaging Solutions"
+    subtitle="Durable, food-safe plastic packaging designed for the demands of modern food service and takeaway businesses."
+    backgroundImage="https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Reliable Plastic Packaging Solutions</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Our plastic food packaging products provide the durability, safety, and functionality 
+          that busy food service operations require. From leak-proof containers to crystal-clear 
+          cups, each product is designed to maintain food quality while offering convenience for 
+          both businesses and customers.
+        </p>
+        <p class="text-lg text-gray-600 mb-6">
+          All our plastic products are manufactured using food-grade materials that meet strict 
+          safety standards. Whether you need basic takeaway containers or specialized packaging 
+          for specific food items, we provide reliable solutions at competitive prices.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Plastic Packaging Products</h2>
+      <p class="section-subtitle">Comprehensive plastic packaging solutions for food service operations.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {plasticPackagingProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Product Features & Benefits</h2>
+      <p class="section-subtitle">Quality characteristics that make our plastic packaging reliable and practical.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Product Categories Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Complete Product Range</h2>
+      <p class="section-subtitle">Our full selection of plastic food packaging items organized by category.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {productCategories.map(category => (
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4 text-primary-600 border-b border-primary-100 pb-2">
+              {category.name}
+            </h3>
+            <ul class="space-y-3">
+              {category.items.map(item => (
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-3 mt-0.5 flex-shrink-0"></i>
+                  <span class="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Applications Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Industry Applications</h2>
+      <p class="section-subtitle">Plastic packaging solutions for various food service sectors.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-utensils text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Restaurants</h3>
+          <p class="text-gray-600 text-sm">Takeaway containers, cups, and cutlery for dine-in and delivery services.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-ice-cream text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Dessert Shops</h3>
+          <p class="text-gray-600 text-sm">Ice cream boxes, dessert cups, and specialized frozen treat packaging.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-motorcycle text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Delivery Services</h3>
+          <p class="text-gray-600 text-sm">Leak-proof containers and secure packaging for food delivery operations.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-glass-cheers text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Events & Catering</h3>
+          <p class="text-gray-600 text-sm">Bulk packaging solutions for large events, parties, and catering services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Specifications Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+          <h3 class="text-xl font-semibold text-primary-800">Technical Specifications</h3>
+        </div>
+        <div class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Material Standards</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Food-grade PP (Polypropylene)
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  BPA-free PET (Polyethylene Terephthalate)
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  FDA-approved raw materials
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  ISO 9001 certified manufacturing
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Performance Features</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Temperature range: -18°C to +100°C
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Microwave safe (selected items)
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Freezer safe for storage
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Leak-proof sealing technology
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <h4 class="font-semibold text-gray-900 mb-2">Order Information</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <span class="font-medium">Minimum Order:</span> 5,000 pieces
+              </div>
+              <div>
+                <span class="font-medium">Lead Time:</span> 10-15 business days
+              </div>
+              <div>
+                <span class="font-medium">Packaging:</span> Bulk cartons available
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Customization Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Customization Options</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            While our plastic products are primarily offered in standard configurations, 
+            we can accommodate certain customization requests for large volume orders. 
+            Contact us to discuss your specific requirements.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-palette text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Color Options</h3>
+                <p class="text-gray-600">Limited color variations available for large orders.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-expand-arrows-alt text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Size Modifications</h3>
+                <p class="text-gray-600">Custom sizing possible for specific applications with minimum order quantities.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-print text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Basic Branding</h3>
+                <p class="text-gray-600">Simple logo printing available on selected container products.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <img 
+            src="https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Various plastic food packaging products" 
+            class="rounded-lg shadow-xl w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Need Reliable Plastic Packaging?"
+    description="Get dependable plastic food packaging solutions that meet your business needs and budget requirements."
+    buttonText="Request Quote"
+    buttonLink="/contact"
+    secondaryButtonText="Product Catalog"
+    secondaryButtonLink="/contact?type=catalog"
+  />
+</Layout>

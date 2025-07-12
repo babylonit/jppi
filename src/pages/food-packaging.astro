@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// Food packaging products
+const foodPackagingProducts = [
+  {
+    title: 'Pizza Boxes',
+    description: 'Custom-sized pizza boxes that maintain food temperature and freshness.',
+    image: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/pizza-boxes'
+  },
+  {
+    title: 'Burger Boxes',
+    description: 'Grease-resistant burger boxes designed for takeaway and delivery services.',
+    image: 'https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/burger-boxes'
+  },
+  {
+    title: 'Food Containers',
+    description: 'Multi-compartment containers perfect for various food items.',
+    image: 'https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/food-containers'
+  },
+  {
+    title: 'Lunch Boxes',
+    description: 'Eco-friendly lunch boxes ideal for restaurants and catering services.',
+    image: 'https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/lunch-boxes'
+  },
+  {
+    title: 'Sandwich Boxes',
+    description: 'Compact and secure packaging for sandwiches and wraps.',
+    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/sandwich-boxes'
+  },
+  {
+    title: 'Cake Boxes',
+    description: 'Premium cake boxes with secure closures for bakery products.',
+    image: 'https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/cake-boxes'
+  }
+];
+
+// Features
+const features = [
+  {
+    title: 'Grease-Resistant',
+    description: 'Special coatings prevent oil and grease from leaking through the packaging.',
+    icon: 'fas fa-shield-alt'
+  },
+  {
+    title: 'Temperature Retention',
+    description: 'Designed to keep hot foods hot and cold foods cold during transport.',
+    icon: 'fas fa-thermometer-half'
+  },
+  {
+    title: 'Custom Sizing',
+    description: 'Available in various sizes to accommodate different food portions.',
+    icon: 'fas fa-expand-arrows-alt'
+  },
+  {
+    title: 'Eco-Friendly',
+    description: 'Made from biodegradable materials that are safe for the environment.',
+    icon: 'fas fa-leaf'
+  },
+  {
+    title: 'Secure Closure',
+    description: 'Reliable closure systems ensure food stays secure during delivery.',
+    icon: 'fas fa-lock'
+  },
+  {
+    title: 'Custom Printing',
+    description: 'Brand your packaging with custom logos and designs.',
+    icon: 'fas fa-print'
+  }
+];
+
+// SEO Metadata
+const title = "Food Packaging Solutions";
+const description = "High-quality food packaging including pizza boxes, burger boxes, lunch containers, and more. Grease-resistant, eco-friendly, and customizable options available.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Food Packaging Solutions"
+    subtitle="Keep your food fresh and secure with our range of eco-friendly food packaging options."
+    backgroundImage="https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Professional Food Packaging</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Our food packaging solutions are designed specifically for restaurants, cafes, food delivery services, 
+          and catering businesses. From pizza boxes to lunch containers, we provide packaging that maintains 
+          food quality while showcasing your brand.
+        </p>
+        <p class="text-lg text-gray-600 mb-6">
+          All our food packaging products are made with food-grade materials, ensuring safety and compliance 
+          with health regulations. Custom printing options allow you to brand your packaging effectively.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Our Food Packaging Products</h2>
+      <p class="section-subtitle">Choose from our wide range of food packaging solutions designed for different types of food items.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {foodPackagingProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Our Food Packaging?</h2>
+      <p class="section-subtitle">Our packaging solutions combine functionality, safety, and sustainability.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Industries Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Industries We Serve</h2>
+      <p class="section-subtitle">Our food packaging solutions cater to various food service industries.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-utensils text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Restaurants</h3>
+          <p class="text-gray-600 text-sm">Dine-in and takeaway packaging solutions for all types of cuisine.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-motorcycle text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Food Delivery</h3>
+          <p class="text-gray-600 text-sm">Secure packaging that maintains food quality during transportation.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-birthday-cake text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Bakeries</h3>
+          <p class="text-gray-600 text-sm">Specialized packaging for cakes, pastries, and baked goods.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-building text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Catering</h3>
+          <p class="text-gray-600 text-sm">Large-scale packaging solutions for events and corporate catering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Specifications Section -->
+  <section class="section">
+    <div class="container">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
+          <h3 class="text-xl font-semibold text-primary-800">Product Specifications</h3>
+        </div>
+        <div class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Materials</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Food-grade kraft paper board
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Grease-resistant coating
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Biodegradable and compostable
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  FDA-approved materials
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Customization Options</h4>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Custom sizes and shapes
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Full-color printing
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Logo and branding options
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+                  Various closure mechanisms
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <h4 class="font-semibold text-gray-900 mb-2">Order Information</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <span class="font-medium">Minimum Order:</span> 2,000 pieces
+              </div>
+              <div>
+                <span class="font-medium">Lead Time:</span> 15-20 business days
+              </div>
+              <div>
+                <span class="font-medium">Delivery:</span> Nationwide shipping available
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Package Your Food Products?"
+    description="Contact us to discuss your food packaging needs and get a custom quote for your business."
+    buttonText="Get Quote"
+    buttonLink="/contact"
+    secondaryButtonText="Request Samples"
+    secondaryButtonLink="/contact?type=samples"
+  />
+</Layout>

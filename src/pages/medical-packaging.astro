@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// Medical packaging products
+const medicalPackagingProducts = [
+  {
+    title: 'Medicine Packaging',
+    description: 'Tamper-proof and child-resistant packaging for pharmaceutical products.',
+    image: 'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/medicine-packaging'
+  },
+  {
+    title: 'Patient Files',
+    description: 'Secure and organized filing solutions for patient records and documents.',
+    image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/patient-files'
+  },
+  {
+    title: 'X-Ray Envelopes',
+    description: 'Protective envelopes designed specifically for X-ray and medical imaging storage.',
+    image: 'https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/xray-envelopes'
+  }
+];
+
+// Features
+const features = [
+  {
+    title: 'Tamper-Proof Design',
+    description: 'Security features that provide evidence of tampering for patient safety.',
+    icon: 'fas fa-shield-alt'
+  },
+  {
+    title: 'Child-Resistant',
+    description: 'Packaging designed to be difficult for children to open while remaining accessible for adults.',
+    icon: 'fas fa-baby'
+  },
+  {
+    title: 'Regulatory Compliance',
+    description: 'Meets all local and international pharmaceutical packaging standards.',
+    icon: 'fas fa-check-circle'
+  },
+  {
+    title: 'Moisture Protection',
+    description: 'Barrier properties that protect sensitive medications from humidity and moisture.',
+    icon: 'fas fa-tint'
+  },
+  {
+    title: 'Light Protection',
+    description: 'UV-resistant materials that protect light-sensitive pharmaceutical products.',
+    icon: 'fas fa-sun'
+  },
+  {
+    title: 'Sterile Options',
+    description: 'Sterilizable packaging for medical devices and instruments.',
+    icon: 'fas fa-microscope'
+  }
+];
+
+// SEO Metadata
+const title = "Medical Packaging Solutions";
+const description = "Specialized medical and pharmaceutical packaging including medicine boxes, patient files, and X-ray envelopes. Tamper-proof, child-resistant, and compliant with health regulations.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Medical Packaging Solutions"
+    subtitle="Specialized packaging for healthcare and pharmaceutical industries with safety and compliance at the forefront."
+    backgroundImage="https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  />
+  
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Healthcare Packaging Excellence</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          In the healthcare industry, packaging plays a critical role in ensuring product integrity, 
+          patient safety, and regulatory compliance. Our medical packaging solutions are designed 
+          to meet the stringent requirements of pharmaceutical companies, hospitals, and healthcare providers.
+        </p>
+        <p class="text-lg text-gray-600 mb-6">
+          From tamper-evident medicine boxes to secure patient record filing systems, we provide 
+          packaging solutions that prioritize safety, security, and functionality while maintaining 
+          cost-effectiveness for healthcare organizations.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Medical Packaging Products</h2>
+      <p class="section-subtitle">Specialized packaging solutions designed for the healthcare industry.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {medicalPackagingProducts.map(product => (
+          <ProductCard 
+            title={product.title} 
+            description={product.description} 
+            image={product.image} 
+            link={product.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Safety & Compliance Features</h2>
+      <p class="section-subtitle">Our medical packaging incorporates essential safety features and meets regulatory standards.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Compliance Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Regulatory Compliance & Standards</h2>
+      <p class="section-subtitle">Our medical packaging meets international healthcare standards and regulations.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-certificate text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">International Standards</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              FDA-approved materials and processes
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              ISO 15378 pharmaceutical packaging standards
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Child-resistant packaging (ISO 8317)
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              GMP (Good Manufacturing Practice) compliance
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-shield-alt text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Safety Features</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Tamper-evident seals and closures
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Anti-counterfeiting measures
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Serialization and track-and-trace capabilities
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check h-5 w-5 text-primary-500 mr-2 mt-0.5"></i>
+              Patient information and dosage clarity
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Industries Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Healthcare Sectors We Serve</h2>
+      <p class="section-subtitle">Trusted by various healthcare organizations across Bangladesh and beyond.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-pills text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Pharmaceutical Companies</h3>
+          <p class="text-gray-600 text-sm">Medicine packaging for tablets, capsules, syrups, and other pharmaceutical products.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-hospital text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Hospitals & Clinics</h3>
+          <p class="text-gray-600 text-sm">Patient record filing, X-ray storage, and medical document organization solutions.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-microscope text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Diagnostic Centers</h3>
+          <p class="text-gray-600 text-sm">Specialized envelopes and storage solutions for medical imaging and test results.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-primary-500">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-user-md text-primary-600 text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Healthcare Distributors</h3>
+          <p class="text-gray-600 text-sm">Bulk packaging solutions for medical supply distribution and pharmacy chains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Quality Assurance Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <img 
+            src="https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Medical packaging quality control" 
+            class="rounded-lg shadow-xl w-full"
+          />
+        </div>
+        
+        <div class="order-1 lg:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Quality Assurance & Testing</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Our medical packaging undergoes rigorous quality testing to ensure it meets the highest 
+            standards of safety and reliability. Every batch is tested for integrity, barrier properties, 
+            and compliance with regulatory requirements.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-vial text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Material Testing</h3>
+                <p class="text-gray-600">Chemical compatibility and migration testing for pharmaceutical safety.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-lock text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Security Testing</h3>
+                <p class="text-gray-600">Tamper-evidence and child-resistance verification according to standards.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-clipboard-check text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Documentation</h3>
+                <p class="text-gray-600">Complete documentation and certificates of compliance for regulatory approval.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Need Compliant Medical Packaging?"
+    description="Ensure patient safety and regulatory compliance with our specialized medical packaging solutions."
+    buttonText="Contact Medical Team"
+    buttonLink="/contact"
+    secondaryButtonText="Download Compliance Guide"
+    secondaryButtonLink="/contact?type=compliance"
+  />
+</Layout>
