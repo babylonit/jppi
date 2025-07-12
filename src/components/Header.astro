@@ -2,9 +2,9 @@
 const pathname = Astro.url.pathname;
 
 const navItems = [
-  { name: 'Paper Items', href: '#', megaMenu: true, megaMenuId: 'paper-items' },
-  { name: 'Eco Items', href: '#', megaMenu: true, megaMenuId: 'eco-items' },
-  { name: 'Plastic Items', href: '#', megaMenu: true, megaMenuId: 'plastic-items' },
+  { name: 'Paper Products', href: '#', megaMenu: true, megaMenuId: 'paper-items' },
+  { name: 'Eco Products', href: '#', megaMenu: true, megaMenuId: 'eco-items' },
+  { name: 'Plastic Products', href: '#', megaMenu: true, megaMenuId: 'plastic-items' },
   { name: 'Distributor', href: '/distributor', highlight: true },
   { name: 'FAQs', href: '/faq' },
   { name: 'About Us', href: '/about' },
@@ -274,7 +274,7 @@ const isActive = (path: string) => {
   <!-- Enhanced Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg max-h-screen overflow-y-auto">
     <div class="py-4 px-4 space-y-3">
-      <!-- Mobile Paper Items Accordion -->
+      <!-- Mobile Paper Products Accordion -->
       <div class="mobile-accordion border border-gray-200 rounded-lg">
         <button class="mobile-accordion-trigger w-full text-left px-4 py-4 rounded-lg text-lg font-bold text-gray-800 hover:bg-gray-50 flex justify-between items-center bg-gray-50">
           <div class="flex items-center">
@@ -384,7 +384,7 @@ const isActive = (path: string) => {
         </div>
       </div>
       
-      <!-- Mobile Eco Items Accordion -->
+      <!-- Mobile Eco Products Accordion -->
       <div class="mobile-accordion border border-gray-200 rounded-lg">
         <button class="mobile-accordion-trigger w-full text-left px-4 py-4 rounded-lg text-lg font-bold text-gray-800 hover:bg-gray-50 flex justify-between items-center bg-green-50">
           <div class="flex items-center">
@@ -422,7 +422,7 @@ const isActive = (path: string) => {
         </div>
       </div>
       
-      <!-- Mobile Plastic Items Accordion -->
+      <!-- Mobile Plastic Products Accordion -->
       <div class="mobile-accordion border border-gray-200 rounded-lg">
         <button class="mobile-accordion-trigger w-full text-left px-4 py-4 rounded-lg text-lg font-bold text-gray-800 hover:bg-gray-50 flex justify-between items-center bg-blue-50">
           <div class="flex items-center">
