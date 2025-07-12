@@ -1,0 +1,702 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// Vendor benefits
+const vendorBenefits = [
+  {
+    title: 'Massive Customer Base',
+    description: 'Access our established network of 500+ restaurants, cafes, and businesses with regular bulk orders.',
+    icon: 'fas fa-users'
+  },
+  {
+    title: 'Zero Marketing Cost',
+    description: 'We handle all marketing and customer acquisition. Featured placement for top-performing products.',
+    icon: 'fas fa-bullhorn'
+  },
+  {
+    title: 'Quality Assurance',
+    description: 'Your products get the Joana Paper quality seal, increasing customer trust and sales.',
+    icon: 'fas fa-certificate'
+  },
+  {
+    title: 'Logistics Support',
+    description: 'Optional warehousing solutions and integrated delivery network across Bangladesh.',
+    icon: 'fas fa-truck'
+  },
+  {
+    title: 'Transparent Analytics',
+    description: 'Real-time sales dashboard and monthly performance reports to track your success.',
+    icon: 'fas fa-chart-line'
+  },
+  {
+    title: 'Competitive Commission',
+    description: 'Industry-best vendor rates with no hidden fees. Transparent pricing structure.',
+    icon: 'fas fa-percent'
+  }
+];
+
+// Process steps
+const processSteps = [
+  {
+    step: '1',
+    title: 'Submit Application',
+    description: 'Fill out the vendor application form, upload required documents, and submit your product catalog.',
+    icon: 'fas fa-file-alt',
+    color: 'blue'
+  },
+  {
+    step: '2',
+    title: 'Quality Audit',
+    description: 'Our QC team reviews your application, conducts facility inspection, and tests product samples.',
+    icon: 'fas fa-search',
+    color: 'green'
+  },
+  {
+    step: '3',
+    title: 'Onboarding',
+    description: 'Sign vendor agreement, complete product photography session, and receive listing optimization training.',
+    icon: 'fas fa-handshake',
+    color: 'purple'
+  },
+  {
+    step: '4',
+    title: 'Go Live!',
+    description: 'Products listed on our platform, start receiving orders, and get dedicated vendor support.',
+    icon: 'fas fa-rocket',
+    color: 'orange'
+  }
+];
+
+// Product categories for the form
+const productCategories = [
+  'Paper Cups & Containers',
+  'Food Packaging',
+  'Eco-Friendly Products',
+  'Plastic Packaging',
+  'Printing Services',
+  'Custom Packaging'
+];
+
+// Quality certifications
+const qualityCertifications = [
+  'ISO 9001',
+  'ISO 14001',
+  'BSTI',
+  'FDA Approved',
+  'QC-100',
+  'Others (Specify)'
+];
+
+// FAQ data
+const faqs = [
+  {
+    question: 'What commission does Joana Paper charge?',
+    answer: 'Our commission structure is competitive and transparent, ranging from 8-15% depending on product category and volume. No hidden fees or additional charges.'
+  },
+  {
+    question: 'How long does the approval process take?',
+    answer: 'The complete approval process typically takes 5-7 business days, including application review, quality audit, and onboarding procedures.'
+  },
+  {
+    question: 'Can I update my product listings after approval?',
+    answer: 'Yes, you can update product information, pricing, and inventory through our vendor dashboard anytime. Major changes require approval.'
+  },
+  {
+    question: 'What support do you provide to vendors?',
+    answer: 'We provide dedicated vendor support, marketing assistance, logistics coordination, technical help, and regular business reviews.'
+  },
+  {
+    question: 'Is there a minimum sales requirement?',
+    answer: 'No minimum sales requirements, but we expect consistent inventory and timely fulfillment of orders to maintain partnership.'
+  },
+  {
+    question: 'How do I receive payments?',
+    answer: 'Payments are processed weekly via bank transfer or mobile banking (bKash/Nagad) after order completion and customer satisfaction.'
+  }
+];
+
+// SEO Metadata
+const title = "Become a Vendor";
+const description = "Join Bangladesh's leading paper & packaging marketplace. List your products on Joana Paper and reach thousands of buyers across Dhaka. Easy vendor registration process.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Expand Your Business Reach - Become a Vendor"
+    subtitle="Join Bangladesh's leading paper & packaging marketplace. List your products and reach thousands of buyers across the country."
+    ctaText="Start Vendor Application"
+    ctaLink="#vendor-application"
+    secondaryCtaText="Download Vendor Guide"
+    secondaryCtaLink="/contact?type=vendor-guide"
+    backgroundImage="https://images.pexels.com/photos/6615076/pexels-photo-6615076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    stats={[
+      {
+        icon: "fas fa-shopping-cart",
+        value: "10K+",
+        label: "Monthly Buyers"
+      },
+      {
+        icon: "fas fa-box",
+        value: "500+",
+        label: "Active Products"
+      },
+      {
+        icon: "fas fa-star",
+        value: "98%",
+        label: "Vendor Satisfaction"
+      }
+    ]}
+  />
+  
+  <!-- Why Sell With Us Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Sell With Joana Paper?</h2>
+      <p class="section-subtitle">Join our thriving marketplace and accelerate your business growth with proven benefits.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {vendorBenefits.map(benefit => (
+          <FeatureCard 
+            title={benefit.title} 
+            description={benefit.description} 
+            icon={benefit.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- How It Works Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Simple 4-step process to start selling on our platform.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {processSteps.map(step => (
+          <div class="bg-white p-6 rounded-lg shadow-md text-center border-t-4 border-blue-500">
+            <div class={`w-16 h-16 bg-${step.color}-100 rounded-full flex items-center justify-center mx-auto mb-4`}>
+              <i class={`${step.icon} text-${step.color}-600 text-2xl`}></i>
+            </div>
+            <div class={`w-8 h-8 bg-${step.color}-500 text-white rounded-full flex items-center justify-center mx-auto mb-4`}>
+              <span class="font-bold">{step.step}</span>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">{step.title}</h3>
+            <p class="text-gray-600 text-sm">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Requirements Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Vendor Requirements</h2>
+      <p class="section-subtitle">Ensure your business meets our partnership criteria for a successful collaboration.</p>
+      
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Eligibility Criteria -->
+        <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-primary-500">
+          <h3 class="text-2xl font-semibold mb-6 text-primary-800">Eligibility Criteria</h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Valid Trade License</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">VAT Registration Certificate</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Minimum 1 year in business</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Product quality certifications (ISO, BSTI preferred)</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Consistent production capacity</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Commitment to delivery timelines</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product Requirements -->
+        <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-green-500">
+          <h3 class="text-2xl font-semibold mb-6 text-green-800">Product Requirements</h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Relevant to our categories (Paper, Eco, Plastic products)</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Meets Bangladesh safety standards</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Competitive pricing</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Clear product specifications</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">High-quality product images available</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+              <span class="text-gray-700">Ability to fulfill bulk orders</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Vendor Application Form -->
+  <section id="vendor-application" class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Vendor Application Form</h2>
+      <p class="section-subtitle">Complete the form below to start your partnership with Joana Paper.</p>
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+          <form id="vendor-form" class="space-y-8">
+            <!-- Section 1: Company Information -->
+            <div class="border-b border-gray-200 pb-6">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">1. Company Information</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="companyName" class="block text-sm font-medium text-gray-700 mb-1">Company Name *</label>
+                  <input type="text" id="companyName" name="companyName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="tradeLicense" class="block text-sm font-medium text-gray-700 mb-1">Trade License Number *</label>
+                  <input type="text" id="tradeLicense" name="tradeLicense" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="vatNumber" class="block text-sm font-medium text-gray-700 mb-1">VAT Registration Number *</label>
+                  <input type="text" id="vatNumber" name="vatNumber" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="yearEstablished" class="block text-sm font-medium text-gray-700 mb-1">Year Established *</label>
+                  <input type="number" id="yearEstablished" name="yearEstablished" min="1950" max="2024" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="companyType" class="block text-sm font-medium text-gray-700 mb-1">Company Type *</label>
+                  <select id="companyType" name="companyType" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                    <option value="">Select Type</option>
+                    <option value="Manufacturer">Manufacturer</option>
+                    <option value="Distributor">Distributor</option>
+                    <option value="Importer">Importer</option>
+                    <option value="Trader">Trader</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website (if any)</label>
+                  <input type="url" id="website" name="website" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+              </div>
+              <div class="mt-6">
+                <label for="companyAddress" class="block text-sm font-medium text-gray-700 mb-1">Company Address *</label>
+                <textarea id="companyAddress" name="companyAddress" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"></textarea>
+              </div>
+              <div class="mt-6">
+                <label for="factoryAddress" class="block text-sm font-medium text-gray-700 mb-1">Factory/Warehouse Address</label>
+                <textarea id="factoryAddress" name="factoryAddress" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"></textarea>
+              </div>
+            </div>
+            
+            <!-- Section 2: Contact Information -->
+            <div class="border-b border-gray-200 pb-6">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">2. Contact Information</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">Primary Contact Name *</label>
+                  <input type="text" id="contactName" name="contactName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="designation" class="block text-sm font-medium text-gray-700 mb-1">Designation *</label>
+                  <input type="text" id="designation" name="designation" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="mobile" class="block text-sm font-medium text-gray-700 mb-1">Mobile Number *</label>
+                  <input type="tel" id="mobile" name="mobile" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                  <div class="mt-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" id="whatsapp" name="whatsapp" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                      <span class="ml-2 text-sm text-gray-700">Same number for WhatsApp</span>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                  <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="altContact" class="block text-sm font-medium text-gray-700 mb-1">Alternative Contact Number</label>
+                  <input type="tel" id="altContact" name="altContact" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Section 3: Business Details -->
+            <div class="border-b border-gray-200 pb-6">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">3. Business Details</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="productionCapacity" class="block text-sm font-medium text-gray-700 mb-1">Current Monthly Production Capacity *</label>
+                  <input type="text" id="productionCapacity" name="productionCapacity" required placeholder="e.g., 100,000 pieces" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="employees" class="block text-sm font-medium text-gray-700 mb-1">Number of Employees</label>
+                  <select id="employees" name="employees" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                    <option value="">Select Range</option>
+                    <option value="1-10">1-10</option>
+                    <option value="11-50">11-50</option>
+                    <option value="51-100">51-100</option>
+                    <option value="101-500">101-500</option>
+                    <option value="500+">500+</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="annualRevenue" class="block text-sm font-medium text-gray-700 mb-1">Annual Revenue Range</label>
+                  <select id="annualRevenue" name="annualRevenue" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                    <option value="">Select Range</option>
+                    <option value="Under 1 Crore">Under 1 Crore</option>
+                    <option value="1-5 Crore">1-5 Crore</option>
+                    <option value="5-10 Crore">5-10 Crore</option>
+                    <option value="10-50 Crore">10-50 Crore</option>
+                    <option value="50+ Crore">50+ Crore</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="mt-6">
+                <label class="block text-sm font-medium text-gray-700 mb-3">Main Product Categories * (Select all that apply)</label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {productCategories.map(category => (
+                    <label class="flex items-center">
+                      <input type="checkbox" name="productCategories" value={category} class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                      <span class="ml-2 text-sm text-gray-700">{category}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              
+              <div class="mt-6">
+                <label for="majorClients" class="block text-sm font-medium text-gray-700 mb-1">Current Major Clients (Optional)</label>
+                <textarea id="majorClients" name="majorClients" rows="3" placeholder="List your current major clients or customer segments" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"></textarea>
+              </div>
+            </div>
+            
+            <!-- Section 4: Product Information -->
+            <div class="border-b border-gray-200 pb-6">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">4. Product Information</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="productCount" class="block text-sm font-medium text-gray-700 mb-1">Number of Products to List *</label>
+                  <input type="number" id="productCount" name="productCount" min="1" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="minOrderQty" class="block text-sm font-medium text-gray-700 mb-1">Minimum Order Quantities *</label>
+                  <input type="text" id="minOrderQty" name="minOrderQty" required placeholder="e.g., 1000 pieces minimum" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                  <label for="leadTime" class="block text-sm font-medium text-gray-700 mb-1">Average Lead Time *</label>
+                  <select id="leadTime" name="leadTime" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                    <option value="">Select Lead Time</option>
+                    <option value="1-3 days">1-3 days</option>
+                    <option value="4-7 days">4-7 days</option>
+                    <option value="1-2 weeks">1-2 weeks</option>
+                    <option value="2-4 weeks">2-4 weeks</option>
+                    <option value="4+ weeks">4+ weeks</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="flex items-center">
+                    <input type="checkbox" id="sampleAvailable" name="sampleAvailable" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                    <span class="ml-2 text-sm text-gray-700">Sample Availability</span>
+                  </label>
+                </div>
+                <div>
+                  <label class="flex items-center">
+                    <input type="checkbox" id="customization" name="customization" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                    <span class="ml-2 text-sm text-gray-700">Customization Capabilities</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="mt-6">
+                <label for="productCatalog" class="block text-sm font-medium text-gray-700 mb-1">Product Catalog Upload</label>
+                <input type="file" id="productCatalog" name="productCatalog" accept=".pdf,.xlsx,.xls" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                <p class="text-xs text-gray-500 mt-1">Upload PDF or Excel file (Max 10MB)</p>
+              </div>
+            </div>
+            
+            <!-- Section 5: Quality & Certification -->
+            <div class="border-b border-gray-200 pb-6">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">5. Quality & Certification</h3>
+              
+              <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-3">Quality Certifications (Select all that apply)</label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {qualityCertifications.map(cert => (
+                    <label class="flex items-center">
+                      <input type="checkbox" name="certifications" value={cert} class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                      <span class="ml-2 text-sm text-gray-700">{cert}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              
+              <div class="mb-6">
+                <label for="certificates" class="block text-sm font-medium text-gray-700 mb-1">Upload Certificates *</label>
+                <input type="file" id="certificates" name="certificates" multiple accept=".pdf,.jpg,.jpeg,.png" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                <p class="text-xs text-gray-500 mt-1">Upload certificate files (Max 5MB each)</p>
+              </div>
+              
+              <div>
+                <label for="qualityProcess" class="block text-sm font-medium text-gray-700 mb-1">Quality Control Process Description *</label>
+                <textarea id="qualityProcess" name="qualityProcess" rows="4" required placeholder="Describe your quality control measures and testing procedures" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"></textarea>
+              </div>
+            </div>
+            
+            <!-- Section 6: Additional Information -->
+            <div class="border-b border-gray-200 pb-6">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">6. Additional Information</h3>
+              
+              <div class="mb-6">
+                <label for="partnershipReason" class="block text-sm font-medium text-gray-700 mb-1">Why do you want to partner with Joana Paper? *</label>
+                <textarea id="partnershipReason" name="partnershipReason" rows="4" required placeholder="Tell us about your motivation and what you hope to achieve through this partnership" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"></textarea>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="expectedSales" class="block text-sm font-medium text-gray-700 mb-1">Expected Monthly Sales Volume</label>
+                  <input type="text" id="expectedSales" name="expectedSales" placeholder="e.g., 50,000 pieces" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500">
+                </div>
+              </div>
+              
+              <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="flex items-center">
+                    <input type="checkbox" id="marketingSupport" name="marketingSupport" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                    <span class="ml-2 text-sm text-gray-700">Marketing Support Needed</span>
+                  </label>
+                </div>
+                <div>
+                  <label class="flex items-center">
+                    <input type="checkbox" id="warehousingSupport" name="warehousingSupport" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                    <span class="ml-2 text-sm text-gray-700">Storage/Warehousing Support Needed</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Agreements -->
+            <div class="space-y-4">
+              <h3 class="text-xl font-semibold text-gray-900">Terms and Agreements</h3>
+              
+              <div class="space-y-3">
+                <label class="flex items-start">
+                  <input type="checkbox" id="terms" name="terms" required class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5">
+                  <span class="ml-2 text-sm text-gray-700">I agree to Joana Paper's vendor terms and conditions *</span>
+                </label>
+                
+                <label class="flex items-start">
+                  <input type="checkbox" id="accuracy" name="accuracy" required class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5">
+                  <span class="ml-2 text-sm text-gray-700">I confirm all information provided is accurate *</span>
+                </label>
+                
+                <label class="flex items-start">
+                  <input type="checkbox" id="quality" name="quality" required class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5">
+                  <span class="ml-2 text-sm text-gray-700">I agree to maintain product quality standards *</span>
+                </label>
+                
+                <label class="flex items-start">
+                  <input type="checkbox" id="inspection" name="inspection" required class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5">
+                  <span class="ml-2 text-sm text-gray-700">I consent to factory/facility inspection if required *</span>
+                </label>
+              </div>
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="pt-6">
+              <button type="submit" class="w-full btn btn-primary py-4 text-lg font-semibold">
+                Submit Vendor Application
+              </button>
+            </div>
+          </form>
+          
+          <!-- Success Message -->
+          <div id="vendor-form-success" class="hidden mt-6 p-6 bg-green-50 text-green-700 rounded-md border border-green-200">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-check-circle text-green-500 text-2xl mr-3"></i>
+              <h4 class="text-lg font-semibold">Application Submitted Successfully!</h4>
+            </div>
+            <p class="mb-2">Thank you for your interest in becoming a Joana Paper vendor. Your application has been received and assigned ID: <strong id="application-id">VP-2024-001</strong></p>
+            <p class="mb-4">Our team will review your application and contact you within 5-7 business days. You will receive updates via email and SMS.</p>
+            <div class="space-y-2 text-sm">
+              <p><strong>Next Steps:</strong></p>
+              <ul class="list-disc list-inside space-y-1 ml-4">
+                <li>Application review and verification (2-3 days)</li>
+                <li>Quality audit and facility inspection (if required)</li>
+                <li>Contract preparation and onboarding</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Error Message -->
+          <div id="vendor-form-error" class="hidden mt-6 p-4 bg-red-50 text-red-700 rounded-md border border-red-200">
+            <div class="flex items-center">
+              <i class="fas fa-exclamation-triangle text-red-500 mr-3"></i>
+              <span>There was an error submitting your application. Please try again or contact our vendor support team.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Get answers to common questions about our vendor program.</p>
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="space-y-4">
+          {faqs.map((faq, index) => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <button 
+                class="vendor-faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50"
+                data-index={index}
+              >
+                <span class="text-lg font-medium text-gray-900 pr-8">{faq.question}</span>
+                <span class="vendor-faq-icon flex-shrink-0 ml-2 text-gray-500 transition-transform duration-200">
+                  <i class="fas fa-plus"></i>
+                </span>
+              </button>
+              
+              <div class="vendor-faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                <div class="py-4 text-gray-600 border-t">
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Grow Your Business?"
+    description="Join our growing network of successful vendors and expand your reach across Bangladesh's packaging market."
+    buttonText="Start Application Now"
+    buttonLink="#vendor-application"
+    secondaryButtonText="Contact Vendor Support"
+    secondaryButtonLink="https://wa.me/8801976724402"
+  />
+</Layout>
+
+<style>
+  /* Vendor FAQ styling */
+  .vendor-faq-question:hover {
+    @apply bg-gray-50;
+  }
+  
+  .vendor-faq-question.active .vendor-faq-icon i {
+    @apply transform rotate-45 text-primary-600;
+  }
+  
+  .vendor-faq-answer {
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .vendor-faq-question.active + .vendor-faq-answer {
+    @apply py-2;
+    max-height: 200px;
+  }
+  
+  /* Process step colors */
+  .bg-blue-100 { background-color: #dbeafe; }
+  .text-blue-600 { color: #2563eb; }
+  .bg-blue-500 { background-color: #3b82f6; }
+  
+  .bg-green-100 { background-color: #dcfce7; }
+  .text-green-600 { color: #16a34a; }
+  .bg-green-500 { background-color: #22c55e; }
+  
+  .bg-purple-100 { background-color: #f3e8ff; }
+  .text-purple-600 { color: #9333ea; }
+  .bg-purple-500 { background-color: #a855f7; }
+  
+  .bg-orange-100 { background-color: #fed7aa; }
+  .text-orange-600 { color: #ea580c; }
+  .bg-orange-500 { background-color: #f97316; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Vendor form submission
+    const vendorForm = document.getElementById('vendor-form');
+    const successMessage = document.getElementById('vendor-form-success');
+    const errorMessage = document.getElementById('vendor-form-error');
+    
+    if (vendorForm) {
+      vendorForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Hide any existing messages
+        if (successMessage) successMessage.classList.add('hidden');
+        if (errorMessage) errorMessage.classList.add('hidden');
+        
+        // Simulate form submission
+        setTimeout(() => {
+          // Generate application ID
+          const appId = 'VP-2024-' + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+          document.getElementById('application-id').textContent = appId;
+          
+          // Show success message
+          if (successMessage) {
+            successMessage.classList.remove('hidden');
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form
+            vendorForm.reset();
+          }
+        }, 1500);
+      });
+    }
+    
+    // Vendor FAQ accordion
+    const vendorFaqQuestions = document.querySelectorAll('.vendor-faq-question');
+    
+    vendorFaqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        // Toggle current question
+        question.classList.toggle('active');
+      });
+    });
+  });
+</script>
