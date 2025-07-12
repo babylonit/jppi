@@ -5,11 +5,11 @@ import ProductCard from '../components/ProductCard.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 
-// Plastic food packaging products
+// ALL 13 plastic food packaging products as individual cards
 const plasticPackagingProducts = [
   {
-    title: 'Food Containers & Boxes',
-    description: 'Durable plastic containers for takeaway, meal prep, and food storage.',
+    title: 'Container/Box',
+    description: 'Versatile plastic containers and boxes for various food storage and takeaway needs.',
     image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     link: '/products/plastic-containers'
   },
@@ -20,16 +20,22 @@ const plasticPackagingProducts = [
     link: '/products/plastic-cups'
   },
   {
-    title: 'Takeaway Spoons',
-    description: 'Disposable plastic spoons perfect for takeaway meals and events.',
+    title: 'Takeaway Container Spoon',
+    description: 'Disposable plastic spoons perfect for takeaway meals and food service.',
     image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/products/plastic-spoons'
+    link: '/products/takeaway-spoons'
   },
   {
-    title: 'Straws & Strainers',
-    description: 'Various plastic straws and strainer accessories for beverage service.',
+    title: 'Straws',
+    description: 'Various plastic straws for beverages and drink service applications.',
     image: 'https://images.pexels.com/photos/6039371/pexels-photo-6039371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/products/straws-strainers'
+    link: '/products/plastic-straws'
+  },
+  {
+    title: 'Strailer',
+    description: 'Specialized strainer accessories for beverage preparation and service.',
+    image: 'https://images.pexels.com/photos/4553327/pexels-photo-4553327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/strailers'
   },
   {
     title: 'Ice Cream Boxes',
@@ -38,10 +44,46 @@ const plasticPackagingProducts = [
     link: '/products/ice-cream-boxes'
   },
   {
-    title: 'Specialized Items',
-    description: 'Pizza lid supports, water bottles, food trays, and other specialized plastic items.',
+    title: 'Pizza Lid Support',
+    description: 'Small plastic supports that prevent pizza box lids from touching the pizza.',
+    image: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/pizza-lid-support'
+  },
+  {
+    title: 'Water Bottles',
+    description: 'Disposable plastic water bottles for events, catering, and retail.',
+    image: 'https://images.pexels.com/photos/3985062/pexels-photo-3985062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/water-bottles'
+  },
+  {
+    title: 'Food Tray 4 Unit With Lid',
+    description: 'Multi-compartment food trays with secure lids for complete meal packaging.',
+    image: 'https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/4-unit-food-tray'
+  },
+  {
+    title: 'Dry Cake Biscuit Tray',
+    description: 'Specialized plastic trays designed for dry cakes, biscuits, and bakery items.',
+    image: 'https://images.pexels.com/photos/4869312/pexels-photo-4869312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/cake-biscuit-tray'
+  },
+  {
+    title: 'Thai Burger Box',
+    description: 'Specialized plastic containers designed for Thai-style burgers and similar foods.',
+    image: 'https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/thai-burger-box'
+  },
+  {
+    title: 'Egg Tray',
+    description: 'Plastic trays specifically designed for safe egg storage and transport.',
+    image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/products/egg-tray'
+  },
+  {
+    title: 'Sandwich Box',
+    description: 'Compact plastic boxes perfect for sandwich packaging and takeaway meals.',
     image: 'https://images.pexels.com/photos/4393464/pexels-photo-4393464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/products/specialized-plastic'
+    link: '/products/sandwich-box'
   }
 ];
 
@@ -79,48 +121,16 @@ const features = [
   }
 ];
 
-// Product categories
-const productCategories = [
-  {
-    name: 'Containers & Boxes',
-    items: [
-      'Container/box - Various sizes',
-      'Thai Burger Box',
-      'Sandwich Box',
-      'Food Tray 4 Unit With Lid',
-      'Dry Cake Biscuit Tray',
-      'Egg Tray'
-    ]
-  },
-  {
-    name: 'Cups & Bottles',
-    items: [
-      'Plastic Cups - Multiple sizes',
-      'Water Bottle',
-      'Ice Cream Box'
-    ]
-  },
-  {
-    name: 'Cutlery & Accessories',
-    items: [
-      'Takeaway Container Spoon',
-      'Straw',
-      'Strailer',
-      'Pizza Lid Support'
-    ]
-  }
-];
-
 // SEO Metadata
 const title = "Plastic Food Packaging Solutions";
-const description = "High-quality plastic food packaging including containers, cups, spoons, straws, and specialized items. Food-safe, durable, and cost-effective solutions for food service.";
+const description = "Complete range of plastic food packaging including containers, cups, spoons, straws, ice cream boxes, trays, and specialized items. Food-safe, durable solutions for food service.";
 ---
 
 <Layout title={title} description={description}>
   <!-- Hero Section -->
   <Hero
     title="Plastic Food Packaging Solutions"
-    subtitle="Durable, food-safe plastic packaging designed for the demands of modern food service and takeaway businesses."
+    subtitle="Complete range of durable, food-safe plastic packaging designed for modern food service operations."
     backgroundImage="https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   />
   
@@ -128,29 +138,28 @@ const description = "High-quality plastic food packaging including containers, c
   <section class="section">
     <div class="container">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Reliable Plastic Packaging Solutions</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Complete Plastic Packaging Range</h2>
         <p class="text-lg text-gray-600 mb-6">
-          Our plastic food packaging products provide the durability, safety, and functionality 
-          that busy food service operations require. From leak-proof containers to crystal-clear 
-          cups, each product is designed to maintain food quality while offering convenience for 
-          both businesses and customers.
+          Our comprehensive plastic food packaging collection provides the durability, safety, and functionality 
+          that busy food service operations require. From basic containers to specialized items like pizza lid 
+          supports, each product is designed to maintain food quality while offering convenience.
         </p>
         <p class="text-lg text-gray-600 mb-6">
-          All our plastic products are manufactured using food-grade materials that meet strict 
-          safety standards. Whether you need basic takeaway containers or specialized packaging 
-          for specific food items, we provide reliable solutions at competitive prices.
+          All our plastic products are manufactured using food-grade materials that meet strict safety standards. 
+          Whether you need standard takeaway containers or specialized packaging for unique food items, 
+          we provide reliable solutions at competitive prices.
         </p>
       </div>
     </div>
   </section>
   
-  <!-- Products Section -->
+  <!-- All Products Section -->
   <section class="section bg-gray-50">
     <div class="container">
-      <h2 class="section-title">Plastic Packaging Products</h2>
-      <p class="section-subtitle">Comprehensive plastic packaging solutions for food service operations.</p>
+      <h2 class="section-title">Our Complete Plastic Packaging Range</h2>
+      <p class="section-subtitle">All 13 plastic food packaging products available for your food service needs.</p>
       
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {plasticPackagingProducts.map(product => (
           <ProductCard 
             title={product.title} 
@@ -159,6 +168,14 @@ const description = "High-quality plastic food packaging including containers, c
             link={product.link} 
           />
         ))}
+      </div>
+      
+      <!-- Product Count Info -->
+      <div class="mt-8 text-center">
+        <p class="text-lg text-gray-600">
+          <span class="font-semibold text-primary-600">{plasticPackagingProducts.length} products</span> 
+          available for immediate order
+        </p>
       </div>
     </div>
   </section>
@@ -181,34 +198,8 @@ const description = "High-quality plastic food packaging including containers, c
     </div>
   </section>
   
-  <!-- Product Categories Section -->
-  <section class="section bg-gray-50">
-    <div class="container">
-      <h2 class="section-title">Complete Product Range</h2>
-      <p class="section-subtitle">Our full selection of plastic food packaging items organized by category.</p>
-      
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {productCategories.map(category => (
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4 text-primary-600 border-b border-primary-100 pb-2">
-              {category.name}
-            </h3>
-            <ul class="space-y-3">
-              {category.items.map(item => (
-                <li class="flex items-start">
-                  <i class="fas fa-check h-5 w-5 text-primary-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                  <span class="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-  
   <!-- Applications Section -->
-  <section class="section">
+  <section class="section bg-gray-50">
     <div class="container">
       <h2 class="section-title">Industry Applications</h2>
       <p class="section-subtitle">Plastic packaging solutions for various food service sectors.</p>
@@ -250,7 +241,7 @@ const description = "High-quality plastic food packaging including containers, c
   </section>
   
   <!-- Specifications Section -->
-  <section class="section bg-gray-50">
+  <section class="section">
     <div class="container">
       <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <div class="px-6 py-4 bg-primary-50 border-b border-primary-100">
@@ -322,57 +313,48 @@ const description = "High-quality plastic food packaging including containers, c
     </div>
   </section>
   
-  <!-- Customization Section -->
-  <section class="section">
+  <!-- Product Categories Summary -->
+  <section class="section bg-gray-50">
     <div class="container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Customization Options</h2>
-          <p class="text-lg text-gray-600 mb-6">
-            While our plastic products are primarily offered in standard configurations, 
-            we can accommodate certain customization requests for large volume orders. 
-            Contact us to discuss your specific requirements.
-          </p>
-          
-          <div class="space-y-4">
-            <div class="flex items-start">
-              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                <i class="fas fa-palette text-primary-600 text-sm"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Color Options</h3>
-                <p class="text-gray-600">Limited color variations available for large orders.</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                <i class="fas fa-expand-arrows-alt text-primary-600 text-sm"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Size Modifications</h3>
-                <p class="text-gray-600">Custom sizing possible for specific applications with minimum order quantities.</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                <i class="fas fa-print text-primary-600 text-sm"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Basic Branding</h3>
-                <p class="text-gray-600">Simple logo printing available on selected container products.</p>
-              </div>
-            </div>
-          </div>
+      <h2 class="section-title">Product Categories Summary</h2>
+      <p class="section-subtitle">Our 13 plastic food packaging products organized by type.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 text-primary-600 border-b border-primary-100 pb-2">
+            Containers & Boxes (6 items)
+          </h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>• Container/box</li>
+            <li>• Thai Burger Box</li>
+            <li>• Sandwich Box</li>
+            <li>• Food Tray 4 Unit With Lid</li>
+            <li>• Dry Cake Biscuit Tray</li>
+            <li>• Egg Tray</li>
+          </ul>
         </div>
         
-        <div class="relative">
-          <img 
-            src="https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-            alt="Various plastic food packaging products" 
-            class="rounded-lg shadow-xl w-full"
-          />
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 text-primary-600 border-b border-primary-100 pb-2">
+            Cups & Bottles (3 items)
+          </h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>• Plastic Cups</li>
+            <li>• Water Bottles</li>
+            <li>• Ice Cream Boxes</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 text-primary-600 border-b border-primary-100 pb-2">
+            Cutlery & Accessories (4 items)
+          </h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>• Takeaway Container Spoon</li>
+            <li>• Straws</li>
+            <li>• Strailer</li>
+            <li>• Pizza Lid Support</li>
+          </ul>
         </div>
       </div>
     </div>
