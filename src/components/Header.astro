@@ -289,17 +289,13 @@ const isActive = (path: string) => {
             <a href="/disposable-paper-cups" class="block font-semibold text-primary-700 mb-2 text-sm hover:text-primary-800">
               📱 Disposable Paper Cups
             </a>
-            <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-              <div class="space-y-1">
-                <div>• 50ml-100ml Cups</div>
-                <div>• 120ml-150ml Cups</div>
-                <div>• 200ml-250ml Cups</div>
-              </div>
-              <div class="space-y-1">
-                <div>• 350ml-400ml Cups</div>
-                <div>• Double Wall Cups</div>
-                <div>• Custom Sizes</div>
-              </div>
+            <div class="space-y-1 text-xs text-gray-600">
+              <div>• 50ml-100ml Cups</div>
+              <div>• 120ml-150ml Cups</div>
+              <div>• 200ml-250ml Cups</div>
+              <div>• 350ml-400ml Cups</div>
+              <div>• Double Wall Cups</div>
+              <div>• Custom Sizes</div>
             </div>
           </div>
           
@@ -308,27 +304,23 @@ const isActive = (path: string) => {
             <a href="/food-packaging" class="block font-semibold text-green-700 mb-2 text-sm hover:text-green-800">
               🍕 Food Packaging
             </a>
-            <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-              <div class="space-y-1">
-                <div>• Pizza Boxes</div>
-                <div>• Burger Boxes</div>
-                <div>• Lunch Boxes</div>
-              </div>
-              <div class="space-y-1">
-                <div>• Food Containers</div>
-                <div>• Sandwich Boxes</div>
-                <div>• Cake Boxes</div>
-              </div>
+            <div class="space-y-1 text-xs text-gray-600">
+              <div>• Pizza Boxes</div>
+              <div>• Burger Boxes</div>
+              <div>• Lunch Boxes</div>
+              <div>• Food Containers</div>
+              <div>• Sandwich Boxes</div>
+              <div>• Cake Boxes</div>
             </div>
           </div>
           
           <!-- Other Paper Categories -->
-          <div class="grid grid-cols-2 gap-3">
-            <a href="/retail-packaging" class="p-2 bg-blue-50 rounded-md border border-blue-200">
+          <div class="space-y-3">
+            <a href="/retail-packaging" class="block p-3 bg-blue-50 rounded-md border border-blue-200">
               <div class="font-medium text-blue-700 text-sm">🛍️ Retail Packaging</div>
               <div class="text-xs text-blue-600">Bags, Labels, Custom</div>
             </a>
-            <a href="/medical-packaging" class="p-2 bg-red-50 rounded-md border border-red-200">
+            <a href="/medical-packaging" class="block p-3 bg-red-50 rounded-md border border-red-200">
               <div class="font-medium text-red-700 text-sm">🏥 Medical Packaging</div>
               <div class="text-xs text-red-600">Medicine, Files, X-Ray</div>
             </a>
@@ -336,12 +328,12 @@ const isActive = (path: string) => {
           
           <!-- Printing Services -->
           <div class="border-l-2 border-purple-200 pl-4">
-            <div class="grid grid-cols-2 gap-3">
-              <a href="/office-stationery" class="p-2 bg-purple-50 rounded-md border border-purple-200">
+            <div class="space-y-3">
+              <a href="/office-stationery" class="block p-3 bg-purple-50 rounded-md border border-purple-200">
                 <div class="font-medium text-purple-700 text-sm">📋 Office Stationery</div>
                 <div class="text-xs text-purple-600">Cards, Letters, Invoices</div>
               </a>
-              <a href="/marketing-materials" class="p-2 bg-indigo-50 rounded-md border border-indigo-200">
+              <a href="/marketing-materials" class="block p-3 bg-indigo-50 rounded-md border border-indigo-200">
                 <div class="font-medium text-indigo-700 text-sm">📢 Marketing Materials</div>
                 <div class="text-xs text-indigo-600">Brochures, Flyers, Banners</div>
               </a>
@@ -360,16 +352,17 @@ const isActive = (path: string) => {
           <i class="fas fa-chevron-down text-xs transition-transform mobile-accordion-icon text-green-600"></i>
         </button>
         <div class="mobile-accordion-content hidden px-4 pb-4 space-y-4">
-          <div class="grid grid-cols-1 gap-3">
+          <div class="space-y-3">
             <a href="/areca-palm-products" class="p-3 bg-green-50 rounded-md border border-green-200">
               <div class="flex items-center mb-2">
                 <span class="text-lg mr-2">🌿</span>
                 <div class="font-semibold text-green-700">Areca Palm Products</div>
               </div>
-              <div class="grid grid-cols-2 gap-2 text-xs text-green-600">
-                <div>• Palm Leaf Plates</div>
-                <div>• Areca Trays</div>
-                <div>• Leaf Bowls</div>
+              <div class="space-y-1 text-xs text-green-600">
+                <div>• Areca Palm Leaf Plates</div>
+                <div>• Areca Palm Leaf Trays</div>
+                <div>• Areca Leaf Bowls</div>
+                <div>• Partitioned Plates</div>
                 <div>• Square Plates</div>
               </div>
             </a>
@@ -379,10 +372,11 @@ const isActive = (path: string) => {
                 <span class="text-lg mr-2">🌳</span>
                 <div class="font-semibold text-amber-700">Wooden Products</div>
               </div>
-              <div class="grid grid-cols-2 gap-2 text-xs text-amber-600">
+              <div class="space-y-1 text-xs text-amber-600">
                 <div>• Wooden Plates</div>
                 <div>• Wooden Trays</div>
                 <div>• Cutlery Sets</div>
+                <div>• Wooden Spoons & Forks</div>
                 <div>• Bamboo Brushes</div>
               </div>
             </a>
@@ -404,25 +398,22 @@ const isActive = (path: string) => {
             <div class="flex items-center mb-2">
               <span class="text-lg mr-2">🥤</span>
               <div class="font-semibold text-blue-700">Plastic Food Packaging</div>
+              <span class="ml-auto text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded-full">13 Products</span>
             </div>
-            <div class="grid grid-cols-2 gap-2 text-xs text-blue-600">
-              <div class="space-y-1">
-                <div>• Containers & Boxes</div>
-                <div>• Plastic Cups</div>
-                <div>• Takeaway Spoons</div>
-                <div>• Straws & Accessories</div>
-                <div>• Ice Cream Boxes</div>
-                <div>• Water Bottles</div>
-                <div>• Food Trays</div>
-              </div>
-              <div class="space-y-1">
-                <div>• Thai Burger Boxes</div>
-                <div>• Sandwich Boxes</div>
-                <div>• Egg Trays</div>
-                <div>• Pizza Lid Supports</div>
-                <div>• Cake Biscuit Trays</div>
-                <div>• Strailers</div>
-                <div class="font-medium text-blue-700">13 Products Total</div>
+            <div class="space-y-1 text-xs text-blue-600 mt-2">
+              <div>• Containers & Boxes</div>
+              <div>• Plastic Cups</div>
+              <div>• Takeaway Spoons</div>
+              <div>• Straws & Strailers</div>
+              <div>• Ice Cream Boxes</div>
+              <div>• Water Bottles</div>
+              <div>• Food Trays (4-Unit)</div>
+              <div>• Thai Burger Boxes</div>
+              <div>• Sandwich Boxes</div>
+              <div>• Egg Trays</div>
+              <div>• Pizza Lid Supports</div>
+              <div>• Cake Biscuit Trays</div>
+              <div>• Dry Cake Trays</div>
               </div>
             </div>
           </a>
