@@ -3,8 +3,8 @@ class JoanaChatBot {
   constructor() {
     this.responses = this.initializeResponses();
     this.context = '';
-    this.notificationShown = false;
-    this.notificationDismissed = false;
+    this.notificationCurrentlyVisible = false;
+    this.notificationDismissedByUser = false;
     this.init();
   }
 
@@ -44,15 +44,79 @@ class JoanaChatBot {
       products: {
         patterns: ['product', 'what do you make', 'what do you sell', 'services', 'offerings'],
         responses: [
-          "We manufacture biodegradable paper cups (100ml-250ml), lunch boxes, pizza boxes, paper plates, and custom packaging solutions. We also offer offset printing services. All our products are QC-100 certified and eco-friendly."
+          "We manufacture a wide range of products including disposable paper cups, food packaging, retail packaging, medical packaging, office stationery, marketing materials, eco-friendly areca palm products, wooden items, and plastic food packaging. All products are QC-100 certified and eco-friendly."
         ]
       },
 
       // Paper Cups
       paperCups: {
-        patterns: ['paper cup', 'cup', 'disposable cup', 'coffee cup', '100ml', '120ml', '150ml', '250ml'],
+        patterns: ['paper cup', 'cup', 'disposable cup', 'coffee cup', '50ml', '100ml', '120ml', '150ml', '200ml', '250ml', '350ml', '400ml'],
         responses: [
-          "Our paper cups are available in 100ml, 120ml, 150ml, and 250ml sizes. They're QC-100 certified, leak-proof, and made with FDA-approved materials. Minimum order: 2,000-5,000 pieces depending on size. Custom printing available!"
+          "Our paper cups are available in sizes from 50ml to 400ml including 50ml, 60ml, 80ml, 100ml, 120ml, 150ml, 200ml, 250ml, 350ml, and 400ml. They're QC-100 certified, leak-proof, and made with FDA-approved materials. We also offer specialty cups like double-wall and ripple-wall. Custom printing available!"
+        ]
+      },
+
+      // Food Packaging
+      foodPackaging: {
+        patterns: ['food packaging', 'pizza box', 'burger box', 'lunch box', 'food container', 'sandwich box', 'cake box'],
+        responses: [
+          "We offer comprehensive food packaging solutions including pizza boxes, burger boxes, lunch boxes, food containers, sandwich boxes, and cake boxes. All are grease-resistant, temperature-retaining, and food-safe with custom printing options available."
+        ]
+      },
+
+      // Retail Packaging
+      retailPackaging: {
+        patterns: ['retail packaging', 'shopping bag', 'courier bag', 'product label', 'custom packaging'],
+        responses: [
+          "Our retail packaging includes eco-friendly shopping bags, courier bags, product labels, and custom packaging solutions. Perfect for enhancing your brand presence with durable, cost-effective options and custom branding."
+        ]
+      },
+
+      // Medical Packaging
+      medicalPackaging: {
+        patterns: ['medical packaging', 'medicine packaging', 'patient file', 'x-ray envelope'],
+        responses: [
+          "We provide specialized medical packaging including tamper-proof medicine boxes, patient files, and X-ray envelopes. All products are designed for safety, compliance with health regulations, and feature child-resistant options."
+        ]
+      },
+
+      // Office Stationery
+      officeStationery: {
+        patterns: ['office stationery', 'business card', 'letterhead', 'invoice', 'envelope'],
+        responses: [
+          "Our office stationery services include professional printing for business cards, letterheads, invoices, and envelopes. High-quality printing with custom branding to elevate your corporate image."
+        ]
+      },
+
+      // Marketing Materials
+      marketingMaterials: {
+        patterns: ['marketing material', 'brochure', 'flyer', 'catalog', 'banner', 'sticker', 'hang tag'],
+        responses: [
+          "We print high-impact marketing materials including brochures, flyers, catalogs, banners, stickers, and hang tags. Our printing services help amplify your brand message with vibrant colors and professional quality."
+        ]
+      },
+
+      // Areca Palm Products
+      arecaPalm: {
+        patterns: ['areca palm', 'palm leaf', 'areca plate', 'areca bowl', 'areca tray'],
+        responses: [
+          "Discover our 100% natural, biodegradable areca palm leaf plates, bowls, and trays. They are chemical-free, microwave-safe, water-resistant, and completely compostable within 60 days."
+        ]
+      },
+
+      // Wooden Items
+      woodenItems: {
+        patterns: ['wooden item', 'wooden plate', 'wooden tray', 'cutlery set', 'wooden spoon', 'wooden fork', 'bamboo brush'],
+        responses: [
+          "Explore our handcrafted wooden and bamboo products including plates, trays, cutlery sets, spoons, forks, and bamboo brushes. All made from sustainable, FSC-certified materials with food-safe finishes."
+        ]
+      },
+
+      // Plastic Food Packaging
+      plasticPackaging: {
+        patterns: ['plastic packaging', 'plastic container', 'plastic cup', 'plastic spoon', 'straw', 'ice cream box', 'pizza lid support', 'water bottle', 'food tray', 'biscuit tray', 'burger box', 'egg tray'],
+        responses: [
+          "We offer a complete range of durable, food-safe plastic packaging including containers, cups, takeaway spoons, straws, ice cream boxes, pizza lid supports, water bottles, food trays, and specialty items. All are BPA-free and FDA-approved."
         ]
       },
 
@@ -60,7 +124,7 @@ class JoanaChatBot {
       pricing: {
         patterns: ['price', 'cost', 'how much', 'pricing', 'rate', 'charge', 'expensive'],
         responses: [
-          "Our pricing varies by product and quantity. For paper cups: MOQ 2,000-5,000 pieces. Custom printing: BDT 3,000 per color (one-time plate charge). Bulk discounts available for 100,000+ pieces (2% off). Contact us at +880 01976724401 for detailed quotes!"
+          "Our pricing varies by product and quantity. Paper cups: MOQ 2,000-5,000 pieces. Custom printing: BDT 3,000 per color (one-time plate charge). Bulk discounts available for 100,000+ pieces (2% off). Contact us at +880 01976724401 for detailed quotes!"
         ]
       },
 
@@ -68,7 +132,7 @@ class JoanaChatBot {
       moq: {
         patterns: ['minimum order', 'moq', 'smallest order', 'minimum quantity'],
         responses: [
-          "Our minimum order quantities are: Ready stock items: 2,000 pieces, Custom orders: 30,000 pieces. We offer flexibility for smaller businesses and bulk discounts for larger orders."
+          "Our minimum order quantities vary by product: Ready stock items: 2,000 pieces, Custom orders: 30,000 pieces. We offer flexibility for smaller businesses and bulk discounts for larger orders."
         ]
       },
 
@@ -76,7 +140,7 @@ class JoanaChatBot {
       location: {
         patterns: ['location', 'address', 'where are you', 'where located', 'find you'],
         responses: [
-          "Our manufacturing facility is located at 123 Industrial Area, Gazipur, Dhaka, Bangladesh. Additionally, our corporate office can be found at 319, Eastern Road (Lane # 4), Baridhara DOHS, Dhaka – 1206."
+          "Our manufacturing facility is located at 123 Industrial Area, Gazipur, Dhaka, Bangladesh. Our corporate office is at 319, Eastern Road (Lane # 4), Baridhara DOHS, Dhaka – 1206."
         ]
       },
 
@@ -132,7 +196,7 @@ class JoanaChatBot {
       clients: {
         patterns: ['client', 'customer', 'who uses', 'brands'],
         responses: [
-          "We proudly serve top brands including Nestlé, Coats, airlines, embassies, and 500+ cafes and restaurants across Bangladesh. We're a trusted supplier for both local and international companies."
+          "We proudly serve top brands including Nestlé, Coca-Cola, KFC, Pizza Hut, Starbucks, airlines, embassies, and 500+ cafes and restaurants across Bangladesh. We're a trusted supplier for both local and international companies."
         ]
       },
 
@@ -169,8 +233,8 @@ class JoanaChatBot {
         clearTimeout(scrollTimer);
       }
       
-      // Check if user has scrolled down at least 500px and notification hasn't been shown/dismissed
-      if (window.scrollY > 500 && !this.notificationShown && !this.notificationDismissed) {
+      // Check if user has scrolled down at least 500px and notification hasn't been dismissed
+      if (window.scrollY > 500 && !this.notificationCurrentlyVisible && !this.notificationDismissedByUser) {
         // Show notification after a short delay to avoid showing on quick scrolls
         scrollTimer = setTimeout(() => {
           this.showScrollNotification();
@@ -183,14 +247,14 @@ class JoanaChatBot {
     const notification = document.getElementById('chat-notification');
     const notificationDot = document.getElementById('notification-dot');
     
-    if (notification && !this.notificationShown) {
+    if (notification && !this.notificationDismissedByUser && !this.notificationCurrentlyVisible) {
       notification.classList.remove('hidden');
       notificationDot.classList.remove('hidden');
-      this.notificationShown = true;
+      this.notificationCurrentlyVisible = true;
       
-      // Auto-hide after 8 seconds if not interacted with
+      // Auto-hide after 8 seconds if not dismissed by user
       setTimeout(() => {
-        if (!this.notificationDismissed) {
+        if (this.notificationCurrentlyVisible && !this.notificationDismissedByUser) {
           this.hideScrollNotification();
         }
       }, 8000);
@@ -204,6 +268,7 @@ class JoanaChatBot {
     if (notification) {
       notification.classList.add('hidden');
       notificationDot.classList.add('hidden');
+      this.notificationCurrentlyVisible = false;
     }
   }
 
@@ -221,7 +286,7 @@ class JoanaChatBot {
     // Notification close button
     if (notificationClose) {
       notificationClose.addEventListener('click', () => {
-        this.notificationDismissed = true;
+        this.notificationDismissedByUser = true;
         this.hideScrollNotification();
       });
     }
@@ -229,7 +294,7 @@ class JoanaChatBot {
     // Notification chat button
     if (notificationChatBtn) {
       notificationChatBtn.addEventListener('click', () => {
-        this.notificationDismissed = true;
+        this.notificationDismissedByUser = true;
         this.hideScrollNotification();
         // Open chat window
         chatWindow.classList.remove('hidden');
@@ -247,8 +312,8 @@ class JoanaChatBot {
         chatIcon.classList.add('hidden');
         closeIcon.classList.remove('hidden');
         // Hide notification when chat is opened
-        if (this.notificationShown) {
-          this.notificationDismissed = true;
+        if (this.notificationCurrentlyVisible) {
+          this.notificationDismissedByUser = true;
           this.hideScrollNotification();
         }
       } else {
