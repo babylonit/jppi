@@ -191,4 +191,21 @@ const supportAvatar = '/images/SupportAvatar.png'; // Updated path to your uploa
     visibility: visible !important;
     z-index: 51;
   }
+
+  #chat-notification {
+  position: relative; /* Needed for positioning the pseudo-element */
+}
+
+#chat-notification::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Adjust to make it stick out from the bottom */
+  right: 10px; /* Adjust to align with the chat button */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #22c55e; /* This color should match Tailwind's green-500 */
+}
+
 </style>
