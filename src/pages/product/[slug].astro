@@ -36,7 +36,20 @@ const categoryNames = {
   'marketing-materials': 'Marketing Materials'
 };
 
+// Category page mapping for static URLs
+const categoryPageMapping = {
+  'paper-cups': '/disposable-paper-cups',
+  'food-packaging': '/food-packaging',
+  'retail-packaging': '/retail-packaging',
+  'medical-packaging': '/medical-packaging',
+  'office-stationery': '/office-stationery',
+  'marketing-materials': '/marketing-materials',
+  'plastic-packaging': '/plastic-food-packaging',
+  'eco-products': '/areca-palm-products'
+};
+
 const categoryName = categoryNames[product.category] || product.category;
+const categoryUrl = categoryPageMapping[product.category] || `/category/${product.category}`;
 ---
 
 <Layout title={title} description={description}>
@@ -46,7 +59,7 @@ const categoryName = categoryNames[product.category] || product.category;
       <ol class="flex items-center space-x-2 text-sm">
         <li><a href="/" class="text-gray-600 hover:text-primary-600">Home</a></li>
         <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
-        <li><a href={`/category/${product.category}`} class="text-gray-600 hover:text-primary-600">{categoryName}</a></li>
+        <li><a href={categoryUrl} class="text-gray-600 hover:text-primary-600">{categoryName}</a></li>
         <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
         <li class="text-gray-900 font-medium">{product.name}</li>
       </ol>
