@@ -5,7 +5,10 @@ import FeatureSection from '../components/FeatureSection.astro';
 import CallToAction from '../components/CallToAction.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import LightboxGallery from '../components/LightboxGallery.astro';
+import ClientLogosSection from '../components/ClientLogosSection.astro'; // Import the new component
+import { majorClients } from '../data/clients'; // Import the centralized data
 import { galleryImages } from '../data/galleryImages';
+
 
 // Features data
 const features = [
@@ -706,73 +709,12 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
   </section>
   
   <!-- Our Clients Section -->
-  <section class="section bg-gray-50">
-    <div class="container">
-      <h2 class="section-title">Trusted by Leading Brands</h2>
-      <p class="section-subtitle">We proudly serve some of the most respected companies in Bangladesh</p>
-      
-      <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-        <!-- Nestle -->
-        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <img 
-            src="/images/clients-logo/Nestle-Logo.jpg"
-            alt="Nestlé"
-            class="h-12 object-contain transition-all"
-          />
-        </div>
-        
-        <!-- Apex -->
-        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <img 
-            src="/images/clients-logo/Apex-logo.jpg"
-            alt="Apex"
-            class="h-12 object-contain transition-all"
-          />
-        </div>
-        
-        <!-- Pizza Hut -->
-        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <img 
-            src="/images/clients-logo/Pizza-Hut-Logo.jpg"
-            alt="Pizza Hut"
-            class="h-12 object-contain transition-all"
-          />
-        </div>
-        
-        <!-- Cadet College Club -->
-        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <img 
-            src="/images/clients-logo/Cadet-College-Club-Logo.jpg"
-            alt="Cadet College Club"
-            class="h-12 object-contain  transition-all"
-          />
-        </div>
-        
-        <!-- US Bangla Airlines -->
-        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <img 
-            src="/images/clients-logo/Biman-Bangladesh-Logo.jpg"
-            alt="US Bangla Airlines"
-            class="h-12 object-contain transition-all"
-          />
-        </div>
-        
-        <!-- Starbucks -->
-        <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-          <img 
-            src="/images/clients-logo/Starbucks-Logo.jpg"
-            alt="Starbucks"
-            class="h-12 object-contain transition-all"
-          />
-        </div>
-      </div>
-      
-      <div class="mt-12 text-center">
-        <p class="text-lg text-gray-600">Join the growing list of satisfied customers who trust our quality and service</p>
-        <a href="/contact" class="btn btn-primary mt-6">Become Our Client</a>
-      </div>
-    </div>
-  </section>
+ 
+<ClientLogosSection
+    title="Trusted by Leading Brands"
+    subtitle="We proudly serve some of the most respected companies in Bangladesh"
+    clients={majorClients}
+  />
   
   <!-- FAQ Section -->
   <section class="section bg-gray-50">
