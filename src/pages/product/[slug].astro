@@ -24,19 +24,19 @@ const relatedProducts = getRelatedProducts(product.slug).slice(0, 4);
 const title = product.seoTitle || `${product.name} | Joana Paper Product Industry`;
 const description = product.seoDescription || product.shortDescription;
 
-// Category display names
+// Category display names - updated to match specific page titles
 const categoryNames = {
-  'paper-cups': 'Paper Cups',
-  'food-packaging': 'Food Packaging',
-  'office-stationery': 'Office Stationery',
-  'eco-products': 'Eco Products',
-  'plastic-packaging': 'Plastic Packaging',
-  'retail-packaging': 'Retail Packaging',
-  'medical-packaging': 'Medical Packaging',
-  'marketing-materials': 'Marketing Materials'
+  'paper-cups': 'Disposable Paper Cups',
+  'food-packaging': 'Food Packaging Solutions',
+  'retail-packaging': 'Retail Packaging Solutions',
+  'medical-packaging': 'Medical Packaging Solutions',
+  'office-stationery': 'Professional Office Stationery',
+  'marketing-materials': 'Marketing Materials That Make an Impact',
+  'plastic-packaging': 'Plastic Food Packaging Solutions',
+  // Removed 'eco-products' from here as it's no longer a direct breadcrumb category
 };
 
-// Category page mapping for static URLs
+// New mapping for category URLs
 const categoryPageMapping = {
   'paper-cups': '/disposable-paper-cups',
   'food-packaging': '/food-packaging',
@@ -45,11 +45,33 @@ const categoryPageMapping = {
   'office-stationery': '/office-stationery',
   'marketing-materials': '/marketing-materials',
   'plastic-packaging': '/plastic-food-packaging',
-  'eco-products': '/areca-palm-products'
+  // Removed 'eco-products' from here as it's no longer a direct breadcrumb category
 };
 
-const categoryName = categoryNames[product.category] || product.category;
-const categoryUrl = categoryPageMapping[product.category] || `/category/${product.category}`;
+let breadcrumbCategoryName = '';
+let breadcrumbCategoryUrl = '';
+
+// Determine the correct breadcrumb category name and URL
+if (product.category === 'eco-products') {
+  // If the product's internal category is 'eco-products',
+  // we need to determine the specific sub-category based on its slug.
+  if (product.slug.startsWith('wooden-') || product.slug.startsWith('bamboo-') || product.slug.startsWith('cutlery-')) {
+    breadcrumbCategoryName = 'Wooden Items';
+    breadcrumbCategoryUrl = '/wooden-items';
+  } else {
+    // Assume it's an Areca Palm product if not explicitly wooden/bamboo
+    breadcrumbCategoryName = 'Areca Palm Leaf Products';
+    breadcrumbCategoryUrl = '/areca-palm-products';
+  }
+} else if (categoryNames[product.category]) {
+  // For other known categories, use the direct mapping
+  breadcrumbCategoryName = categoryNames[product.category];
+  breadcrumbCategoryUrl = categoryPageMapping[product.category];
+} else {
+  // Fallback for any unmapped categories (should ideally not happen if all are covered)
+  breadcrumbCategoryName = product.category; // Use the raw category name
+  breadcrumbCategoryUrl = `/category/${product.category}`; // Link to the generic category page
+}
 ---
 
 <Layout title={title} description={description}>
@@ -59,7 +81,7 @@ const categoryUrl = categoryPageMapping[product.category] || `/category/${produc
       <ol class="flex items-center space-x-2 text-sm">
         <li><a href="/" class="text-gray-600 hover:text-primary-600">Home</a></li>
         <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
-        <li><a href={categoryUrl} class="text-gray-600 hover:text-primary-600">{categoryName}</a></li>
+        <li><a href={breadcrumbCategoryUrl} class="text-gray-600 hover:text-primary-600">{breadcrumbCategoryName}</a></li>
         <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
         <li class="text-gray-900 font-medium">{product.name}</li>
       </ol>
@@ -80,7 +102,7 @@ const categoryUrl = categoryPageMapping[product.category] || `/category/${produc
         <div class="mt-6">
           <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-100 text-primary-800">
             <i class="fas fa-tag mr-2 text-xs"></i>
-            {categoryName}
+            {breadcrumbCategoryName}
           </span>
         </div>
       </div>
