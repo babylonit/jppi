@@ -369,8 +369,8 @@ class JoanaChatBot {
     const messageDiv = document.createElement('div');
     messageDiv.className = 'flex items-start';
     messageDiv.innerHTML = `
-      <div class="w-6 h-6 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-        <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Customer Support" class="w-full h-full rounded-full object-cover">
+      <div class="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+        <span class="text-white text-xs font-bold">J</span>
       </div>
       <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
         <p class="text-sm">${message}</p>
