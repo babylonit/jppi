@@ -1,0 +1,170 @@
+---
+interface Client {
+  name: string;
+  logo: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  clients: Client[];
+}
+
+const { title, subtitle, clients } = Astro.props;
+---
+
+<section class="section bg-gray-50">
+  <div class="container">
+    <h2 class="section-title">{title}</h2>
+    {subtitle && <p class="section-subtitle">{subtitle}</p>}
+
+    <div class="mt-12 relative">
+      <div id="scroll-container" class="flex overflow-x-hidden py-4 space-x-8 scroll-smooth">
+        {clients.map(client => (
+          <div class="flex-shrink-0 w-40 h-24 flex items-center justify-center p-4 bg-white rounded-lg shadow-md logo-item">
+            <img
+              src={client.logo}
+              alt={client.name}
+              class="h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))}
+        <!-- Duplicates for seamless loop - will be cloned by JS -->
+      </div>
+
+      <!-- Navigation Buttons -->
+      <button
+        id="prev-btn"
+        class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-100 transition-colors z-10 hidden md:block"
+        aria-label="Previous clients"
+      >
+        <i class="fas fa-chevron-left text-gray-700"></i>
+      </button>
+      <button
+        id="next-btn"
+        class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-100 transition-colors z-10 hidden md:block"
+        aria-label="Next clients"
+      >
+        <i class="fas fa-chevron-right text-gray-700"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hide scrollbar for aesthetic purposes */
+  #scroll-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  #scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollContainer = document.getElementById('scroll-container');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    if (!scrollContainer) {
+      console.error('Scroll container not found.');
+      return;
+    }
+
+    const logoItems = Array.from(scrollContainer.children);
+    if (logoItems.length === 0) {
+      console.warn('No logo items found in scroll container.');
+      return;
+    }
+
+    // Calculate item width including margin-right (space-x-8 = 32px)
+    // This assumes all logo items have the same width and margin.
+    const firstItem = logoItems[0];
+    const itemWidth = firstItem.offsetWidth + 32; 
+    
+    let scrollSpeed = 0.5; // Pixels per frame for auto-scroll
+    let animationFrameId;
+    let isPaused = false;
+
+    // Clone items to create a seamless loop
+    // Clone enough items to fill the visible area at least twice
+    const numClones = Math.ceil(scrollContainer.offsetWidth / itemWidth) * 2;
+    for (let i = 0; i < numClones; i++) {
+      const clone = logoItems[i % logoItems.length].cloneNode(true);
+      scrollContainer.appendChild(clone);
+    }
+
+    const originalContentWidth = logoItems.length * itemWidth;
+
+    function animateScroll() {
+      if (isPaused) {
+        animationFrameId = requestAnimationFrame(animateScroll);
+        return;
+      }
+
+      scrollContainer.scrollLeft += scrollSpeed;
+
+      // If we've scrolled past the original content, reset to the start of the cloned content
+      if (scrollContainer.scrollLeft >= originalContentWidth) {
+        scrollContainer.scrollLeft = 0; // Reset to the beginning of the original content
+      }
+      animationFrameId = requestAnimationFrame(animateScroll);
+    }
+
+    function startAutoScroll() {
+      if (!animationFrameId) {
+        animateScroll();
+      }
+    }
+
+    // Pause auto-scroll (used for hover and manual navigation)
+    function stopAutoScroll() {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    }
+
+    // Pause on hover
+    scrollContainer.addEventListener('mouseover', () => {
+      isPaused = true;
+    });
+    scrollContainer.addEventListener('mouseout', () => {
+      isPaused = false;
+    });
+
+    // Manual navigation
+    const scrollAmount = itemWidth * 3; // Scroll by 3 items at a time
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        isPaused = true; // Pause auto-scroll during manual interaction
+        scrollContainer.scrollLeft -= scrollAmount;
+        // Handle loop for manual prev
+        if (scrollContainer.scrollLeft < 0) {
+          // Jump to end of original content + remaining scroll
+          scrollContainer.scrollLeft = originalContentWidth + scrollContainer.scrollLeft; 
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        isPaused = true; // Pause auto-scroll during manual interaction
+        scrollContainer.scrollLeft += scrollAmount;
+        // Handle loop for manual next
+        if (scrollContainer.scrollLeft >= originalContentWidth) {
+          // Jump to start of cloned content
+          scrollContainer.scrollLeft = scrollContainer.scrollLeft - originalContentWidth; 
+        }
+      });
+    }
+
+    // Start auto-scroll initially
+    startAutoScroll();
+  });
+</script>
