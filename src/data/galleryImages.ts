@@ -6,6 +6,16 @@ export const galleryImages = [
   
   // Paper Cups - Local Images
   {
+    src: '/images/Disposable Paper Cups/50ml-1.png',
+    alt: '50ml disposable paper cup',
+    category: 'Paper Cups'
+  },
+  {
+    src: '/images/Disposable Paper Cups/6o ml.png',
+    alt: '100ml disposable paper cup',
+    category: 'Paper Cups'
+  },
+  {
     src: '/images/paper-cup/100ml.jpeg',
     alt: '100ml disposable paper cup',
     category: 'Paper Cups'
@@ -23,6 +33,31 @@ export const galleryImages = [
   {
     src: '/images/paper-cup/250ml-Color.jpeg',
     alt: '250ml colored paper cup',
+    category: 'Paper Cups'
+  },
+  {
+    src: '/images/Disposable Paper Cups/180ml-1.jpg',
+    alt: '180ml colored paper cup',
+    category: 'Paper Cups'
+  },
+  {
+    src: '/images/Disposable Paper Cups/250ml-1.png',
+    alt: '250ml colored paper cup',
+    category: 'Paper Cups'
+  },
+  {
+    src: '/images/Disposable Paper Cups/300ml.png',
+    alt: '300ml colored paper cup',
+    category: 'Paper Cups'
+  },
+  {
+    src: '/images/Disposable Paper Cups/400 ml.png',
+    alt: '400ml colored paper cup',
+    category: 'Paper Cups'
+  },
+  {
+    src: '/images/Disposable Paper Cups/Double Wall-2.png',
+    alt: 'Double Wall colored paper cup',
     category: 'Paper Cups'
   },
   
@@ -72,47 +107,47 @@ export const galleryImages = [
 
   // === EXISTING PEXELS IMAGES ===
   
-  // Paper Cups - Pexels Images
-  {
-    src: 'https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Paper cups with custom branding',
-    category: 'Paper Cups'
-  },
-  {
-    src: 'https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Cold beverage cups',
-    category: 'Paper Cups'
-  },
-  {
-    src: 'https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Coffee cups with sleeves',
-    category: 'Paper Cups'
-  },
-  {
-    src: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'To-go coffee cups',
-    category: 'Paper Cups'
-  },
-  {
-    src: 'https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Hot drink paper cups',
-    category: 'Paper Cups'
-  },
-  {
-    src: 'https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Paper cups for coffee shops',
-    category: 'Paper Cups'
-  },
-  {
-    src: 'https://images.pexels.com/photos/7474341/pexels-photo-7474341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Disposable eco cups',
-    category: 'Paper Cups'
-  },
-  {
-    src: 'https://images.pexels.com/photos/9180753/pexels-photo-9180753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Coffee shop paper cups',
-    category: 'Paper Cups'
-  },
+  // // Paper Cups - Pexels Images
+  // {
+  //   src: 'https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'Paper cups with custom branding',
+  //   category: 'Paper Cups'
+  // },
+  // {
+  //   src: 'https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'Cold beverage cups',
+  //   category: 'Paper Cups'
+  // },
+  // {
+  //   src: 'https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'Coffee cups with sleeves',
+  //   category: 'Paper Cups'
+  // },
+  // {
+  //   src: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'To-go coffee cups',
+  //   category: 'Paper Cups'
+  // },
+  // {
+  //   src: 'https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'Hot drink paper cups',
+  //   category: 'Paper Cups'
+  // },
+  // {
+  //   src: 'https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'Paper cups for coffee shops',
+  //   category: 'Paper Cups'
+  // },
+  // {
+  //   src: 'https://images.pexels.com/photos/7474341/pexels-photo-7474341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'Disposable eco cups',
+  //   category: 'Paper Cups'
+  // },
+  // {
+  //   src: 'https://images.pexels.com/photos/9180753/pexels-photo-9180753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   alt: 'Coffee shop paper cups',
+  //   category: 'Paper Cups'
+  // },
   
   // Food Packaging - Pexels Images
   {
