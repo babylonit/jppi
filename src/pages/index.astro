@@ -1,437 +1,512 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import FeatureSection from '../components/FeatureSection.astro';
-import CallToAction from '../components/CallToAction.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
-import LightboxGallery from '../components/LightboxGallery.astro';
-import ClientLogosSection from '../components/ClientLogosSection.astro'; // Import the new component
-import { majorClients } from '../data/clients'; // Import the centralized data
-import { galleryImages } from '../data/galleryImages';
-
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import FeatureSection from "../components/FeatureSection.astro";
+import CallToAction from "../components/CallToAction.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import LightboxGallery from "../components/LightboxGallery.astro";
+import ClientLogosSection from "../components/ClientLogosSection.astro"; // Import the new component
+import { majorClients } from "../data/clients"; // Import the centralized data
+import { galleryImages } from "../data/galleryImages";
 
 // Features data
 const features = [
   {
-    title: 'QC-100 Certified',
-    description: 'Our products meet the highest quality standards with QC-100 certification for toxin-free production.',
-    icon: 'fas fa-shield-alt'
+    title: "QC-100 Certified",
+    description:
+      "Our products meet the highest quality standards with QC-100 certification for toxin-free production.",
+    icon: "fas fa-shield-alt",
   },
   {
-    title: 'FDA-Approved Materials',
-    description: 'We use only FDA-approved materials to ensure food safety and compliance with international standards.',
-    icon: 'fas fa-check'
+    title: "FDA-Approved Materials",
+    description:
+      "We use only FDA-approved materials to ensure food safety and compliance with international standards.",
+    icon: "fas fa-check",
   },
   {
-    title: 'Eco-Friendly Manufacturing',
-    description: 'Our commitment to sustainability includes using soy-based inks and biodegradable materials.',
-    icon: 'fas fa-leaf'
+    title: "Eco-Friendly Manufacturing",
+    description:
+      "Our commitment to sustainability includes using soy-based inks and biodegradable materials.",
+    icon: "fas fa-leaf",
   },
   {
-    title: 'Fast Lead Time',
-    description: '2-3 days for stock items and 20+ days for custom orders, ensuring timely delivery.',
-    icon: 'fas fa-clock'
+    title: "Fast Lead Time",
+    description:
+      "2-3 days for stock items and 20+ days for custom orders, ensuring timely delivery.",
+    icon: "fas fa-clock",
   },
   {
-    title: 'Bulk Order Support',
-    description: 'Whether you need 2,000 or 200,000 pieces, we can handle orders of any size with consistent quality.',
-    icon: 'fas fa-box'
+    title: "Bulk Order Support",
+    description:
+      "Whether you need 2,000 or 200,000 pieces, we can handle orders of any size with consistent quality.",
+    icon: "fas fa-box",
   },
   {
-    title: 'Custom Design Solutions',
-    description: 'High-quality custom printing and design services to enhance your brand identity.',
-    icon: 'fas fa-print'
-  }
+    title: "Custom Design Solutions",
+    description:
+      "High-quality custom printing and design services to enhance your brand identity.",
+    icon: "fas fa-print",
+  },
 ];
 
 // Paper Products Data by Category
 const paperProductsData = {
-  'all': [
+  all: [
     {
-      title: '50ml Paper Cups',
-      description: 'Ultra-small cups perfect for espresso shots and taste testing.',
-      image: 'https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "50ml Paper Cups",
+      description:
+        "Ultra-small cups perfect for espresso shots and taste testing.",
+      image:
+        "public/images/Disposable Paper Cups/50ml.png",
+      link: "/disposable-paper-cups",
     },
     {
-      title: '100ml Paper Cups',
-      description: 'Perfect for espresso and small beverage servings.',
-      image: 'https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "100ml Paper Cups",
+      description: "Perfect for espresso and small beverage servings.",
+      image:
+        "public/images/Disposable Paper Cups/100ml paper cup.jpeg",
+      link: "/disposable-paper-cups",
     },
     {
-      title: '250ml Paper Cups',
-      description: 'Large size cups perfect for premium coffee drinks.',
-      image: 'https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "250ml Paper Cups",
+      description: "Large size cups perfect for premium coffee drinks.",
+      image:
+        "public/images/Disposable Paper Cups/250ml-Color.jpeg",
+      link: "/disposable-paper-cups",
     },
     {
-      title: 'Pizza Boxes',
-      description: 'Custom-sized pizza boxes that maintain food temperature.',
-      image: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/food-packaging'
+      title: "Pizza Boxes",
+      description: "Custom-sized pizza boxes that maintain food temperature.",
+      image:
+        "https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/food-packaging",
     },
     {
-      title: 'Lunch Boxes',
-      description: 'Eco-friendly lunch boxes for restaurants and catering.',
-      image: 'https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/food-packaging'
+      title: "Lunch Boxes",
+      description: "Eco-friendly lunch boxes for restaurants and catering.",
+      image:
+        "https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/food-packaging",
     },
     {
-      title: 'Shopping Bags',
-      description: 'Eco-friendly paper shopping bags with sturdy handles.',
-      image: 'https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/retail-packaging'
+      title: "Shopping Bags",
+      description: "Eco-friendly paper shopping bags with sturdy handles.",
+      image:
+        "https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/retail-packaging",
     },
     {
-      title: 'Medicine Packaging',
-      description: 'Tamper-proof packaging for pharmaceutical products.',
-      image: 'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/medical-packaging'
+      title: "Medicine Packaging",
+      description: "Tamper-proof packaging for pharmaceutical products.",
+      image:
+        "https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/medical-packaging",
     },
     {
-      title: 'Business Cards',
-      description: 'Professional business cards with premium finishes.',
-      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/office-stationery'
+      title: "Business Cards",
+      description: "Professional business cards with premium finishes.",
+      image:
+        "https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/office-stationery",
     },
     {
-      title: 'Brochures',
-      description: 'Professional tri-fold and bi-fold brochures for marketing.',
-      image: 'https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/marketing-materials'
-    }
+      title: "Brochures",
+      description: "Professional tri-fold and bi-fold brochures for marketing.",
+      image:
+        "https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/marketing-materials",
+    },
   ],
-  'disposable-cups': [
+  "disposable-cups": [
     {
-      title: '50ml Paper Cups',
-      description: 'Ultra-small cups perfect for espresso shots and taste testing.',
-      image: 'https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "50ml Paper Cups",
+      description:
+        "Ultra-small cups perfect for espresso shots and taste testing.",
+      image:
+        "https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/disposable-paper-cups",
     },
     {
-      title: '100ml Paper Cups',
-      description: 'Perfect for espresso and small beverage servings.',
-      image: 'https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "100ml Paper Cups",
+      description: "Perfect for espresso and small beverage servings.",
+      image:
+        "https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/disposable-paper-cups",
     },
     {
-      title: '120ml Paper Cups',
-      description: 'Ideal for tea, coffee, and other hot beverages.',
-      image: 'https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "120ml Paper Cups",
+      description: "Ideal for tea, coffee, and other hot beverages.",
+      image:
+        "https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/disposable-paper-cups",
     },
     {
-      title: '150ml Paper Cups',
-      description: 'Multi-purpose cups for hot and cold beverages.',
-      image: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "150ml Paper Cups",
+      description: "Multi-purpose cups for hot and cold beverages.",
+      image:
+        "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/disposable-paper-cups",
     },
     {
-      title: '250ml Paper Cups',
-      description: 'Large size cups perfect for premium coffee drinks.',
-      image: 'https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
+      title: "250ml Paper Cups",
+      description: "Large size cups perfect for premium coffee drinks.",
+      image:
+        "https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/disposable-paper-cups",
     },
     {
-      title: '400ml Paper Cups',
-      description: 'Maximum size for large drinks and specialty beverages.',
-      image: 'https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/disposable-paper-cups'
-    }
+      title: "400ml Paper Cups",
+      description: "Maximum size for large drinks and specialty beverages.",
+      image:
+        "https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/disposable-paper-cups",
+    },
   ],
-  'food-packaging': [
+  "food-packaging": [
     {
-      title: 'Pizza Boxes',
-      description: 'Custom-sized pizza boxes that maintain food temperature.',
-      image: 'https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/food-packaging'
+      title: "Pizza Boxes",
+      description: "Custom-sized pizza boxes that maintain food temperature.",
+      image:
+        "https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/food-packaging",
     },
     {
-      title: 'Burger Boxes',
-      description: 'Grease-resistant burger boxes for takeaway services.',
-      image: 'https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/food-packaging'
+      title: "Burger Boxes",
+      description: "Grease-resistant burger boxes for takeaway services.",
+      image:
+        "https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/food-packaging",
     },
     {
-      title: 'Lunch Boxes',
-      description: 'Eco-friendly lunch boxes for restaurants and catering.',
-      image: 'https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/food-packaging'
+      title: "Lunch Boxes",
+      description: "Eco-friendly lunch boxes for restaurants and catering.",
+      image:
+        "https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/food-packaging",
     },
     {
-      title: 'Food Containers',
-      description: 'Multi-compartment containers for various food items.',
-      image: 'https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/food-packaging'
-    }
+      title: "Food Containers",
+      description: "Multi-compartment containers for various food items.",
+      image:
+        "https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/food-packaging",
+    },
   ],
-  'retail-packaging': [
+  "retail-packaging": [
     {
-      title: 'Shopping Bags',
-      description: 'Eco-friendly paper shopping bags with sturdy handles.',
-      image: 'https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/retail-packaging'
+      title: "Shopping Bags",
+      description: "Eco-friendly paper shopping bags with sturdy handles.",
+      image:
+        "https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/retail-packaging",
     },
     {
-      title: 'Product Labels',
-      description: 'High-quality adhesive labels for product identification.',
-      image: 'https://images.pexels.com/photos/5945694/pexels-photo-5945694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/retail-packaging'
+      title: "Product Labels",
+      description: "High-quality adhesive labels for product identification.",
+      image:
+        "https://images.pexels.com/photos/5945694/pexels-photo-5945694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/retail-packaging",
     },
     {
-      title: 'Custom Packaging',
-      description: 'Bespoke packaging solutions for your specific needs.',
-      image: 'https://images.pexels.com/photos/7319199/pexels-photo-7319199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/retail-packaging'
-    }
+      title: "Custom Packaging",
+      description: "Bespoke packaging solutions for your specific needs.",
+      image:
+        "https://images.pexels.com/photos/7319199/pexels-photo-7319199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/retail-packaging",
+    },
   ],
-  'medical-packaging': [
+  "medical-packaging": [
     {
-      title: 'Medicine Packaging',
-      description: 'Tamper-proof packaging for pharmaceutical products.',
-      image: 'https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/medical-packaging'
+      title: "Medicine Packaging",
+      description: "Tamper-proof packaging for pharmaceutical products.",
+      image:
+        "https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/medical-packaging",
     },
     {
-      title: 'Patient Files',
-      description: 'Secure filing solutions for patient records.',
-      image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/medical-packaging'
+      title: "Patient Files",
+      description: "Secure filing solutions for patient records.",
+      image:
+        "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/medical-packaging",
     },
     {
-      title: 'X-Ray Envelopes',
-      description: 'Protective envelopes for medical imaging storage.',
-      image: 'https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/medical-packaging'
-    }
+      title: "X-Ray Envelopes",
+      description: "Protective envelopes for medical imaging storage.",
+      image:
+        "https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/medical-packaging",
+    },
   ],
-  'office-stationery': [
+  "office-stationery": [
     {
-      title: 'Business Cards',
-      description: 'Professional business cards with premium finishes.',
-      image: 'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/office-stationery'
+      title: "Business Cards",
+      description: "Professional business cards with premium finishes.",
+      image:
+        "https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/office-stationery",
     },
     {
-      title: 'Letterheads',
-      description: 'Corporate letterheads for business communication.',
-      image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/office-stationery'
+      title: "Letterheads",
+      description: "Corporate letterheads for business communication.",
+      image:
+        "https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/office-stationery",
     },
     {
-      title: 'Invoices',
-      description: 'Custom invoice books and forms for transactions.',
-      image: 'https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/office-stationery'
-    }
+      title: "Invoices",
+      description: "Custom invoice books and forms for transactions.",
+      image:
+        "https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/office-stationery",
+    },
   ],
-  'marketing-materials': [
+  "marketing-materials": [
     {
-      title: 'Brochures',
-      description: 'Professional tri-fold and bi-fold brochures for marketing.',
-      image: 'https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/marketing-materials'
+      title: "Brochures",
+      description: "Professional tri-fold and bi-fold brochures for marketing.",
+      image:
+        "https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/marketing-materials",
     },
     {
-      title: 'Flyers',
-      description: 'Eye-catching promotional materials for events and campaigns.',
-      image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/marketing-materials'
+      title: "Flyers",
+      description:
+        "Eye-catching promotional materials for events and campaigns.",
+      image:
+        "https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/marketing-materials",
     },
     {
-      title: 'Banners',
-      description: 'Large format banners for events and advertising.',
-      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/marketing-materials'
-    }
-  ]
+      title: "Banners",
+      description: "Large format banners for events and advertising.",
+      image:
+        "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/marketing-materials",
+    },
+  ],
 };
 
 // Eco Products Data by Category
 const ecoProductsData = {
-  'all': [
+  all: [
     {
-      title: 'Areca Palm Leaf Plates',
-      description: 'Natural, biodegradable plates made from fallen areca palm leaves.',
-      image: 'https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/areca-palm-products'
+      title: "Areca Palm Leaf Plates",
+      description:
+        "Natural, biodegradable plates made from fallen areca palm leaves.",
+      image:
+        "https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/areca-palm-products",
     },
     {
-      title: 'Areca Palm Leaf Bowls',
-      description: 'Natural bowls for soups, salads, and food servings.',
-      image: 'https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/areca-palm-products'
+      title: "Areca Palm Leaf Bowls",
+      description: "Natural bowls for soups, salads, and food servings.",
+      image:
+        "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/areca-palm-products",
     },
     {
-      title: 'Wooden Plates',
-      description: 'Handcrafted wooden plates from sustainable hardwood.',
-      image: 'https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
+      title: "Wooden Plates",
+      description: "Handcrafted wooden plates from sustainable hardwood.",
+      image:
+        "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
     },
     {
-      title: 'Wooden Cutlery Set',
-      description: 'Complete wooden cutlery sets including forks, knives, and spoons.',
-      image: 'https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
+      title: "Wooden Cutlery Set",
+      description:
+        "Complete wooden cutlery sets including forks, knives, and spoons.",
+      image:
+        "https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
     },
     {
-      title: 'Bamboo Brushes',
-      description: 'Eco-friendly bamboo brushes for cleaning and kitchen use.',
-      image: 'https://images.pexels.com/photos/4226778/pexels-photo-4226778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
-    }
+      title: "Bamboo Brushes",
+      description: "Eco-friendly bamboo brushes for cleaning and kitchen use.",
+      image:
+        "https://images.pexels.com/photos/4226778/pexels-photo-4226778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
+    },
   ],
-  'areca-palm': [
+  "areca-palm": [
     {
-      title: 'Areca Palm Leaf Plates',
-      description: 'Natural, biodegradable plates made from fallen areca palm leaves.',
-      image: 'https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/areca-palm-products'
+      title: "Areca Palm Leaf Plates",
+      description:
+        "Natural, biodegradable plates made from fallen areca palm leaves.",
+      image:
+        "https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/areca-palm-products",
     },
     {
-      title: 'Areca Palm Leaf Tray',
-      description: 'Elegant serving trays perfect for catering and food presentation.',
-      image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/areca-palm-products'
+      title: "Areca Palm Leaf Tray",
+      description:
+        "Elegant serving trays perfect for catering and food presentation.",
+      image:
+        "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/areca-palm-products",
     },
     {
-      title: 'Areca Leaf Bowls',
-      description: 'Natural bowls for soups, salads, and food servings.',
-      image: 'https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/areca-palm-products'
+      title: "Areca Leaf Bowls",
+      description: "Natural bowls for soups, salads, and food servings.",
+      image:
+        "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/areca-palm-products",
     },
     {
-      title: 'Square Plates',
-      description: 'Modern square-shaped plates for contemporary food presentation.',
-      image: 'https://images.pexels.com/photos/5865126/pexels-photo-5865126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/areca-palm-products'
-    }
+      title: "Square Plates",
+      description:
+        "Modern square-shaped plates for contemporary food presentation.",
+      image:
+        "https://images.pexels.com/photos/5865126/pexels-photo-5865126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/areca-palm-products",
+    },
   ],
-  'wooden': [
+  wooden: [
     {
-      title: 'Wooden Plates',
-      description: 'Handcrafted wooden plates from sustainable hardwood.',
-      image: 'https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
+      title: "Wooden Plates",
+      description: "Handcrafted wooden plates from sustainable hardwood.",
+      image:
+        "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
     },
     {
-      title: 'Wooden Tray',
-      description: 'Beautiful serving trays for breakfast and tea service.',
-      image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
+      title: "Wooden Tray",
+      description: "Beautiful serving trays for breakfast and tea service.",
+      image:
+        "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
     },
     {
-      title: 'Cutlery Set',
-      description: 'Complete wooden cutlery sets including forks, knives, and spoons.',
-      image: 'https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
+      title: "Cutlery Set",
+      description:
+        "Complete wooden cutlery sets including forks, knives, and spoons.",
+      image:
+        "https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
     },
     {
-      title: 'Wooden Spoons',
-      description: 'Individual wooden spoons ideal for cooking and serving.',
-      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
+      title: "Wooden Spoons",
+      description: "Individual wooden spoons ideal for cooking and serving.",
+      image:
+        "https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
     },
     {
-      title: 'Bamboo Brushes',
-      description: 'Eco-friendly bamboo brushes for cleaning and kitchen use.',
-      image: 'https://images.pexels.com/photos/4226778/pexels-photo-4226778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/wooden-items'
-    }
-  ]
+      title: "Bamboo Brushes",
+      description: "Eco-friendly bamboo brushes for cleaning and kitchen use.",
+      image:
+        "https://images.pexels.com/photos/4226778/pexels-photo-4226778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/wooden-items",
+    },
+  ],
 };
 
 // Plastic Products Data by Category
 const plasticProductsData = {
-  'all': [
+  all: [
     {
-      title: 'Plastic Containers',
-      description: 'Versatile plastic containers for food storage and takeaway.',
-      image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Plastic Containers",
+      description:
+        "Versatile plastic containers for food storage and takeaway.",
+      image:
+        "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Plastic Cups',
-      description: 'Clear and colored plastic cups for beverages and desserts.',
-      image: 'https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Plastic Cups",
+      description: "Clear and colored plastic cups for beverages and desserts.",
+      image:
+        "https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Water Bottles',
-      description: 'Disposable plastic water bottles for events and catering.',
-      image: 'https://images.pexels.com/photos/3985062/pexels-photo-3985062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Water Bottles",
+      description: "Disposable plastic water bottles for events and catering.",
+      image:
+        "https://images.pexels.com/photos/3985062/pexels-photo-3985062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Food Tray 4 Unit',
-      description: 'Multi-compartment food trays with secure lids.',
-      image: 'https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Food Tray 4 Unit",
+      description: "Multi-compartment food trays with secure lids.",
+      image:
+        "https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Ice Cream Boxes',
-      description: 'Specialized containers for ice cream and frozen desserts.',
-      image: 'https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
-    }
+      title: "Ice Cream Boxes",
+      description: "Specialized containers for ice cream and frozen desserts.",
+      image:
+        "https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
+    },
   ],
-  'plastic-food': [
+  "plastic-food": [
     {
-      title: 'Container/Box',
-      description: 'Versatile plastic containers for food storage and takeaway.',
-      image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Container/Box",
+      description:
+        "Versatile plastic containers for food storage and takeaway.",
+      image:
+        "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Plastic Cups',
-      description: 'Clear and colored plastic cups for beverages and desserts.',
-      image: 'https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Plastic Cups",
+      description: "Clear and colored plastic cups for beverages and desserts.",
+      image:
+        "https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Takeaway Spoons',
-      description: 'Disposable plastic spoons for takeaway meals.',
-      image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Takeaway Spoons",
+      description: "Disposable plastic spoons for takeaway meals.",
+      image:
+        "https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Straws',
-      description: 'Various plastic straws for beverage service.',
-      image: 'https://images.pexels.com/photos/6039371/pexels-photo-6039371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Straws",
+      description: "Various plastic straws for beverage service.",
+      image:
+        "https://images.pexels.com/photos/6039371/pexels-photo-6039371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Water Bottles',
-      description: 'Disposable plastic water bottles for events and catering.',
-      image: 'https://images.pexels.com/photos/3985062/pexels-photo-3985062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Water Bottles",
+      description: "Disposable plastic water bottles for events and catering.",
+      image:
+        "https://images.pexels.com/photos/3985062/pexels-photo-3985062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Food Tray 4 Unit',
-      description: 'Multi-compartment food trays with secure lids.',
-      image: 'https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Food Tray 4 Unit",
+      description: "Multi-compartment food trays with secure lids.",
+      image:
+        "https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Ice Cream Boxes',
-      description: 'Specialized containers for ice cream and frozen desserts.',
-      image: 'https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Ice Cream Boxes",
+      description: "Specialized containers for ice cream and frozen desserts.",
+      image:
+        "https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Thai Burger Box',
-      description: 'Specialized containers for Thai-style burgers.',
-      image: 'https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
+      title: "Thai Burger Box",
+      description: "Specialized containers for Thai-style burgers.",
+      image:
+        "https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
     },
     {
-      title: 'Egg Tray',
-      description: 'Plastic trays for safe egg storage and transport.',
-      image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      link: '/plastic-food-packaging'
-    }
-  ]
+      title: "Egg Tray",
+      description: "Plastic trays for safe egg storage and transport.",
+      image:
+        "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link: "/plastic-food-packaging",
+    },
+  ],
 };
 
 // Create a unique ID for the homepage gallery's lightbox
@@ -440,34 +515,36 @@ const homeGalleryLightboxId = "lightbox-home-gallery";
 // Popular FAQs for homepage
 const popularFaqs = [
   {
-    question: 'Are Joana Cups leak-proof?',
-    questionBn: 'জোয়ানা কাপ লিক-প্রুফ কি?',
-    answer: 'Yes, QC-100 certified leak-proof tech with PE or biodegradable coatings.',
-    answerBn: 'হ্যাঁ, QC-100 সার্টিফাইড লিক-প্রুফ প্রযুক্তি ব্যবহৃত হয়।'
+    question: "Are Joana Cups leak-proof?",
+    questionBn: "জোয়ানা কাপ লিক-প্রুফ কি?",
+    answer:
+      "Yes, QC-100 certified leak-proof tech with PE or biodegradable coatings.",
+    answerBn: "হ্যাঁ, QC-100 সার্টিফাইড লিক-প্রুফ প্রযুক্তি ব্যবহৃত হয়।",
   },
   {
-    question: 'Minimum order quantity (MOQ)?',
-    questionBn: 'সর্বনিম্ন অর্ডার পরিমাণ কত?',
-    answer: '30,000 pcs for custom, 2,000 pcs for ready stock.',
-    answerBn: 'কাস্টম: ৩০,০০০ পিস, রেডি: ২,০০০ পিস।'
+    question: "Minimum order quantity (MOQ)?",
+    questionBn: "সর্বনিম্ন অর্ডার পরিমাণ কত?",
+    answer: "30,000 pcs for custom, 2,000 pcs for ready stock.",
+    answerBn: "কাস্টম: ৩০,০০০ পিস, রেডি: ২,০০০ পিস।",
   },
   {
-    question: 'Production time for bulk?',
-    questionBn: 'বাল্ক অর্ডারে সময় লাগে কতদিন?',
-    answer: 'Custom: 20+ days; Stock: 2–3 days.',
-    answerBn: 'কাস্টম: ২০+ দিন, স্টক: ২–৩ দিন।'
+    question: "Production time for bulk?",
+    questionBn: "বাল্ক অর্ডারে সময় লাগে কতদিন?",
+    answer: "Custom: 20+ days; Stock: 2–3 days.",
+    answerBn: "কাস্টম: ২০+ দিন, স্টক: ২–৩ দিন।",
   },
   {
-    question: 'Are cups biodegradable?',
-    questionBn: 'কাপ বায়োডিগ্রেডেবল কি?',
-    answer: 'Yes, 100% with eco-coating.',
-    answerBn: 'হ্যাঁ, ১০০% পরিবেশবান্ধব।'
-  }
+    question: "Are cups biodegradable?",
+    questionBn: "কাপ বায়োডিগ্রেডেবল কি?",
+    answer: "Yes, 100% with eco-coating.",
+    answerBn: "হ্যাঁ, ১০০% পরিবেশবান্ধব।",
+  },
 ];
 
 // SEO Metadata
 const title = "Paper Cup Manufacturer in Bangladesh";
-const description = "Leading biodegradable paper cup manufacturer in Bangladesh. QC-100 certified, Nestlé-approved supplier. Custom printing available. Bulk orders welcome.";
+const description =
+  "Leading biodegradable paper cup manufacturer in Bangladesh. QC-100 certified, Nestlé-approved supplier. Custom printing available. Bulk orders welcome.";
 ---
 
 <Layout title={title} description={description}>
@@ -484,44 +561,50 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
       {
         icon: "fas fa-certificate",
         value: "QC-100",
-        label: "Certified Quality"
+        label: "Certified Quality",
       },
       {
         icon: "fas fa-globe",
         value: "6+",
-        label: "Export Countries"
+        label: "Export Countries",
       },
       {
         icon: "fas fa-users",
         value: "500+",
-        label: "Happy Clients"
-      }
+        label: "Happy Clients",
+      },
     ]}
   />
-  
+
   <!-- About Section -->
   <section class="section">
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Welcome to Joana Paper Product Industry</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Welcome to Joana Paper Product Industry
+          </h2>
           <p class="text-lg text-gray-600 mb-6">
-            Joana Paper Product Industry (JPPI) is a leading biodegradable paper cup manufacturer in Bangladesh, 
-            dedicated to sustainable, food-safe packaging solutions.
+            Joana Paper Product Industry (JPPI) is a leading biodegradable paper
+            cup manufacturer in Bangladesh, dedicated to sustainable, food-safe
+            packaging solutions.
           </p>
           <p class="text-lg text-gray-600 mb-6">
-            With international quality recognition (CQE Geneva Award), we proudly serve top-tier brands 
-            like Nestlé, Coats, and leading coffee chains throughout Bangladesh.
+            With international quality recognition (CQE Geneva Award), we
+            proudly serve top-tier brands like Nestlé, Coats, and leading coffee
+            chains throughout Bangladesh.
           </p>
           <a href="/about" class="btn btn-primary mt-4">Learn More About Us</a>
         </div>
         <div class="relative">
-          <img 
-            src="https://images.pexels.com/photos/6615076/pexels-photo-6615076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-            alt="Paper cup manufacturing process" 
+          <img
+            src="https://images.pexels.com/photos/6615076/pexels-photo-6615076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Paper cup manufacturing process"
             class="rounded-lg shadow-xl w-full"
           />
-          <div class="absolute -bottom-6 -left-6 bg-primary-850 text-white p-4 rounded-lg shadow-lg hidden md:block">
+          <div
+            class="absolute -bottom-6 -left-6 bg-primary-850 text-white p-4 rounded-lg shadow-lg hidden md:block"
+          >
             <p class="font-semibold">2+ Years</p>
             <p class="text-sm">Shelf Life Guarantee</p>
           </div>
@@ -529,42 +612,67 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
       </div>
     </div>
   </section>
-  
+
   <!-- Featured Products Section with Tabs -->
   <section id="featured-products" class="section bg-gray-50">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Product Categories</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Our Product Categories
+        </h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Discover our comprehensive range of sustainable packaging solutions designed for modern businesses.
+          Discover our comprehensive range of sustainable packaging solutions
+          designed for modern businesses.
         </p>
       </div>
 
       <!-- Paper Products Section with Tabs -->
       <div class="mb-20">
         <div class="text-center mb-12">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4"
+          >
             <i class="fas fa-file-alt text-blue-600 text-2xl"></i>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Paper Products</h3>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Paper Products
+          </h3>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            High-quality paper solutions for food service, office use, medical packaging, and marketing materials.
+            High-quality paper solutions for food service, office use, medical
+            packaging, and marketing materials.
           </p>
         </div>
-        
+
         <!-- Paper Products Tabs -->
         <div class="flex flex-wrap justify-center gap-2 mb-8">
-          <button class="paper-tab-btn active" data-category="all">All Paper Products</button>
-          <button class="paper-tab-btn" data-category="disposable-cups">Disposable Paper Cups</button>
-          <button class="paper-tab-btn" data-category="food-packaging">Food Packaging</button>
-          <button class="paper-tab-btn" data-category="retail-packaging">Retail Packaging</button>
-          <button class="paper-tab-btn" data-category="medical-packaging">Medical Packaging</button>
-          <button class="paper-tab-btn" data-category="office-stationery">Office Stationery</button>
-          <button class="paper-tab-btn" data-category="marketing-materials">Marketing Materials</button>
+          <button class="paper-tab-btn active" data-category="all"
+            >All Paper Products</button
+          >
+          <button class="paper-tab-btn" data-category="disposable-cups"
+            >Disposable Paper Cups</button
+          >
+          <button class="paper-tab-btn" data-category="food-packaging"
+            >Food Packaging</button
+          >
+          <button class="paper-tab-btn" data-category="retail-packaging"
+            >Retail Packaging</button
+          >
+          <button class="paper-tab-btn" data-category="medical-packaging"
+            >Medical Packaging</button
+          >
+          <button class="paper-tab-btn" data-category="office-stationery"
+            >Office Stationery</button
+          >
+          <button class="paper-tab-btn" data-category="marketing-materials"
+            >Marketing Materials</button
+          >
         </div>
-        
+
         <!-- Paper Products Grid -->
-        <div id="paper-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          id="paper-products-grid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           <!-- Products will be populated by JavaScript -->
         </div>
       </div>
@@ -572,24 +680,38 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
       <!-- Eco Products Section with Tabs -->
       <div class="mb-20">
         <div class="text-center mb-12">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4"
+          >
             <i class="fas fa-leaf text-green-600 text-2xl"></i>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Eco-Friendly Products</h3>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Eco-Friendly Products
+          </h3>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            100% natural and biodegradable tableware made from sustainable materials like areca palm leaves and wood.
+            100% natural and biodegradable tableware made from sustainable
+            materials like areca palm leaves and wood.
           </p>
         </div>
-        
+
         <!-- Eco Products Tabs -->
         <div class="flex flex-wrap justify-center gap-2 mb-8">
-          <button class="eco-tab-btn active" data-category="all">All Eco Products</button>
-          <button class="eco-tab-btn" data-category="areca-palm">Areca Palm Leaf Products</button>
-          <button class="eco-tab-btn" data-category="wooden">Wooden Products</button>
+          <button class="eco-tab-btn active" data-category="all"
+            >All Eco Products</button
+          >
+          <button class="eco-tab-btn" data-category="areca-palm"
+            >Areca Palm Leaf Products</button
+          >
+          <button class="eco-tab-btn" data-category="wooden"
+            >Wooden Products</button
+          >
         </div>
-        
+
         <!-- Eco Products Grid -->
-        <div id="eco-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          id="eco-products-grid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           <!-- Products will be populated by JavaScript -->
         </div>
       </div>
@@ -597,97 +719,121 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
       <!-- Plastic Products Section with Tabs -->
       <div class="mb-12">
         <div class="text-center mb-12">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4"
+          >
             <i class="fas fa-box text-purple-600 text-2xl"></i>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Plastic Food Packaging</h3>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Plastic Food Packaging
+          </h3>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Durable, food-safe plastic packaging solutions for modern food service operations and takeaway businesses.
+            Durable, food-safe plastic packaging solutions for modern food
+            service operations and takeaway businesses.
           </p>
         </div>
-        
+
         <!-- Plastic Products Tabs -->
         <div class="flex flex-wrap justify-center gap-2 mb-8">
-          <button class="plastic-tab-btn active" data-category="all">All Plastic Products</button>
-          <button class="plastic-tab-btn" data-category="plastic-food">Plastic Food Packaging</button>
+          <button class="plastic-tab-btn active" data-category="all"
+            >All Plastic Products</button
+          >
+          <button class="plastic-tab-btn" data-category="plastic-food"
+            >Plastic Food Packaging</button
+          >
         </div>
-        
+
         <!-- Plastic Products Grid -->
-        <div id="plastic-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          id="plastic-products-grid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           <!-- Products will be populated by JavaScript -->
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Why Choose Us Section -->
   <FeatureSection
     title="Why Choose Joana?"
     subtitle="We combine quality, sustainability, and service to deliver the best paper products in Bangladesh."
     features={features}
   />
-  
+
   <!-- Gallery Section with Updated Tabs -->
   <section class="section bg-gray-50">
     <div class="container">
       <h2 class="section-title">Product Gallery</h2>
-      <p class="section-subtitle">Browse our range of high-quality products and packaging solutions.</p>
-      
+      <p class="section-subtitle">
+        Browse our range of high-quality products and packaging solutions.
+      </p>
+
       <!-- Updated Gallery Filter -->
       <div class="flex flex-wrap justify-center gap-2 mb-8">
-        <button class="gallery-filter-btn active" data-filter="all">All Products</button>
-        <button class="gallery-filter-btn" data-filter="Paper Cups">Paper Cups</button>
-        <button class="gallery-filter-btn" data-filter="Packaging">Food Packaging</button>
-        <button class="gallery-filter-btn" data-filter="Printing">Printing & Stationery</button>
+        <button class="gallery-filter-btn active" data-filter="all"
+          >All Products</button
+        >
+        <button class="gallery-filter-btn" data-filter="Paper Cups"
+          >Paper Cups</button
+        >
+        <button class="gallery-filter-btn" data-filter="Packaging"
+          >Food Packaging</button
+        >
+        <button class="gallery-filter-btn" data-filter="Printing"
+          >Printing & Stationery</button
+        >
       </div>
-      
+
       <!-- Gallery Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 gallery-grid">
-        {galleryImages.map((image, index) => (
-          <div class="gallery-item" data-category={image.category}>
-            <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <div class="relative aspect-w-16 aspect-h-12 overflow-hidden h-64 cursor-pointer">
-                <img 
-                  src={image.src} 
-                  alt={image.alt} 
-                  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  loading="lazy"
-                  data-lightbox={homeGalleryLightboxId}
-                  data-caption={`${image.alt} - ${image.category}`}
-                  data-index={index}
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div class="p-4 text-white">
-                    <p class="font-medium">{image.alt}</p>
-                    <p class="text-sm opacity-80">{image.category}</p>
-                    <p class="text-sm mt-2">
-                      <i class="fas fa-search-plus mr-1"></i> Click to view
-                    </p>
+        {
+          galleryImages.map((image, index) => (
+            <div class="gallery-item" data-category={image.category}>
+              <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                <div class="relative aspect-w-16 aspect-h-12 overflow-hidden h-64 cursor-pointer">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    loading="lazy"
+                    data-lightbox={homeGalleryLightboxId}
+                    data-caption={`${image.alt} - ${image.category}`}
+                    data-index={index}
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div class="p-4 text-white">
+                      <p class="font-medium">{image.alt}</p>
+                      <p class="text-sm opacity-80">{image.category}</p>
+                      <p class="text-sm mt-2">
+                        <i class="fas fa-search-plus mr-1" /> Click to view
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
-      
+
       <div class="mt-8 text-center">
-        <a href="/gallery" class="btn btn-primary">
-          View Full Gallery
-        </a>
+        <a href="/gallery" class="btn btn-primary"> View Full Gallery </a>
       </div>
-      
+
       <!-- Home Gallery Lightbox -->
       <LightboxGallery id={homeGalleryLightboxId} />
     </div>
   </section>
-  
+
   <!-- Testimonials Section -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">What Our Clients Say</h2>
-      <p class="section-subtitle">Trusted by businesses across Bangladesh for quality and reliability.</p>
-      
+      <p class="section-subtitle">
+        Trusted by businesses across Bangladesh for quality and reliability.
+      </p>
+
       <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <TestimonialCard
           quote="Joana's paper cups have been essential for our coffee shop chain. The quality is consistent, and they've always delivered on time."
@@ -707,57 +853,63 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
       </div>
     </div>
   </section>
-  
+
   <!-- Our Clients Section -->
- 
-<ClientLogosSection
+
+  <ClientLogosSection
     title="Trusted by Leading Brands"
     subtitle="We proudly serve some of the most respected companies in Bangladesh"
     clients={majorClients}
   />
-  
+
   <!-- FAQ Section -->
   <section class="section bg-gray-50">
     <div class="container">
       <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-subtitle">Quick answers to common questions about our products and services</p>
-      
+      <p class="section-subtitle">
+        Quick answers to common questions about our products and services
+      </p>
+
       <div class="mt-12 max-w-4xl mx-auto">
         <div class="space-y-4">
-          {popularFaqs.map((faq, index) => (
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <button 
-                class="home-faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
-                data-index={index}
-              >
-                <div class="pr-8">
-                  <p class="text-lg font-medium text-gray-900">{faq.question}</p>
-                  <p class="text-base font-medium text-gray-700 mt-1">{faq.questionBn}</p>
-                </div>
-                <span class="faq-icon flex-shrink-0 ml-2 text-gray-500 transition-transform duration-200">
-                  <i class="fas fa-plus"></i>
-                </span>
-              </button>
-              
-              <div class="home-faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
-                <div class="py-4 text-gray-600 border-t">
-                  <p class="mb-2">{faq.answer}</p>
-                  <p class="text-gray-700">{faq.answerBn}</p>
+          {
+            popularFaqs.map((faq, index) => (
+              <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <button
+                  class="home-faq-question w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                  data-index={index}
+                >
+                  <div class="pr-8">
+                    <p class="text-lg font-medium text-gray-900">
+                      {faq.question}
+                    </p>
+                    <p class="text-base font-medium text-gray-700 mt-1">
+                      {faq.questionBn}
+                    </p>
+                  </div>
+                  <span class="faq-icon flex-shrink-0 ml-2 text-gray-500 transition-transform duration-200">
+                    <i class="fas fa-plus" />
+                  </span>
+                </button>
+
+                <div class="home-faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                  <div class="py-4 text-gray-600 border-t">
+                    <p class="mb-2">{faq.answer}</p>
+                    <p class="text-gray-700">{faq.answerBn}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
-        
+
         <div class="mt-8 text-center">
-          <a href="/faq" class="btn btn-primary">
-            View All FAQs
-          </a>
+          <a href="/faq" class="btn btn-primary"> View All FAQs </a>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Call to Action -->
   <CallToAction
     title="Ready to Order Your Custom Paper Products?"
@@ -770,89 +922,95 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
 
   <!-- Payment Options Section -->
   <section class="bg-white py-8">
-  <div class="max-w-3xl mx-auto">
-    <img
-      src="/images/payments-logo/Payment-Gateway.png"
-      alt="Accepted Payment Methods"
-      class="w-full h-auto object-contain"
-      loading="lazy"
-    />
-  </div>
-</section>
-
-
+    <div class="max-w-3xl mx-auto">
+      <img
+        src="/images/payments-logo/Payment-Gateway.png"
+        alt="Accepted Payment Methods"
+        class="w-full h-auto object-contain"
+        loading="lazy"
+      />
+    </div>
+  </section>
 </Layout>
 
 <style>
   /* Tab button styles */
-  .paper-tab-btn, .eco-tab-btn, .plastic-tab-btn {
+  .paper-tab-btn,
+  .eco-tab-btn,
+  .plastic-tab-btn {
     @apply px-4 py-2 bg-white text-gray-700 rounded-md border border-gray-300 transition-colors hover:bg-blue-50 hover:border-blue-200 text-sm font-medium;
     white-space: nowrap;
   }
-  
+
   .paper-tab-btn.active {
     @apply bg-blue-500 text-white border-blue-500 hover:bg-blue-600;
   }
-  
+
   .eco-tab-btn {
     @apply hover:bg-green-50 hover:border-green-200;
   }
-  
+
   .eco-tab-btn.active {
     @apply bg-green-500 text-white border-green-500 hover:bg-green-600;
   }
-  
+
   .plastic-tab-btn {
     @apply hover:bg-purple-50 hover:border-purple-200;
   }
-  
+
   .plastic-tab-btn.active {
     @apply bg-purple-500 text-white border-purple-500 hover:bg-purple-600;
   }
-  
+
   /* Gallery filter button styles */
   .gallery-filter-btn {
     @apply px-4 py-2 bg-white text-gray-700 rounded-md border border-gray-300 transition-colors hover:bg-primary-50 hover:border-primary-200;
   }
-  
+
   .gallery-filter-btn.active {
     @apply bg-primary-500 text-white border-primary-500 hover:bg-primary-600;
   }
-  
+
   /* Product card hover effects */
   .product-card {
     @apply transform hover:-translate-y-1 transition-all duration-300;
   }
-  
+
   /* Home FAQ styling */
   .home-faq-question:hover {
     @apply bg-gray-50;
   }
-  
+
   .home-faq-question.active .faq-icon i {
     @apply transform rotate-45;
   }
-  
+
   .home-faq-answer {
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
   }
-  
+
   .home-faq-question.active + .home-faq-answer {
     @apply max-h-96 py-2;
   }
 
   /* Responsive tabs */
   @media (max-width: 768px) {
-    .paper-tab-btn, .eco-tab-btn, .plastic-tab-btn {
+    .paper-tab-btn,
+    .eco-tab-btn,
+    .plastic-tab-btn {
       @apply px-3 py-2 text-xs;
     }
   }
 </style>
 
-<script define:vars={{ paperProductsData, ecoProductsData, plasticProductsData }}>
-  document.addEventListener('DOMContentLoaded', () => {
+<script
+  define:vars={{ paperProductsData, ecoProductsData, plasticProductsData }}
+>
+  document.addEventListener("DOMContentLoaded", () => {
     // Create product card HTML
-    function createProductCard(product, colorClass = 'primary') {
+    function createProductCard(product, colorClass = "primary") {
       return `
         <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 product-card">
           <div class="aspect-w-16 aspect-h-9 overflow-hidden h-48">
@@ -876,121 +1034,135 @@ const description = "Leading biodegradable paper cup manufacturer in Bangladesh.
         </div>
       `;
     }
-    
+
     // Update products grid
-    function updateProductsGrid(gridId, products, colorClass = 'primary') {
+    function updateProductsGrid(gridId, products, colorClass = "primary") {
       const grid = document.getElementById(gridId);
       if (grid) {
-        grid.innerHTML = products.map(product => createProductCard(product, colorClass)).join('');
+        grid.innerHTML = products
+          .map((product) => createProductCard(product, colorClass))
+          .join("");
       }
     }
-    
+
     // Paper Products Tab System
-    const paperTabBtns = document.querySelectorAll('.paper-tab-btn');
-    const paperGrid = document.getElementById('paper-products-grid');
-    
+    const paperTabBtns = document.querySelectorAll(".paper-tab-btn");
+    const paperGrid = document.getElementById("paper-products-grid");
+
     // Initialize paper products with "all" category
-    updateProductsGrid('paper-products-grid', paperProductsData.all, 'blue');
-    
-    paperTabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+    updateProductsGrid("paper-products-grid", paperProductsData.all, "blue");
+
+    paperTabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
         // Update active button
-        paperTabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
+        paperTabBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
         // Get category and update grid
-        const category = btn.getAttribute('data-category');
+        const category = btn.getAttribute("data-category");
         const products = paperProductsData[category] || [];
-        updateProductsGrid('paper-products-grid', products, 'blue');
+        updateProductsGrid("paper-products-grid", products, "blue");
       });
     });
-    
+
     // Eco Products Tab System
-    const ecoTabBtns = document.querySelectorAll('.eco-tab-btn');
-    
+    const ecoTabBtns = document.querySelectorAll(".eco-tab-btn");
+
     // Initialize eco products with "all" category
-    updateProductsGrid('eco-products-grid', ecoProductsData.all, 'green');
-    
-    ecoTabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+    updateProductsGrid("eco-products-grid", ecoProductsData.all, "green");
+
+    ecoTabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
         // Update active button
-        ecoTabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
+        ecoTabBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
         // Get category and update grid
-        const category = btn.getAttribute('data-category');
+        const category = btn.getAttribute("data-category");
         const products = ecoProductsData[category] || [];
-        updateProductsGrid('eco-products-grid', products, 'green');
+        updateProductsGrid("eco-products-grid", products, "green");
       });
     });
-    
+
     // Plastic Products Tab System
-    const plasticTabBtns = document.querySelectorAll('.plastic-tab-btn');
-    
+    const plasticTabBtns = document.querySelectorAll(".plastic-tab-btn");
+
     // Initialize plastic products with "all" category
-    updateProductsGrid('plastic-products-grid', plasticProductsData.all, 'purple');
-    
-    plasticTabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+    updateProductsGrid(
+      "plastic-products-grid",
+      plasticProductsData.all,
+      "purple",
+    );
+
+    plasticTabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
         // Update active button
-        plasticTabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
+        plasticTabBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
         // Get category and update grid
-        const category = btn.getAttribute('data-category');
+        const category = btn.getAttribute("data-category");
         const products = plasticProductsData[category] || [];
-        updateProductsGrid('plastic-products-grid', products, 'purple');
+        updateProductsGrid("plastic-products-grid", products, "purple");
       });
     });
-    
+
     // Gallery filter functionality
-    const galleryFilterButtons = document.querySelectorAll('.gallery-filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryFilterButtons.forEach(button => {
-      button.addEventListener('click', () => {
+    const galleryFilterButtons = document.querySelectorAll(
+      ".gallery-filter-btn",
+    );
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    galleryFilterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
         // Update active button
-        galleryFilterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
+        galleryFilterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
         // Filter gallery items
-        const filter = button.getAttribute('data-filter');
-        
-        galleryItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'block';
+        const filter = button.getAttribute("data-filter");
+
+        galleryItems.forEach((item) => {
+          if (
+            filter === "all" ||
+            item.getAttribute("data-category") === filter
+          ) {
+            item.style.display = "block";
           } else {
-            item.style.display = 'none';
+            item.style.display = "none";
           }
         });
-        
+
         // Refresh lightbox
         setTimeout(() => {
-          if (window['lightbox_lightbox-home-gallery'] && window['lightbox_lightbox-home-gallery'].refresh) {
-            window['lightbox_lightbox-home-gallery'].refresh();
+          if (
+            window["lightbox_lightbox-home-gallery"] &&
+            window["lightbox_lightbox-home-gallery"].refresh
+          ) {
+            window["lightbox_lightbox-home-gallery"].refresh();
           }
         }, 300);
       });
     });
-    
+
     // Home FAQ accordion
-    const homeFaqQuestions = document.querySelectorAll('.home-faq-question');
-    
-    homeFaqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        question.classList.toggle('active');
+    const homeFaqQuestions = document.querySelectorAll(".home-faq-question");
+
+    homeFaqQuestions.forEach((question) => {
+      question.addEventListener("click", () => {
+        question.classList.toggle("active");
       });
     });
 
     // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(this.getAttribute("href"));
         if (target) {
           target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            behavior: "smooth",
+            block: "start",
           });
         }
       });
