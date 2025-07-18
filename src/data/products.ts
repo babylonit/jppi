@@ -1572,8 +1572,7 @@ export const products: Product[] = [
     shortDescription: "100% natural biodegradable plates made from fallen areca palm leaves.",
     description: "Our areca palm leaf plates are crafted from naturally fallen palm leaves, making them completely eco-friendly and sustainable. Each plate features unique natural patterns and requires no chemicals or additives in the manufacturing process. Perfect for restaurants, events, and environmentally conscious consumers who want beautiful, functional tableware without environmental impact.",
     images: [
-      "https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Areca palm leaf plates.png",
     ],
     specifications: {
       size: "6\", 8\", 10\", 12\" diameter options",
@@ -1610,8 +1609,7 @@ export const products: Product[] = [
     shortDescription: "Elegant serving trays perfect for catering and food presentation.",
     description: "Our areca palm leaf trays provide elegant serving solutions for catering and food presentation. Made from naturally fallen palm leaves, these trays combine functionality with environmental responsibility. Each tray features unique natural grain patterns and provides sturdy, attractive serving platforms for restaurants, events, and eco-conscious dining experiences.",
     images: [
-      "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Areca palm leaf Tray.jpg2",
     ],
     specifications: {
       size: "8\"x6\", 10\"x8\", 12\"x10\", Custom sizes",
@@ -1648,8 +1646,7 @@ export const products: Product[] = [
     shortDescription: "Natural bowls for soups, salads, and various food servings.",
     description: "Our areca leaf bowls are perfect for serving soups, salads, and various food items with natural elegance. Crafted from fallen areca palm leaves, these bowls provide deep serving capacity while maintaining the eco-friendly properties of natural materials. Each bowl features unique patterns and provides a distinctive dining experience.",
     images: [
-      "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Areca Leaf Bowl.webp",
     ],
     specifications: {
       size: "3\", 4\", 5\", 6\" diameter options",
@@ -1680,14 +1677,13 @@ export const products: Product[] = [
   },
   {
     slug: "partitioned-plates",
-    name: "Partitioned Plate",
+    name: "Areca Partitioned Plate",
     category: "eco-products",
     subcategory: "areca-palm",
     shortDescription: "Multi-compartment plates for complete meal presentations.",
     description: "Our partitioned areca palm leaf plates feature multiple compartments for complete meal presentations. Perfect for traditional meals where different foods need to be kept separate, these plates combine the natural beauty of areca palm leaves with practical functionality for restaurants, catering, and cultural dining experiences.",
     images: [
-      "https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Partitioned Plate.jpg",
     ],
     specifications: {
       size: "10\", 12\" diameter with 3-5 compartments",
@@ -1718,14 +1714,13 @@ export const products: Product[] = [
   },
   {
     slug: "square-plates",
-    name: "Square Plate",
+    name: "Areca Square Plate",
     category: "eco-products",
     subcategory: "areca-palm",
     shortDescription: "Modern square-shaped plates for contemporary food presentation.",
     description: "Our square areca palm leaf plates offer a modern twist on traditional eco-friendly tableware. The contemporary square design provides excellent presentation for modern cuisine while maintaining all the environmental benefits of natural areca palm leaves. Perfect for upscale restaurants and modern dining experiences.",
     images: [
-      "https://images.pexels.com/photos/5865126/pexels-photo-5865126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Square Plate.png",
     ],
     specifications: {
       size: "6\"x6\", 8\"x8\", 10\"x10\" square options",
@@ -1766,8 +1761,7 @@ export const products: Product[] = [
     shortDescription: "Handcrafted wooden plates made from sustainable hardwood for elegant dining.",
     description: "Our handcrafted wooden plates are made from sustainably sourced hardwood, providing durable and elegant dining solutions. Each plate features natural wood grain patterns and is carefully finished with food-safe coatings. Perfect for restaurants, hotels, and homes looking for premium, eco-friendly tableware that combines beauty with functionality.",
     images: [
-      "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Wooden Plate.jpg",
     ],
     specifications: {
       size: "6\", 8\", 10\", 12\" diameter options",
@@ -1804,8 +1798,7 @@ export const products: Product[] = [
     shortDescription: "Beautiful serving trays perfect for breakfast, tea service, and food presentation.",
     description: "Our beautiful wooden serving trays are perfect for breakfast service, tea presentation, and elegant food serving. Crafted from high-quality hardwood with smooth finishes, these trays combine functionality with natural beauty. Ideal for hotels, restaurants, cafes, and home use where premium presentation matters.",
     images: [
-      "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4553277/pexels-photo-4553277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Wooden Tray.jpg",
     ],
     specifications: {
       size: "10\"x8\", 12\"x10\", 14\"x12\", Custom sizes",
@@ -1842,8 +1835,7 @@ export const products: Product[] = [
     shortDescription: "Complete wooden cutlery sets including forks, knives, and spoons.",
     description: "Our complete wooden cutlery sets include forks, knives, and spoons crafted from sustainable hardwood. Each piece is carefully shaped and finished for comfortable use while maintaining the natural beauty of wood. Perfect for eco-conscious dining establishments and customers who prefer sustainable alternatives to plastic cutlery.",
     images: [
-      "https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4553327/pexels-photo-4553327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/wooden-cutlery-set.jpg",
     ],
     specifications: {
       size: "Standard cutlery dimensions",
@@ -1880,8 +1872,7 @@ export const products: Product[] = [
     shortDescription: "Individual wooden spoons ideal for cooking, serving, and eating.",
     description: "Our individual wooden spoons are perfect for cooking, serving, and eating applications. Made from food-safe hardwood with smooth finishes, these spoons provide comfortable use while being gentle on cookware and safe for food contact. Ideal for kitchens, restaurants, and eco-conscious consumers.",
     images: [
-      "https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Wooden Spoon.webp",
     ],
     specifications: {
       size: "Various lengths: 6\", 8\", 10\", 12\"",
@@ -1918,8 +1909,7 @@ export const products: Product[] = [
     shortDescription: "Ergonomically designed wooden forks for comfortable dining experiences.",
     description: "Our ergonomically designed wooden forks provide comfortable dining experiences while supporting environmental sustainability. Crafted from food-safe hardwood with carefully shaped tines and smooth handles, these forks offer practical functionality for restaurants, events, and eco-conscious dining.",
     images: [
-      "https://images.pexels.com/photos/4553327/pexels-photo-4553327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4226711/pexels-photo-4226711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Wooden Fork.jpg",
     ],
     specifications: {
       size: "Standard fork dimensions",
@@ -1956,8 +1946,7 @@ export const products: Product[] = [
     shortDescription: "Eco-friendly bamboo brushes for cleaning and kitchen use.",
     description: "Our eco-friendly bamboo brushes are perfect for cleaning and kitchen applications. Made from fast-growing bamboo with natural bristles, these brushes provide effective cleaning while being completely biodegradable. Ideal for eco-conscious households, restaurants, and cleaning services looking for sustainable alternatives.",
     images: [
-      "https://images.pexels.com/photos/4226778/pexels-photo-4226778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Eco Products/Bamboo Toothbrush.jpg",
     ],
     specifications: {
       size: "Various sizes for different applications",
