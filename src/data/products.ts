@@ -1998,8 +1998,9 @@ export const products: Product[] = [
     shortDescription: "Versatile food-grade plastic containers for takeaway and storage applications.",
     description: "Our food-grade plastic containers are manufactured from high-quality PP (Polypropylene) and PET materials, ensuring safety for food contact applications. Available in various sizes and configurations, these containers feature secure sealing mechanisms and are suitable for both hot and cold foods. Perfect for restaurants, catering services, and food delivery businesses.",
     images: [
-      "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/Food-Container-300x300.webp",
+      "/images/Plastic Products/Food-Container-300x300.jpg"
+      
     ],
     specifications: {
       size: "250ml, 500ml, 750ml, 1000ml options",
@@ -2037,8 +2038,7 @@ export const products: Product[] = [
     shortDescription: "Clear and colored plastic cups for beverages, desserts, and cold drinks.",
     description: "Our plastic cups are perfect for beverages, desserts, and cold drinks. Made from food-grade materials, these cups provide excellent clarity for product visibility and come in various sizes for different serving needs. Ideal for cafes, juice bars, dessert shops, and events requiring disposable drinkware.",
     images: [
-      "https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/3985062/pexels-photo-3985062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/plastic-cups.avif",
     ],
     specifications: {
       capacity: "150ml, 250ml, 350ml, 500ml options",
@@ -2070,14 +2070,15 @@ export const products: Product[] = [
   },
   {
     slug: "takeaway-spoons",
-    name: "Takeaway Container Spoon",
+    name: "Plastic Takeaway Spoon",
     category: "plastic-packaging",
     subcategory: "cutlery",
     shortDescription: "Disposable plastic spoons perfect for takeaway meals and food service.",
     description: "Our disposable plastic spoons are designed specifically for takeaway meals and food service applications. Made from food-grade materials, these spoons provide reliable performance for eating on-the-go. Available in various sizes and styles, they're perfect for restaurants, food delivery services, and catering operations.",
     images: [
-      "https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4553327/pexels-photo-4553327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/plastic-spoons-1.avif",
+      "/images/Plastic Products/plastic-spoons-3.jpeg",
+      "/images/Plastic Products/plastic-spoons.jpg"
     ],
     specifications: {
       size: "Standard spoon dimensions",
@@ -2114,8 +2115,8 @@ export const products: Product[] = [
     shortDescription: "Various plastic straws for beverages and drink service applications.",
     description: "Our plastic straws are available in various styles including straight, flexible, and jumbo options for different beverage applications. Made from food-grade materials, these straws provide reliable performance for restaurants, cafes, juice bars, and beverage services.",
     images: [
-      "https://images.pexels.com/photos/6039371/pexels-photo-6039371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/Plastic-straw-1.avif",
+      "/images/Plastic Products/plastic-straws.jpg"
     ],
     specifications: {
       size: "Standard, Jumbo, Flexible options",
@@ -2152,8 +2153,8 @@ export const products: Product[] = [
     shortDescription: "Specialized strainer accessories for beverage preparation and service.",
     description: "Our strailers (strainer accessories) are specialized tools for beverage preparation and service. Designed to fit standard cups and glasses, these strainers help separate ice, fruit pulp, and other ingredients during pouring. Perfect for bars, cafes, and beverage services requiring professional drink preparation.",
     images: [
-      "https://images.pexels.com/photos/4553327/pexels-photo-4553327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6039371/pexels-photo-6039371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/plastic-straws.jpg",
+      "/images/Plastic Products/Plastic-straw-1.avif"
     ],
     specifications: {
       size: "Standard cup-fitting dimensions",
@@ -2190,8 +2191,8 @@ export const products: Product[] = [
     shortDescription: "Specialized containers designed for ice cream and frozen dessert packaging.",
     description: "Our specialized ice cream boxes are designed specifically for ice cream and frozen dessert packaging. Featuring thermal insulation properties and secure sealing, these containers maintain product temperature and prevent leakage. Perfect for ice cream shops, dessert parlors, and frozen treat manufacturers.",
     images: [
-      "https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4869312/pexels-photo-4869312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/plastic-icecream-box-1.jpg",
+      "/images/Plastic Products/plastic-icecream-box.jpg"
     ],
     specifications: {
       capacity: "100ml, 250ml, 500ml, 1000ml options",
@@ -2229,8 +2230,7 @@ export const products: Product[] = [
     shortDescription: "Small plastic supports that prevent pizza box lids from touching the pizza.",
     description: "Our pizza lid supports are small plastic devices that prevent pizza box lids from touching the pizza surface. These simple yet effective tools maintain product quality during delivery and transport by creating space between the box lid and the pizza. Essential for pizzerias, restaurants, and food delivery services.",
     images: [
-      "https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/plastic-pizza-lead-support.jpg",
     ],
     specifications: {
       size: "Standard pizza support dimensions",
@@ -2267,8 +2267,7 @@ export const products: Product[] = [
     shortDescription: "Disposable plastic water bottles for events, catering, and retail.",
     description: "Our disposable plastic water bottles are perfect for events, catering, and retail applications. Made from food-grade PET with secure caps, these bottles provide reliable beverage packaging for water and other drinks. Available in various sizes and with custom labeling options for branding.",
     images: [
-      "https://images.pexels.com/photos/3985062/pexels-photo-3985062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6039245/pexels-photo-6039245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/watter-bottle.jpg",
     ],
     specifications: {
       capacity: "250ml, 500ml, 1000ml, 1500ml options",
@@ -2306,8 +2305,8 @@ export const products: Product[] = [
     shortDescription: "Multi-compartment food trays with secure lids for complete meal packaging.",
     description: "Our 4-unit food trays with secure lids are perfect for complete meal packaging. Featuring four separate compartments and a secure lid, these trays keep different food items separated while maintaining freshness. Ideal for catering services, meal prep businesses, and food delivery operations.",
     images: [
-      "https://images.pexels.com/photos/6210548/pexels-photo-6210548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/4tray-food-container.avif",
+
     ],
     specifications: {
       size: "Standard 4-compartment dimensions",
@@ -2345,8 +2344,8 @@ export const products: Product[] = [
     shortDescription: "Specialized plastic trays designed for dry cakes, biscuits, and bakery items.",
     description: "Our specialized plastic trays are designed specifically for dry cakes, biscuits, and bakery items. Featuring compartments that keep items separated and protected, these trays provide excellent presentation and product protection. Perfect for bakeries, confectioneries, and retail food businesses.",
     images: [
-      "https://images.pexels.com/photos/4869312/pexels-photo-4869312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/dry-cake-pastry-containers-500x500.webp",
+     
     ],
     specifications: {
       size: "Various configurations available",
@@ -2384,8 +2383,8 @@ export const products: Product[] = [
     shortDescription: "Specialized plastic containers designed for Thai-style burgers and similar foods.",
     description: "Our Thai burger boxes are specialized containers designed for Thai-style burgers, sandwiches, and similar foods. Featuring unique dimensions and secure closure, these boxes maintain food freshness while providing excellent presentation. Perfect for specialty restaurants, food trucks, and Asian fusion establishments.",
     images: [
-      "https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/THAI-PLASTIC-Burger-Pack.jpg",
+      
     ],
     specifications: {
       size: "Thai burger standard dimensions",
@@ -2423,8 +2422,7 @@ export const products: Product[] = [
     shortDescription: "Plastic trays specifically designed for safe egg storage and transport.",
     description: "Our plastic egg trays are specifically designed for safe egg storage and transport. Featuring individual compartments that protect each egg from damage, these trays provide excellent product protection for retailers, distributors, and food service operations handling eggs.",
     images: [
-      "https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4869312/pexels-photo-4869312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/plastic-egg-tray.png",
     ],
     specifications: {
       size: "6-egg, 12-egg, 24-egg configurations",
@@ -2462,8 +2460,7 @@ export const products: Product[] = [
     shortDescription: "Compact plastic boxes perfect for sandwich packaging and takeaway meals.",
     description: "Our compact plastic sandwich boxes are perfect for packaging sandwiches, wraps, and similar takeaway meals. Featuring secure closure and transparent design for product visibility, these boxes maintain food freshness while providing excellent presentation. Ideal for cafes, delis, and food service operations.",
     images: [
-      "https://images.pexels.com/photos/4393464/pexels-photo-4393464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Plastic Products/sandwich-plastic-box.jpg",
     ],
     specifications: {
       size: "Standard sandwich dimensions",
