@@ -166,8 +166,8 @@ export const products: Product[] = [
     shortDescription: "Versatile biodegradable paper cup perfect for espresso, tea, and small hot beverages.",
     description: "Our 100ml disposable paper cups are the perfect choice for espresso, tea, and small hot beverage servings. Featuring a 40mm bottom diameter and QC-100 certified construction, these cups offer excellent functionality for cafes, offices, and events. Made with FDA-approved materials and leak-proof technology, they provide reliable performance while supporting environmental sustainability goals.",
     images: [
-      "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/100ml.jpeg",
+      "/images/Disposable Paper Cups/100ml- color cup.jpeg"
     ],
     specifications: {
       capacity: "100ml",
@@ -207,8 +207,9 @@ export const products: Product[] = [
     shortDescription: "Popular biodegradable paper cup ideal for tea, coffee, and regular hot beverages.",
     description: "Our 120ml disposable paper cups are among our most popular sizes, perfect for tea, coffee, and regular hot beverage servings. With a 46mm bottom diameter, these cups provide excellent stability and comfort for daily use. Manufactured with QC-100 certified materials and featuring advanced leak-proof technology, they're trusted by cafes, restaurants, and offices across Bangladesh.",
     images: [
-      "https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/120mll.png",
+      "public/images/Disposable Paper Cups/120ml- Color2.jpeg",
+      "public/images/Disposable Paper Cups/120ml- Color.jpeg"
     ],
     specifications: {
       capacity: "120ml",
@@ -248,8 +249,9 @@ export const products: Product[] = [
     shortDescription: "Medium-sized biodegradable paper cup perfect for coffee, tea, and soft drinks.",
     description: "Our 150ml disposable paper cups offer the perfect medium size for regular coffee, tea, and soft drink servings. Available with both 46mm and 52mm bottom diameter options, these cups provide flexibility for different serving preferences. Made with QC-100 certified materials and featuring leak-proof technology, they're ideal for restaurants, cafes, and office environments.",
     images: [
-      "https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/7474341/pexels-photo-7474341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/150ml- Color.png",
+      "/images/Disposable Paper Cups/150ml-1.png",
+      "/images/Disposable Paper Cups/150ml-2.png"
     ],
     specifications: {
       capacity: "150ml",
@@ -289,8 +291,8 @@ export const products: Product[] = [
     shortDescription: "Medium-large biodegradable paper cup perfect for coffee, tea, and soft drinks.",
     description: "Our 200ml disposable paper cups provide the ideal serving size for regular coffee, tea, and soft drinks. With a 52mm bottom diameter, these cups offer excellent stability and a comfortable drinking experience. Manufactured with QC-100 certified materials and advanced leak-proof technology, they're perfect for cafes, restaurants, and catering services.",
     images: [
-      "https://images.pexels.com/photos/7474341/pexels-photo-7474341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/9180753/pexels-photo-9180753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/180ml-1.jpg",
+      "public/images/Disposable Paper Cups/180ml.png"
     ],
     specifications: {
       capacity: "200ml",
@@ -330,8 +332,9 @@ export const products: Product[] = [
     shortDescription: "Large biodegradable paper cup perfect for premium coffee drinks and cold beverages.",
     description: "Our 250ml disposable paper cups are ideal for large coffee drinks, cold beverages, and premium servings. With a 52mm bottom diameter, these cups provide excellent capacity while maintaining stability and comfort. Made with QC-100 certified materials and featuring advanced leak-proof technology, they're perfect for specialty coffee shops, restaurants, and events.",
     images: [
-      "https://images.pexels.com/photos/9180753/pexels-photo-9180753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/250ml.png",
+      "/images/Disposable Paper Cups/250ml-1.png",
+      "/images/Disposable Paper Cups/250ml-Color.jpeg"
     ],
     specifications: {
       capacity: "250ml",
@@ -371,8 +374,7 @@ export const products: Product[] = [
     shortDescription: "Extra-large biodegradable paper cup perfect for specialty drinks, smoothies, and large beverages.",
     description: "Our 350ml disposable paper cups are designed for specialty drinks, smoothies, and large beverage servings. With a 60mm bottom diameter, these cups provide exceptional stability and capacity for premium offerings. Manufactured with QC-100 certified materials and advanced leak-proof technology, they're ideal for juice bars, smoothie shops, and premium beverage services.",
     images: [
-      "https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/300ml.png",
     ],
     specifications: {
       capacity: "350ml",
@@ -412,8 +414,9 @@ export const products: Product[] = [
     shortDescription: "Maximum size biodegradable paper cup perfect for large drinks, milkshakes, and specialty beverages.",
     description: "Our 400ml disposable paper cups represent our largest standard size, perfect for large drinks, milkshakes, and specialty beverages. With a 65mm bottom diameter, these cups provide maximum capacity while maintaining structural integrity. Made with QC-100 certified materials and featuring advanced leak-proof technology, they're ideal for ice cream parlors, shake shops, and premium beverage establishments.",
     images: [
-      "https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/400ml-1.png",
+      "/images/Disposable Paper Cups/400 ml.png"
+     
     ],
     specifications: {
       capacity: "400ml",
@@ -497,8 +500,8 @@ export const products: Product[] = [
     shortDescription: "Insulated double-wall paper cups with superior heat protection and professional appearance.",
     description: "Our double wall cups feature innovative air-insulated design that provides superior heat protection while maintaining structural integrity. The double-layer construction eliminates the need for additional sleeves while providing excellent grip comfort. Available in multiple sizes and perfect for premium coffee service, these cups combine functionality with professional appearance.",
     images: [
-      "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/Double Wall.png",
+      "/images/Disposable Paper Cups/Double Wall-2.png"
     ],
     specifications: {
       capacity: "150ml, 200ml, 250ml, 350ml",
@@ -538,8 +541,8 @@ export const products: Product[] = [
     shortDescription: "Textured ripple wall paper cups providing extra insulation and enhanced grip.",
     description: "Our ripple wall cups feature a distinctive textured exterior that not only provides excellent grip but also adds extra insulation for hot beverages. The unique ripple design creates air pockets that enhance thermal protection while giving a premium aesthetic to your beverage presentation. Perfect for specialty coffee shops and premium beverage services.",
     images: [
-      "https://images.pexels.com/photos/7683083/pexels-photo-7683083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/Ripple Wall Paper Cups.jpg",
+      
     ],
     specifications: {
       capacity: "120ml, 150ml, 200ml, 250ml",
@@ -579,8 +582,8 @@ export const products: Product[] = [
     shortDescription: "Protective paper sleeves providing additional insulation and branding space for hot beverages.",
     description: "Our coffee sleeves are designed to provide additional thermal protection and comfort for hot beverage cups while offering excellent branding opportunities. Made from corrugated paper for superior insulation, these sleeves fit standard cup sizes and can be fully customized with your brand design. Perfect for cafes, coffee shops, and branded beverage services.",
     images: [
-      "https://images.pexels.com/photos/6103973/pexels-photo-6103973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/7474341/pexels-photo-7474341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/Sleeve.png",
+      "/images/Disposable Paper Cups/Sleeve-1.png"
     ],
     specifications: {
       capacity: "Fits 120ml-350ml cups",
@@ -612,47 +615,6 @@ export const products: Product[] = [
       note: "Cost-effective branding solution"
     }
   },
-  {
-    slug: "ice-cream-cups",
-    name: "Ice-cream Cups",
-    category: "paper-cups",
-    subcategory: "specialty-cups",
-    shortDescription: "Specially designed paper cups with food-safe coating perfect for ice cream and frozen desserts.",
-    description: "Our ice-cream cups are specially designed for frozen desserts with enhanced food-safe coating that prevents moisture absorption and maintains structural integrity even with frozen products. Available in various sizes perfect for single servings to family portions, these cups feature attractive designs and excellent branding opportunities for ice cream parlors and dessert shops.",
-    images: [
-      "https://images.pexels.com/photos/7474341/pexels-photo-7474341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/9180753/pexels-photo-9180753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    ],
-    specifications: {
-      capacity: "100ml, 150ml, 200ml, 250ml, 350ml",
-      size: "Various diameters for different servings",
-      material: "Food-grade paper board with enhanced coating",
-      printingOptions: ["Full-color CMYK printing", "Fun designs", "Custom branding"],
-      moq: "3,000 pieces",
-      leadTime: "12-18 business days",
-      weight: "3.0-5.5 grams depending on size",
-      temperature: "Freezer safe, moisture resistant",
-      coating: "Enhanced PE/PLA coating for frozen products"
-    },
-    features: [
-      "Specially designed for frozen desserts",
-      "Enhanced moisture resistance",
-      "Freezer-safe construction",
-      "Attractive design options",
-      "Multiple serving sizes",
-      "Excellent branding opportunities",
-      "Food-safe materials",
-      "Sturdy construction"
-    ],
-    relatedProducts: ["200ml-paper-cup", "250ml-paper-cup", "350ml-paper-cup", "custom-size-paper-cups"],
-    seoTitle: "Ice Cream Cups Manufacturer in Dhaka, Bangladesh | Joana Paper",
-    seoDescription: "Specialized paper cups for ice cream and frozen desserts. Moisture-resistant, freezer-safe, multiple sizes. Custom printing available in Dhaka, Bangladesh.",
-    price: {
-      currency: "BDT",
-      range: "1.20 - 2.50 per piece",
-      note: "Specialized coating for frozen products"
-    }
-  },
 
   // ========================================
   // FOOD PACKAGING CATEGORY
@@ -665,8 +627,11 @@ export const products: Product[] = [
     shortDescription: "Premium corrugated pizza boxes with custom printing, perfect for restaurants and delivery services.",
     description: "Our premium pizza boxes are manufactured using high-quality corrugated cardboard that maintains food temperature while preventing grease absorption. Available in multiple sizes from 8-inch to 18-inch, these boxes feature secure interlocking design and optional custom printing to showcase your brand. Perfect for restaurants, pizzerias, and food delivery services across Bangladesh.",
     images: [
-      "https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/Pizza box-1.png",
+      "/images/Paper Packaging Solutions/Pizza box-2.jpeg",
+      "/images/Paper Packaging Solutions/Pizza box-3.jpeg",
+      "public/images/Paper Packaging Solutions/Pizza box-4.jpeg"
+
     ],
     specifications: {
       size: "8\", 10\", 12\", 14\", 16\", 18\" available",
@@ -704,8 +669,11 @@ export const products: Product[] = [
     shortDescription: "Grease-resistant burger boxes designed for takeaway and delivery services.",
     description: "Our burger boxes are specifically designed for hamburgers, sandwiches, and similar foods with grease-resistant coating and secure closure system. Available in various sizes to accommodate different burger types, these boxes maintain food freshness while providing excellent presentation for your brand. Perfect for fast-food restaurants, burger joints, and delivery services.",
     images: [
-      "https://images.pexels.com/photos/5946144/pexels-photo-5946144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/Burger box.png",
+      "/images/Paper Packaging Solutions/Burger box-1.png",
+      "/images/Paper Packaging Solutions/Burger box-3.png",
+      "/images/Paper Packaging Solutions/Burger box-2.png"
+     
     ],
     specifications: {
       size: "Small, Medium, Large, Extra Large",
@@ -743,8 +711,8 @@ export const products: Product[] = [
     shortDescription: "Multi-compartment paper containers perfect for various food items and meal packaging.",
     description: "Our food containers feature multi-compartment design perfect for complete meal packaging. Made with food-grade materials and grease-resistant coating, these containers are ideal for rice dishes, curries, and combination meals. Available in various configurations to suit different food service needs while maintaining food quality and presentation.",
     images: [
-      "https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/Food package-1.png",
+  
     ],
     specifications: {
       size: "Single, 2-compartment, 3-compartment, 4-compartment",
@@ -782,8 +750,7 @@ export const products: Product[] = [
     shortDescription: "Eco-friendly lunch boxes ideal for restaurants and catering services.",
     description: "Our eco-friendly lunch boxes are perfect for restaurants, catering services, and corporate meal programs. Made with biodegradable materials and featuring grease-resistant coating, these boxes maintain food quality while supporting environmental sustainability. Available in various sizes to accommodate different meal portions and food types.",
     images: [
-      "https://images.pexels.com/photos/5945559/pexels-photo-5945559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5942599/pexels-photo-5942599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/packaging/lunch-box.png",
     ],
     specifications: {
       size: "Small (500ml), Medium (750ml), Large (1000ml)",
@@ -821,8 +788,7 @@ export const products: Product[] = [
     shortDescription: "Compact and secure packaging for sandwiches and wraps.",
     description: "Our sandwich boxes are designed specifically for sandwiches, wraps, and similar handheld foods. Featuring compact design and secure closure, these boxes prevent spillage while maintaining food freshness. Perfect for delis, cafes, and sandwich shops looking for professional packaging that keeps food intact during transport.",
     images: [
-      "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4393464/pexels-photo-4393464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/sandwich-container-250x250.jpg"
     ],
     specifications: {
       size: "Regular, Large, Extra Large",
@@ -860,8 +826,7 @@ export const products: Product[] = [
     shortDescription: "Premium cake boxes with secure closures for bakery products.",
     description: "Our premium cake boxes are designed specifically for cakes, pastries, and delicate bakery items. Featuring secure closure systems and food-safe materials, these boxes protect bakery products while providing excellent presentation. Available in various sizes and heights to accommodate different cake types, from cupcakes to multi-tier cakes.",
     images: [
-      "https://images.pexels.com/photos/6210959/pexels-photo-6210959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4869312/pexels-photo-4869312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/cake-box.webp",
     ],
     specifications: {
       size: "6\", 8\", 10\", 12\", 14\" square and round options",
@@ -903,8 +868,8 @@ export const products: Product[] = [
     shortDescription: "Eco-friendly paper shopping bags with sturdy handles for retail stores.",
     description: "Our eco-friendly paper shopping bags are perfect for retail stores, boutiques, and branded shopping experiences. Made with high-quality kraft paper and featuring sturdy handles, these bags provide durability while maintaining an eco-conscious image. Available in various sizes and with custom printing options to showcase your brand effectively.",
     images: [
-      "https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/7319199/pexels-photo-7319199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/Brown Twist Handle Printed Paper Bags-1.png",
+    
     ],
     specifications: {
       size: "Small, Medium, Large, Extra Large",
@@ -942,8 +907,7 @@ export const products: Product[] = [
     shortDescription: "Secure and durable bags for e-commerce and shipping applications.",
     description: "Our courier bags are specifically designed for e-commerce and shipping applications, providing secure packaging for products during transit. Made with durable materials and featuring tamper-evident closures, these bags protect contents while providing professional presentation for your delivery service.",
     images: [
-      "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5625030/pexels-photo-5625030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/Courier Bags.jpeg",
     ],
     specifications: {
       size: "Various sizes from 6\"x9\" to 12\"x16\"",
@@ -981,8 +945,8 @@ export const products: Product[] = [
     shortDescription: "High-quality adhesive labels for product identification and branding.",
     description: "Our product labels provide high-quality adhesive solutions for product identification, branding, and regulatory compliance. Available in various materials and adhesive strengths, these labels are perfect for product packaging, inventory management, and brand promotion across multiple industries.",
     images: [
-      "https://images.pexels.com/photos/5945694/pexels-photo-5945694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/7125005/pexels-photo-7125005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/product-lebel-500x500.webp",
+
     ],
     specifications: {
       size: "Various standard and custom sizes",
@@ -1020,8 +984,7 @@ export const products: Product[] = [
     shortDescription: "Bespoke packaging solutions tailored to your specific product needs.",
     description: "Our custom packaging solutions are designed specifically for your unique product requirements. From concept to production, we work with you to create packaging that perfectly fits your products while showcasing your brand. Ideal for special products, limited editions, or unique branding requirements.",
     images: [
-      "https://images.pexels.com/photos/7319199/pexels-photo-7319199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5872298/pexels-photo-5872298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/Custom-packaging.jpeg",
     ],
     specifications: {
       size: "Completely customizable dimensions",
@@ -1063,8 +1026,9 @@ export const products: Product[] = [
     shortDescription: "Tamper-proof and child-resistant packaging for pharmaceutical products.",
     description: "Our medicine packaging solutions are designed specifically for pharmaceutical products with tamper-proof and child-resistant features. Meeting all regulatory requirements and safety standards, these packages ensure product integrity while providing clear labeling space for essential medical information. Perfect for pharmaceutical companies, hospitals, and medical distributors.",
     images: [
-      "https://images.pexels.com/photos/3683098/pexels-photo-3683098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/medicine packaging.webp",
+      "/images/Paper Packaging Solutions/medicine-packaging-1.jpg",
+      "/images/Paper Packaging Solutions/medicine-packaging-2.jpg"
     ],
     specifications: {
       size: "Various sizes for different medications",
@@ -1102,8 +1066,7 @@ export const products: Product[] = [
     shortDescription: "Secure and organized filing solutions for patient records and documents.",
     description: "Our patient files are designed for secure storage and organization of medical records and patient documents. Made with durable materials and featuring clear labeling systems, these files help healthcare providers maintain organized, accessible, and confidential patient information in compliance with medical record-keeping requirements.",
     images: [
-      "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/Patient File.jpg",
     ],
     specifications: {
       size: "A4, Legal, Letter sizes available",
@@ -1141,8 +1104,7 @@ export const products: Product[] = [
     shortDescription: "Protective envelopes designed specifically for X-ray and medical imaging storage.",
     description: "Our X-ray envelopes are specifically designed for storing and protecting X-ray films and medical imaging documents. Made with protective materials that prevent damage and deterioration, these envelopes feature clear labeling areas for patient information and imaging details, ensuring proper organization and easy retrieval.",
     images: [
-      "https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/X-ray-Envelopes.jpg",
     ],
     specifications: {
       size: "Standard X-ray sizes: 8\"x10\", 10\"x12\", 14\"x17\"",
@@ -1184,8 +1146,7 @@ export const products: Product[] = [
     shortDescription: "Professional business cards with premium finishes and custom designs.",
     description: "Make a lasting first impression with our premium business cards. Printed on high-quality paper stock ranging from 250-350 GSM, our business cards feature sharp CMYK printing and various finishing options including matte, glossy, and UV coating. Perfect for professionals, entrepreneurs, and businesses looking to establish a strong brand presence.",
     images: [
-      "https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/business-card.jpg",
     ],
     specifications: {
       size: "89mm x 54mm (standard), Custom sizes available",
@@ -1222,8 +1183,7 @@ export const products: Product[] = [
     shortDescription: "Corporate letterheads that enhance your business communication.",
     description: "Our professional letterheads add authority and credibility to your business correspondence. Printed on high-quality paper with precise color matching and professional layouts, these letterheads are perfect for official documents, proposals, and corporate communications. Available in various paper weights and with custom design options.",
     images: [
-      "https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/Letterhead.jpg",
     ],
     specifications: {
       size: "A4 (210mm x 297mm), Letter size available",
@@ -1260,8 +1220,7 @@ export const products: Product[] = [
     shortDescription: "Custom invoice books and forms for your business transactions.",
     description: "Our custom invoice forms and books are designed for professional business transactions. Available in multiple copy formats (duplicate, triplicate) with carbon or carbonless options, these invoices help you maintain accurate records while presenting a professional image to your clients.",
     images: [
-      "https://images.pexels.com/photos/4386470/pexels-photo-4386470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/invoice.jpg",
     ],
     specifications: {
       size: "A4, A5, Custom sizes available",
@@ -1298,8 +1257,7 @@ export const products: Product[] = [
     shortDescription: "Professional envelopes in various sizes with custom branding options.",
     description: "Our professional envelopes are available in various standard sizes with custom branding options. Made with high-quality paper and featuring secure sealing mechanisms, these envelopes are perfect for business correspondence, marketing materials, and official documents.",
     images: [
-      "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/Envelopes.avif",
     ],
     specifications: {
       size: "DL, C4, C5, A4, Custom sizes",
@@ -1340,8 +1298,7 @@ export const products: Product[] = [
     shortDescription: "Professional tri-fold and bi-fold brochures for effective marketing communication.",
     description: "Our professional brochures are perfect for marketing your products and services with high-impact visual design. Available in various folding options including tri-fold, bi-fold, and z-fold formats, these brochures feature high-quality printing and professional finishes that make your marketing message stand out.",
     images: [
-      "https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5699516/pexels-photo-5699516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Paper Packaging Solutions/Brochure-Design.webp",
     ],
     specifications: {
       size: "A4, A5, DL, Custom sizes",
@@ -1378,8 +1335,7 @@ export const products: Product[] = [
     shortDescription: "Eye-catching single-page promotional materials for events and campaigns.",
     description: "Our eye-catching flyers are perfect for promoting events, sales, and marketing campaigns. Printed on high-quality paper with vibrant colors and sharp graphics, these single-page promotional materials effectively communicate your message and drive customer action. Ideal for retail promotions, event marketing, and brand awareness campaigns.",
     images: [
-      "https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/poster_flyers.png",
     ],
     specifications: {
       size: "A4, A5, A6, Custom sizes",
@@ -1416,8 +1372,7 @@ export const products: Product[] = [
     shortDescription: "Professional product catalogs with perfect binding and high-quality imagery.",
     description: "Our professional product catalogs showcase your products with high-quality imagery and professional binding. Perfect for retail businesses, manufacturers, and service providers, these catalogs feature excellent print quality and durable binding options that create lasting impressions with your customers.",
     images: [
-      "https://images.pexels.com/photos/5699516/pexels-photo-5699516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/Catalog.jpg",
     ],
     specifications: {
       size: "A4, A5, Custom sizes",
@@ -1454,8 +1409,8 @@ export const products: Product[] = [
     shortDescription: "Large format banners for events, trade shows, and outdoor advertising.",
     description: "Our large format banners are perfect for events, trade shows, and outdoor advertising. Made with durable materials and featuring weather-resistant printing, these banners provide excellent visibility and professional presentation for your brand. Available in various sizes and mounting options.",
     images: [
-      "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/4466176/pexels-photo-4466176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/Banners.avif",
+      "/images/offset-printing/banners-2.jpg"
     ],
     specifications: {
       size: "Custom sizes up to 3m width",
@@ -1492,8 +1447,7 @@ export const products: Product[] = [
     shortDescription: "Custom stickers with various materials and adhesive options for branding.",
     description: "Our custom stickers are perfect for branding, promotions, and product labeling. Available in various materials including paper, vinyl, and polyester with different adhesive strengths, these stickers provide versatile solutions for marketing campaigns, product identification, and brand promotion.",
     images: [
-      "https://images.pexels.com/photos/7125005/pexels-photo-7125005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/5945694/pexels-photo-5945694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/custom_stickers.png",
     ],
     specifications: {
       size: "Various standard and custom sizes",
@@ -1530,8 +1484,7 @@ export const products: Product[] = [
     shortDescription: "Premium hang tags for retail products with custom shapes and finishes.",
     description: "Our premium hang tags add professional finishing touches to retail products. Available in various shapes, sizes, and finishes, these tags provide excellent branding opportunities while conveying important product information. Perfect for clothing, accessories, gifts, and specialty retail items.",
     images: [
-      "https://images.pexels.com/photos/5872298/pexels-photo-5872298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/7125005/pexels-photo-7125005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/offset-printing/hang-tag.jpg",
     ],
     specifications: {
       size: "Various standard and custom sizes",
