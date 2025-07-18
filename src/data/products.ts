@@ -42,8 +42,9 @@ export const products: Product[] = [
     shortDescription: "Ultra-small biodegradable paper cup perfect for espresso shots and taste testing.",
     description: "Our 50ml disposable paper cups are specifically designed for espresso shots, sample servings, and taste testing applications. Made with FDA-approved materials and featuring our QC-100 certified leak-proof technology, these ultra-small cups provide the perfect solution for cafes, restaurants, and tasting events. The compact 35mm bottom size ensures optimal espresso crema retention while the eco-friendly construction supports your sustainability goals.",
     images: [
-      "https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/50ml.png",
+      "/images/Disposable Paper Cups/50ml-1.png",
+      "/images/Disposable Paper Cups/50ml-2.png"
     ],
     specifications: {
       capacity: "50ml",
@@ -83,8 +84,9 @@ export const products: Product[] = [
     shortDescription: "Compact biodegradable paper cup ideal for espresso and small beverage servings.",
     description: "Our 60ml disposable paper cups offer the perfect balance between size and functionality for small beverage servings. Featuring a 38mm bottom diameter, these cups are ideal for single espresso shots, small tea servings, and sample portions. Manufactured with QC-100 certified leak-proof technology and FDA-approved materials, they provide reliable performance while maintaining our commitment to environmental sustainability.",
     images: [
-      "https://images.pexels.com/photos/2983099/pexels-photo-2983099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/3215283/pexels-photo-3215283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/6o ml.png",
+      "/images/Disposable Paper Cups/60ml-2.png",
+      "/images/Disposable Paper Cups/60ml.png"
     ],
     specifications: {
       capacity: "60ml",
@@ -124,8 +126,7 @@ export const products: Product[] = [
     shortDescription: "Small biodegradable paper cup perfect for single-shot espresso and sample servings.",
     description: "Our 80ml disposable paper cups are designed for single-shot espresso, tea samples, and small beverage portions. With a 40mm bottom diameter, these cups provide excellent stability while maintaining the perfect size for premium coffee service. Made with QC-100 certified materials and featuring leak-proof technology, they deliver reliable performance for cafes, restaurants, and events.",
     images: [
-      "https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      ""
     ],
     specifications: {
       capacity: "80ml",
@@ -452,8 +453,7 @@ export const products: Product[] = [
     shortDescription: "Bespoke biodegradable paper cups designed specifically for your unique beverage requirements.",
     description: "Our custom-size paper cups are designed specifically for unique beverage requirements that standard sizes cannot accommodate. Whether you need ultra-small tasting cups, oversized specialty drink containers, or specific dimensions for branded beverage programs, we can manufacture cups to your exact specifications. All custom cups maintain our QC-100 certification and leak-proof technology standards.",
     images: [
-      "https://images.pexels.com/photos/1332267/pexels-photo-1332267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "/images/Disposable Paper Cups/custom-size-paper-cup.png"
     ],
     specifications: {
       capacity: "Any size from 30ml to 500ml",
