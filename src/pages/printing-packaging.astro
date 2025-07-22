@@ -1,0 +1,363 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// Printing and packaging services
+const printingServices = [
+  {
+    title: 'Offset Printing',
+    description: 'High-quality offset printing for brochures, flyers, business cards, and marketing materials.',
+    image: '/images/offset-printing/poster_flyers.png',
+    link: '/marketing-materials'
+  },
+  {
+    title: 'Custom Packaging Design',
+    description: 'Bespoke packaging solutions tailored to your product requirements and brand identity.',
+    image: '/images/Paper Packaging Solutions/Custom-packaging.jpeg',
+    link: '/retail-packaging'
+  },
+  {
+    title: 'Business Stationery',
+    description: 'Professional printing for letterheads, business cards, invoices, and corporate materials.',
+    image: '/images/offset-printing/business_stationary.jpg',
+    link: '/office-stationery'
+  },
+  {
+    title: 'Product Labels & Stickers',
+    description: 'Custom labels and stickers for product branding and identification.',
+    image: '/images/offset-printing/custom_stickers.png',
+    link: '/marketing-materials'
+  },
+  {
+    title: 'Food Packaging Solutions',
+    description: 'Specialized packaging for restaurants, cafes, and food delivery services.',
+    image: '/images/Paper Packaging Solutions/Food package-1.png',
+    link: '/food-packaging'
+  },
+  {
+    title: 'Medical Packaging',
+    description: 'Compliant packaging solutions for pharmaceutical and healthcare industries.',
+    image: '/images/Paper Packaging Solutions/medicine packaging.webp',
+    link: '/medical-packaging'
+  }
+];
+
+// Service features
+const serviceFeatures = [
+  {
+    title: 'Custom Design Support',
+    description: 'Our in-house design team helps create compelling designs that align with your brand identity.',
+    icon: 'fas fa-pencil-ruler'
+  },
+  {
+    title: 'High-Quality Materials',
+    description: 'We use premium papers, inks, and materials to ensure professional results every time.',
+    icon: 'fas fa-certificate'
+  },
+  {
+    title: 'Fast Turnaround',
+    description: 'Efficient production processes ensure quick delivery without compromising on quality.',
+    icon: 'fas fa-clock'
+  },
+  {
+    title: 'Competitive Pricing',
+    description: 'Bulk order discounts and transparent pricing make our services cost-effective.',
+    icon: 'fas fa-dollar-sign'
+  },
+  {
+    title: 'Quality Assurance',
+    description: 'Rigorous quality control at every stage ensures consistent, professional results.',
+    icon: 'fas fa-shield-alt'
+  },
+  {
+    title: 'Nationwide Delivery',
+    description: 'Reliable delivery network ensures your orders reach you on time across Bangladesh.',
+    icon: 'fas fa-truck'
+  }
+];
+
+// Industries we serve
+const industries = [
+  {
+    title: 'Food & Beverage',
+    description: 'Restaurants, cafes, food delivery services, and beverage companies.',
+    icon: 'fas fa-utensils',
+    examples: ['Menu cards', 'Food packaging', 'Branded cups', 'Takeaway containers']
+  },
+  {
+    title: 'Healthcare & Pharma',
+    description: 'Hospitals, clinics, pharmaceutical companies, and medical device manufacturers.',
+    icon: 'fas fa-heartbeat',
+    examples: ['Medicine packaging', 'Patient files', 'Medical labels', 'Compliance materials']
+  },
+  {
+    title: 'Retail & E-commerce',
+    description: 'Retail stores, online businesses, and product manufacturers.',
+    icon: 'fas fa-shopping-bag',
+    examples: ['Product packaging', 'Shopping bags', 'Labels & tags', 'Promotional materials']
+  },
+  {
+    title: 'Corporate & Professional',
+    description: 'Offices, professional services, and corporate organizations.',
+    icon: 'fas fa-building',
+    examples: ['Business cards', 'Letterheads', 'Brochures', 'Corporate gifts']
+  }
+];
+
+// SEO Metadata
+const title = "Printing & Packaging Solutions";
+const description = "Comprehensive printing and packaging services including offset printing, custom packaging design, business stationery, and specialized solutions for various industries.";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <Hero
+    title="Printing & Packaging Solutions"
+    subtitle="Your complete partner for professional printing services and custom packaging solutions that elevate your brand."
+    backgroundImage="https://images.pexels.com/photos/5691795/pexels-photo-5691795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    stats={[
+      {
+        icon: "fas fa-print",
+        value: "500+",
+        label: "Projects Completed"
+      },
+      {
+        icon: "fas fa-palette",
+        value: "50+",
+        label: "Custom Designs"
+      },
+      {
+        icon: "fas fa-clock",
+        value: "48hrs",
+        label: "Average Turnaround"
+      }
+    ]}
+  />
+  
+  <!-- Introduction Section -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Complete Printing & Packaging Solutions</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          At Joana Paper Product Industry, we combine traditional printing expertise with modern packaging 
+          innovation to deliver comprehensive solutions for businesses across Bangladesh. From concept to 
+          completion, we handle every aspect of your printing and packaging needs.
+        </p>
+        <p class="text-lg text-gray-600 mb-8">
+          Whether you need eye-catching marketing materials, professional business stationery, or custom 
+          packaging that protects and promotes your products, our experienced team delivers quality results 
+          that exceed expectations.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div class="bg-primary-50 p-4 rounded-lg border border-primary-200">
+            <i class="fas fa-print text-primary-600 text-2xl mb-2"></i>
+            <h3 class="font-semibold text-primary-800">Professional Printing</h3>
+            <p class="text-sm text-primary-700">High-quality offset and digital printing services</p>
+          </div>
+          <div class="bg-primary-50 p-4 rounded-lg border border-primary-200">
+            <i class="fas fa-box text-primary-600 text-2xl mb-2"></i>
+            <h3 class="font-semibold text-primary-800">Custom Packaging</h3>
+            <p class="text-sm text-primary-700">Tailored packaging solutions for any product</p>
+          </div>
+          <div class="bg-primary-50 p-4 rounded-lg border border-primary-200">
+            <i class="fas fa-pencil-ruler text-primary-600 text-2xl mb-2"></i>
+            <h3 class="font-semibold text-primary-800">Design Support</h3>
+            <p class="text-sm text-primary-700">Expert design assistance from concept to completion</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Our Printing & Packaging Services</h2>
+      <p class="section-subtitle">Comprehensive solutions covering all your printing and packaging requirements.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {printingServices.map(service => (
+          <ProductCard 
+            title={service.title} 
+            description={service.description} 
+            image={service.image} 
+            link={service.link} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Our Services?</h2>
+      <p class="section-subtitle">Quality, reliability, and expertise that sets us apart in the printing and packaging industry.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {serviceFeatures.map(feature => (
+          <FeatureCard 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Industries Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <h2 class="section-title">Industries We Serve</h2>
+      <p class="section-subtitle">Specialized printing and packaging solutions for diverse business sectors.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {industries.map(industry => (
+          <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-primary-500">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class={`${industry.icon} text-primary-600 text-xl`}></i>
+              </div>
+              <h3 class="text-2xl font-semibold text-gray-900">{industry.title}</h3>
+            </div>
+            <p class="text-gray-600 mb-4">{industry.description}</p>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Our Solutions:</h4>
+              <ul class="grid grid-cols-2 gap-2">
+                {industry.examples.map(example => (
+                  <li class="flex items-start text-sm text-gray-600">
+                    <i class="fas fa-check h-4 w-4 text-primary-500 mr-2 mt-0.5 flex-shrink-0"></i>
+                    <span>{example}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Process Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Process</h2>
+      <p class="section-subtitle">From initial consultation to final delivery, we ensure a smooth and professional experience.</p>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Consultation</h3>
+          <p class="text-gray-600 text-sm">We discuss your requirements, objectives, and budget to understand your needs.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Design & Planning</h3>
+          <p class="text-gray-600 text-sm">Our design team creates concepts and provides detailed project planning.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Production</h3>
+          <p class="text-gray-600 text-sm">High-quality production using modern equipment and quality materials.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">4</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Delivery</h3>
+          <p class="text-gray-600 text-sm">Careful packaging and timely delivery to your specified location.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Capabilities Section -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Advanced Printing Capabilities</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Our state-of-the-art printing facility is equipped with modern offset and digital printing 
+            equipment, enabling us to handle projects of any size and complexity with consistent quality.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-palette text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Full-Color CMYK Printing</h3>
+                <p class="text-gray-600">Vibrant, accurate color reproduction for all your marketing materials.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-expand-arrows-alt text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Multiple Format Support</h3>
+                <p class="text-gray-600">From business cards to large format banners, we handle all sizes.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-layer-group text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Premium Finishing Options</h3>
+                <p class="text-gray-600">Lamination, UV coating, embossing, and other finishing techniques.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-boxes text-primary-600 text-sm"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Bulk Order Capabilities</h3>
+                <p class="text-gray-600">Efficient production systems for large volume orders with consistent quality.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <img 
+            src="https://images.pexels.com/photos/5691804/pexels-photo-5691804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Professional printing equipment and process" 
+            class="rounded-lg shadow-xl w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Start Your Printing & Packaging Project?"
+    description="Contact our team today to discuss your requirements and receive a detailed quote for your printing and packaging needs."
+    buttonText="Get Project Quote"
+    buttonLink="/contact"
+    secondaryButtonText="View Our Portfolio"
+    secondaryButtonLink="/gallery"
+  />
+</Layout>
